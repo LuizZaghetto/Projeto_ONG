@@ -1,0 +1,36 @@
+.cabecalho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: var(--cor-cabecalho);
+    padding: 1.4rem;
+}
+
+.cabecalho__inicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cabecalho__imagem {
+    width: 3rem;
+}
+
+.cabecalho__titulo {
+    font-family: var(--fonte-titulo);
+    font-weight: 100;
+}
+
+.cabecalho__login {
+    position: absolute;
+    left: 90%;
+}
+
+.cabecalho__login__link {
+    margin-right: 1.2rem;
+    font-family: var(--fonte-secundaria);
+    font-size: 1rem;
+    text-decoration: none;
+    color: black;
+} 

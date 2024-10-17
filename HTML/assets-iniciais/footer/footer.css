@@ -1,0 +1,24 @@
+.rodape {
+    background-color: var(--cor-de-fora);
+    padding-top: 2.5rem;
+}
+
+.rodape__container {
+    margin: 0 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rodape__identifica-texto {
+    font-family: var(--fonte-titulo);
+    font-weight: 200;
+}
+
+.rodape__contato {
+    font-family: var(--fonte-secundaria);
+}
+
+.rodape__contato-titulo {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
