@@ -1,13 +1,14 @@
 // Função para carregar o conteúdo do cabeçalho
-fetch('../assets-iniciais/header/header.html')
+fetch('/header')
     .then(response => response.text())
     .then(data => {
         document.getElementById('header').innerHTML = data;
     });
 
 // Função para carregar o conteúdo do rodapé
-fetch('../assets-iniciais/footer/footer.html')
+fetch('/footer')
     .then(response => response.text())
     .then(data => {
         document.getElementById('footer').innerHTML = data;
     });
+console.log(ls -1);

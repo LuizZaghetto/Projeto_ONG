@@ -1,0 +1,26 @@
+[
+    {
+        "user_id": 1,
+        "username": "Amigos dos pets",
+        "email": "amigosdospets@gmail.com",
+        "phone" : "(11) - 99999-9999",
+        "adress" : "Rua dos Animais, 123",
+        "avatar": "{path}/{hash}.png"
+    },
+    {
+        "user_id": 2,
+        "username": "Cuidadores de Gatos",
+        "email": "cuidadoresdegatos@gmail.com",
+        "phone" : "(21) - 98888-8888",
+        "adress" : "Avenida dos Felinos, 456",
+        "avatar": "{path}/{hash}.png"
+    },
+    {
+        "user_id": 3,
+        "username": "Amigos dos Cachorros",
+        "email": "amigosdoscachorros@gmail.com",
+        "phone" : "(31) - 97777-7777",
+        "adress" : "Praça dos Cães, 789",
+        "avatar": "{path}/{hash}.png"
+    }
+]

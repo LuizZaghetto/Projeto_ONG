@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Miaumigos - Bicho</title>
-    <link rel="stylesheet" href="./assets/main.css">
-    <script src="../assets-iniciais/js/carregar_partes.js"></script>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/perfil_bicho/main.css')}}">
+    <script src="{{url_for('static', filename='js/carregar_partes.js')}}"></script>
 </head>
 <body>
 
@@ -14,7 +15,7 @@
     <main class="principal">
         <section class="principal__conteudo">
             <div class="principal__topo">
-                <img src="../assets-iniciais/img/dog_example02.jpeg" alt="Imagem do animal" class="principal__topo-imagem">
+                <img src="{{url_for('static', filename='img/dog_example04.jpeg')}}" alt="Imagem do animal" class="principal__topo-imagem">
                 <div class="principal__topo-dados">
                     <h1 class="principal__topo-dados-titulo">Nome do animal</h1>
                     <ul class="principal__topo-lista">
@@ -51,8 +52,8 @@
                 <h1 class="informacoes_galeria-titulo">Fotos</h1>
                 <div class="informacoes_galeria">
                      
-                        <img src="../assets-iniciais/img/dog_example04.jpeg" alt="Imagem do animal" class="informacoes_galeria-imagem">
-                        <img src="../assets-iniciais/img/dog_example05.jpeg" alt="Imagem do animal" class="informacoes_galeria-imagem">
+                        <img src="{{url_for('static', filename='img/dog_example04.jpeg')}}" alt="Imagem do animal" class="informacoes_galeria-imagem">
+                        <img src="{{url_for('static', filename='img/dog_example05.jpeg')}}" alt="Imagem do animal" class="informacoes_galeria-imagem">
                 </div>
             </section>
         </nav>
