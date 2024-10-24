@@ -5,7 +5,7 @@
         "email": "amigosdospets@gmail.com",
         "phone" : "(11) - 99999-9999",
         "adress" : "Rua dos Animais, 123",
-        "avatar": "{path}/{hash}.png"
+        "avatar": "/static/img/ong1.jpg"
     },
     {
         "user_id": 2,
@@ -13,7 +13,7 @@
         "email": "cuidadoresdegatos@gmail.com",
         "phone" : "(21) - 98888-8888",
         "adress" : "Avenida dos Felinos, 456",
-        "avatar": "{path}/{hash}.png"
+        "avatar": "/static/img/dog_example01.jpeg"
     },
     {
         "user_id": 3,
@@ -21,6 +21,6 @@
         "email": "amigosdoscachorros@gmail.com",
         "phone" : "(31) - 97777-7777",
         "adress" : "Praça dos Cães, 789",
-        "avatar": "{path}/{hash}.png"
+        "avatar": "/static/img/botafogo.png"
     }
 ]

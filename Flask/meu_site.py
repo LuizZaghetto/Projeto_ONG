@@ -1,7 +1,4 @@
 from flask import Flask, render_template, jsonify, abort
-import hashlib
-from PIL import image
-from catalogo import obter_catalogo
 import json
 
 app = Flask(__name__)
@@ -20,7 +17,7 @@ def carregar_json(filename):
 @app.route("/")
 def landing_page():
     return render_template("landing_page/index.html")
-
+    
 @app.route("/usuarios/<int:user_id>")
 def usuarios(user_id):
     usuarios = carregar_json("usuarios.json")

@@ -11,4 +11,3 @@ fetch('/footer')
     .then(data => {
         document.getElementById('footer').innerHTML = data;
     });
-console.log(ls -1);

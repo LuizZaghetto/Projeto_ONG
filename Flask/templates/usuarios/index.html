@@ -17,7 +17,7 @@
         <section class="principal__conteudo">
             <div class="principal__perfil">
                 <div class="principal__perfil-foto">
-                    <img src="{{url_for('static', filename= 'img/ong_placeholder.jpeg')}}" alt="foto do perfil" class="principal__perfil-foto-imagem">
+                    <img src="{{ usuario.avatar }}" alt="foto do perfil" class="principal__perfil-foto-imagem">
                 </div>
                 <div class="principal__perfil-dados">
                     <h2 class="principal__perfil-dados-titulo">{{usuario.username}}</h2>
