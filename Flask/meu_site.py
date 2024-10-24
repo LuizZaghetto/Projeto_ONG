@@ -35,6 +35,14 @@ def usuarios(user_id):
 def perfil_bicho(nome_bicho):
     return render_template("perfil_bicho/index.html", nome_bicho=nome_bicho)
 
+@app.route("/login")
+def login():
+    return render_template('login/login.html')
+
+@app.route("/registro")
+def registro():
+    return render_template('registro/registro.html')
+
 @app.route('/header')
 def serve_header():
     return render_template('header/header.html') 

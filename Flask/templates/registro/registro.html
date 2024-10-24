@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MiauMigos - Login</title>
+    <title>MiauMigos - Registro</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}">
-    <link rel="stylesheet" href="../login/assets/main.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/registro/main.css') }}">
     <script src="{{ url_for('static', filename='js/carregar_partes.js') }}" ></script>
 </head>
 <body>
@@ -15,7 +15,7 @@
         <section class="principal__conteudo">
             <div class="titulo">
                 <h1>
-                    Acesse sua conta
+                    Crie sua conta
                 </h1>
             </div>
             <div>
@@ -28,13 +28,15 @@
                         <label for="senha" class="senha-titulo">Senha</label>
                         <input id="senha" type="password" name="senha">
                     </div>
-                    <div class="enviar">
-                        <input class="enviar-botao" type="enviar" value="Fazer Login"/>
-                    </div>
+                    <div class="escolher">
+                        <input class="escolher-label" type="radio" id="tipo_usuario" name="tipo" value="Usuário"/>
+                        <label for="tipo_usuario">Usuário</label>
+                  
+                        <input class="escolher-label" type="radio" id="tipo_ong" name="tipo" value="ONG"/>
+                        <label for="tipo_ong">ONG</label>
+                    </div>   
+                  
                 </form>
-            </div>
-            <div class="paraRegistro">
-                <p>Não tem uma conta? <a href="../registro/registro.html">Registre-se aqui</a></p>
             </div>
         </section>
     </main>
