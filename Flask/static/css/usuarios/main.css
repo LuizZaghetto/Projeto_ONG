@@ -70,3 +70,8 @@
     line-height: 2rem;
     font-family: var(--fonte-secundaria);    
 }
+.principal__bichos__catalogo-texto {
+    max-width: 300px;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
