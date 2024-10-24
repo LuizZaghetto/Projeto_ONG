@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiauMigos - Login</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}">
+    <link rel="stylesheet" href="../login/assets/main.css">
+    <script src="{{ url_for('static', filename='js/carregar_partes.js') }}" ></script>
+</head>
+<body>
+    
+    <div id="header"></div>
+    <main class="principal"> 
+        <section class="principal__conteudo">
+            <div class="titulo">
+                <h1>
+                    Acesse sua conta
+                </h1>
+            </div>
+            <div>
+                <form action="login.php">
+                    <div class="username">
+                        <label for="user" class="username-titulo">Nome de usuário</label>
+                        <input id="user", name="user">
+                    </div>
+                    <div class="senha">
+                        <label for="senha" class="senha-titulo">Senha</label>
+                        <input id="senha" type="password" name="senha">
+                    </div>
+                    <div class="enviar">
+                        <input class="enviar-botao" type="enviar" value="Fazer Login"/>
+                    </div>
+                </form>
+            </div>
+            <div class="paraRegistro">
+                <p>Não tem uma conta? <a href="../registro/registro.html">Registre-se aqui</a></p>
+            </div>
+        </section>
+    </main>
+    <div id="footer"></div>    
