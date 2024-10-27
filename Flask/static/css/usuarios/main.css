@@ -46,14 +46,16 @@
 
 .principal__bichos-titulo {
     text-align: center;
+    margin-right: 2.8rem;
 }
 
 .principal__bichos__catalogo {
     display: flex;
     flex-wrap: wrap;
     padding: 0.5em 2rem;
-    margin: 2rem 0 0 10rem;
-    gap: 4rem;
+    margin: 4rem 0 0 6rem;
+    column-gap: 6.5rem;
+     row-gap: 2rem;
 }
 
 .principal__bichos__catalogo-item {
@@ -71,7 +73,7 @@
     font-family: var(--fonte-secundaria);    
 }
 .principal__bichos__catalogo-texto {
-    max-width: 300px;
+    max-width: 340px;
     white-space: normal;
     overflow-wrap: break-word;
 }

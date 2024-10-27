@@ -1,7 +1,14 @@
 from flask import Flask, render_template, jsonify, abort
+from flask_sqlalchemy import SQLAlchemy
 import json
 
 app = Flask(__name__)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:123Salsich@#@localhost/ONG'
+
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
 
 def carregar_json(filename):
     try:

@@ -4,48 +4,55 @@
         "idade": "3 anos",
         "sexo": "Macho",
         "porte": "Grande",
-        "descricao": "Rex é um pastor alemão muito brincalhão e leal. Adora correr no parque e brincar com crianças."
+        "descricao": "Rex é um pastor alemão muito brincalhão e leal. Adora correr no parque e brincar com crianças.",
+        "imagem" : "/static/img/dog_example01.jpeg"
     },
     {
         "nome": "Mia",
         "idade": "2 anos",
         "sexo": "Fêmea",
         "porte": "Pequeno",
-        "descricao": "Mia é uma linda Poodle que adora ser mimada. Ela é muito carinhosa e adora ficar perto das pessoas."
+        "descricao": "Mia é uma linda Poodle que adora ser mimada. Ela é muito carinhosa e adora ficar perto das pessoas.",
+        "imagem" : "/static/img/dog_example02.jpeg"
     },
     {
         "nome": "Thor",
         "idade": "5 anos",
         "sexo": "Macho",
         "porte": "Médio",
-        "descricao": "Thor é um vira-lata muito esperto e curioso. Ele adora explorar novos lugares e fazer novos amigos."
+        "descricao": "Thor é um vira-lata muito esperto e curioso. Ele adora explorar novos lugares e fazer novos amigos.",
+        "imagem" : "/static/img/dog_example03.jpeg"
     },
     {
         "nome": "Luna",
         "idade": "1 ano",
         "sexo": "Fêmea",
         "porte": "Pequeno",
-        "descricao": "Luna é uma gata siamesa muito brincalhona e curiosa. Ela ama brincar com bolinhas de papel e tirar sonecas no sol."
+        "descricao": "Luna é uma gata siamesa muito brincalhona e curiosa. Ela ama brincar com bolinhas de papel e tirar sonecas no sol.",
+        "imagem" : "/static/img/gato_example01.jpg"
     },
     {
         "nome": "Bobby",
         "idade": "4 anos",
         "sexo": "Macho",
         "porte": "Grande",
-        "descricao": "Bobby é um Labrador adorável que adora nadar e brincar na água. Ele é muito sociável e gosta de fazer novos amigos."
+        "descricao": "Bobby é um Labrador adorável que adora nadar e brincar na água. Ele é muito sociável e gosta de fazer novos amigos.",
+        "imagem" : "/static/img/gato_example02.jpg"
     },
     {
         "nome": "Duda",
         "idade": "6 meses",
         "sexo": "Fêmea",
         "porte": "Mini",
-        "descricao": "Duda é uma filhote de Chihuahua cheia de energia. Ela é muito ativa e adora brincar com seus brinquedos."
+        "descricao": "Duda é uma filhote de Chihuahua cheia de energia. Ela é muito ativa e adora brincar com seus brinquedos.",
+        "imagem" : "/static/img/gato_example03.jpg"
     },
     {
         "nome": "Gandalf",
         "idade": "8 anos",
         "sexo": "Macho",
         "porte": "Médio",
-        "descricao": "Gandalf é um gato idoso que gosta de tranquilidade. Ele adora se espreguiçar na janela e observar o mundo lá fora."
+        "descricao": "Gandalf é um gato idoso que gosta de tranquilidade. Ele adora se espreguiçar na janela e observar o mundo lá fora.",
+        "imagem" : "/static/img/dog_example04.jpeg"
     }
 ]

@@ -31,7 +31,7 @@
                 <div class="principal__bichos__catalogo">
                     {% for animal in animais[:6] %}
                     <div class="principal__bichos__catalogo-item">
-                        <img src="{{url_for('static', filename= animal.img)}}" alt="Imagem do pet" class="principal__bichos__catalogo-foto">
+                        <img src="{{animal.imagem}}" alt="Imagem do pet" class="principal__bichos__catalogo-foto">
                         <div class="principal__bichos__catalogo-informacoes">
                             <p class="principal__bichos__catalogo-texto">Nome: {{ animal.nome }}</p>
                             <p class="principal__bichos__catalogo-texto">Idade: {{ animal.idade }}</p>

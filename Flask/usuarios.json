@@ -13,7 +13,7 @@
         "email": "cuidadoresdegatos@gmail.com",
         "phone" : "(21) - 98888-8888",
         "adress" : "Avenida dos Felinos, 456",
-        "avatar": "/static/img/dog_example01.jpeg"
+        "avatar": "/static/img/ong2.jpg"
     },
     {
         "user_id": 3,
@@ -21,6 +21,6 @@
         "email": "amigosdoscachorros@gmail.com",
         "phone" : "(31) - 97777-7777",
         "adress" : "Praça dos Cães, 789",
-        "avatar": "/static/img/botafogo.png"
+        "avatar": "/static/img/ong3.jpg"
     }
 ]
