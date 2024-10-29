@@ -6,11 +6,11 @@
     <title>MiauMigos - Registro</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/registro/main.css') }}">
-    <script src="{{ url_for('static', filename='js/carregar_partes.js') }}" ></script>
 </head>
 <body>
     
-    <div id="header"></div>
+{% include 'header/header.html' %}
+{% block content %}
     <main class="principal"> 
         <section class="principal__conteudo">
             <div class="titulo">
@@ -19,25 +19,22 @@
                 </h1>
             </div>
             <div>
-                <form action="login.php">
-                    <div class="username">
-                        <label for="user" class="username-titulo">Nome de usuário</label>
-                        <input id="user", name="user">
-                    </div>
-                    <div class="senha">
-                        <label for="senha" class="senha-titulo">Senha</label>
-                        <input id="senha" type="password" name="senha">
-                    </div>
-                    <div class="escolher">
-                        <input class="escolher-label" type="radio" id="tipo_usuario" name="tipo" value="Usuário"/>
-                        <label for="tipo_usuario">Usuário</label>
-                  
-                        <input class="escolher-label" type="radio" id="tipo_ong" name="tipo" value="ONG"/>
-                        <label for="tipo_ong">ONG</label>
-                    </div>   
-                  
+                <form method="POST">
+                    {{ form.hidden_tag() }}
+
+                    {{ form.nomeUsuario.label }}
+                    {{ form.nomeUsuario }}
+                    <br>
+                    {{ form.email.label }}
+                    {{ form.email }}
+                    <br>
+                    {{ form.senha.label }}
+                    {{ form.senha }}
+                    <br>
+                    {{ form.enviar }}
                 </form>
             </div>
         </section>
     </main>
-    <div id="footer"></div>    
+{% endblock %}
+{% include 'footer/footer.html' %}

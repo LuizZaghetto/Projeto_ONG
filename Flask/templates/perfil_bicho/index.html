@@ -6,11 +6,11 @@
     <title>Miaumigos - Bicho</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/perfil_bicho/main.css')}}">
-    <script src="{{url_for('static', filename='js/carregar_partes.js')}}"></script>
 </head>
 <body>
 
-    <div id="header"></div>
+{% include 'header/header.html' %}
+{% block content %}
     
     <main class="principal">
         <section class="principal__conteudo">
@@ -59,7 +59,7 @@
         </nav>
     </main>
     
-    <div id="footer"></div>
-
+{% endblock %}
+{% include 'footer/footer.html' %}
 </body>
 </html>
