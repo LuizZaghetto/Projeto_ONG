@@ -100,8 +100,6 @@ def registro():
             flash("Esse e-mail já está registrado.", "warning")        
     return render_template('registro/registro.html', form=form)
 
-
-
 @app.route('/header')
 def serve_header():
     return render_template('header/header.html') 
@@ -109,6 +107,18 @@ def serve_header():
 @app.route('/footer')
 def serve_footer():
     return render_template('footer/footer.html')
+
+#Invalid URL
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("erro/erro.html", erro = 404), 404
+
+#Internal Server Error 
+
+@app.errorhandler(500)
+def page_not_found(e):
+    return render_template("erro/erro.html", erro = 500), 500
 
 if __name__ == "__main__":
     app.run(debug = True)
