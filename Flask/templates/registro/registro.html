@@ -11,8 +11,16 @@
     
 {% include 'header/header.html' %}
 {% block content %}
+
     <main class="principal"> 
         <section class="principal__conteudo">
+            {% for message in get_flashed_messages() %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    Hey {{ name }} {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+
             <div class="titulo">
                 <h1>
                     Crie sua conta
@@ -22,14 +30,20 @@
                 <form method="POST">
                     {{ form.hidden_tag() }}
 
-                    {{ form.nomeUsuario.label }}
-                    {{ form.nomeUsuario }}
+                    {{ form.nome.label }}
+                    {{ form.nome }}
                     <br>
                     {{ form.email.label }}
                     {{ form.email }}
                     <br>
-                    {{ form.senha.label }}
-                    {{ form.senha }}
+                    {{ form.telefone.label }}
+                    {{ form.telefone }}
+                    <br>
+                    {{ form.CPF.label }}
+                    {{ form.CPF }}
+                    <br>
+                    {{ form.data_nasc.label }}
+                    {{ form.data_nasc }}
                     <br>
                     {{ form.enviar }}
                 </form>

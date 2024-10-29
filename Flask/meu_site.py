@@ -28,16 +28,23 @@ def carregar_json(filename):
 
 # Criar formulario Registro
 class registroForm(FlaskForm):
-    nomeUsuario = StringField("Nome de usuário", validators=[DataRequired()])
+    nome = StringField("Nome de usuário", validators=[DataRequired()])
     email = StringField("Email", validators=[Email()])
-    senha = StringField("Senha", validators=[DataRequired(), Length(min=8, max=20)])
+    data_nasc = StringField("Data de Nascimento", validators=[DataRequired()])
+    CPF = StringField("CPF", validators=[DataRequired()])
+    telefone = StringField("Número de Telefone", validators=[DataRequired()])
+    # senha = StringField("Senha", validators=[DataRequired(), Length(min=8, max=20)])
     enviar = SubmitField("Enviar")
 
 # Define o perfil do Usuario
-# class Usuarios(db.model):
-#     __tablename__ = 'pessoa'
-
-
+class Usuarios(db.Model):
+    __tablename__ = 'pessoa'
+    ID_usuario = db.Column(db.Integer, primary_key=True, nullable=False)
+    nome = db.Column(db.String(50), nullable=False)
+    email = db.Column(db.String(50), nullable=False, unique=True)
+    telefone = db.Column(db.String(20), nullable=False)
+    data_nasc = db.Column(db.Date, nullable=False)
+    CPF = db.Column(db.String(15), nullable=False, unique = True)
 
 @app.route("/")
 def landing_page():
@@ -68,11 +75,31 @@ def login():
 def registro():
     form = registroForm()
     if form.validate_on_submit():
-        form.nomeUsuario.data = ''
-        form.email.data = ''
-        form.senha.data = ''
-        flash("Form submitted successfully")
+        usuario = Usuarios.query.filter_by(email = form.email.data).first()
+        if usuario is None:
+            try: 
+                usuario = Usuarios(
+                    nome = form.nome.data, 
+                    email = form.email.data,
+                    telefone = form.telefone.data,
+                    data_nasc = datetime.strptime(form.data_nasc.data, '%Y-%m-%d'),
+                    CPF = form.CPF.data
+                )
+                db.session.add(usuario)
+                db.session.commit()
+                form.nome.data = ''
+                form.email.data = ''
+                form.telefone.data = ''
+                form.data_nasc.data = ''
+                form.CPF.data = ''
+                flash("Registro realizado com sucesso!", "success")
+            except Exception as e:
+                db.session.rollback()
+                flash("Erro ao registrar o usuário: {e}", "danger")
+        else:
+            flash("Esse e-mail já está registrado.", "warning")        
     return render_template('registro/registro.html', form=form)
+
 
 
 @app.route('/header')
