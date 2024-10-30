@@ -1,3 +1,7 @@
+@import url(../vars/vars.css);
+@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
+
+
 .cabecalho {
     display: flex;
     justify-content: center;

@@ -1,3 +1,5 @@
+@import url(../vars/vars.css);
+
 .rodape {
     background-color: var(--cor-de-fora);
     padding-top: 2.5rem;

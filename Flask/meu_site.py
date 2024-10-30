@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:123Salsich%40#@localhost/ong'
 # Secret Key
 app.config['SECRET_KEY'] = "123Salsich@#"
-# Inicializando o db
+# Inicializando o db'
 db = SQLAlchemy(app)
 
 def carregar_json(filename):
