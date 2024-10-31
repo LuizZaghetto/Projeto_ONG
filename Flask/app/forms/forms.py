@@ -13,7 +13,6 @@ class registroForm(FlaskForm):
     # senha = StringField("Senha", validators=[DataRequired(), Length(min=8, max=20)])
     enviar = SubmitField("Enviar")
 
-
 class loginForm(FlaskForm):
     nome = StringField("Nome de usuário", validators=[DataRequired()])   
     enviar = SubmitField("Enviar")   

@@ -19,26 +19,27 @@
                     Acesse sua conta
                 </h1>
             </div>
-            <div>
-                <form action="login.php">
-                    <div class="username">
-                        <label for="user" class="username-titulo">Nome de usuário</label>
-                        <input id="user", name="user">
+                <section class="navega">
+                    <div class="formularios">
+                        <form method="POST">
+                            {{ form.hidden_tag() }}
+                            <div class="formularios-unico">   
+                                {{ form.nome.label }}
+                                {{ form.nome }}
+                            </div>
+                            <div class="formularios-enviar">
+                                {{ form.enviar(class="formularios-enviar-botao botao1") }}
+                            </div>      
+                        </form>
                     </div>
-                    <div class="senha">
-                        <label for="senha" class="senha-titulo">Senha</label>
-                        <input id="senha" type="password" name="senha">
-                    </div>
-                    <div class="enviar">
-                        <input class="enviar-botao" type="enviar" value="Fazer Login"/>
-                    </div>
-                </form>
-            </div>
-            <div class="paraRegistro">
-                <p>Não tem uma conta? <a href="registro">Registre-se aqui</a></p>
-            </div>
+                    <div class="imagens">
+                        <img class="imagens-formato" src="{{url_for('static', filename = 'img/gatorita.png')}}">
+                    </div>          
         </section>
+        <div class="paraRegistro">
+            <p>Não tem uma conta? <a class="paraRegistro-formato" href="/registro">Registre-se aqui</a></p>
+        </div>
     </main>
+</body>    
 {% endblock %}
 {% include 'footer/footer.html' %}
-</body>
