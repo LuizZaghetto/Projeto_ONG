@@ -36,6 +36,11 @@ class registroForm(FlaskForm):
     # senha = StringField("Senha", validators=[DataRequired(), Length(min=8, max=20)])
     enviar = SubmitField("Enviar")
 
+# Criar formulario Login 
+class loginForm(FlaskForm):
+    nome = StringField("Nome de usuário", validators=[DataRequired()])   
+    enviar = SubmitField("Enviar")     
+
 # Define o perfil do Usuario
 class Usuarios(db.Model):
     __tablename__ = 'pessoa'
@@ -69,7 +74,24 @@ def perfil_bicho(nome_bicho):
 
 @app.route("/login")
 def login():
-    return render_template('login/login.html')
+    form = loginForm()
+    if form.validate_on_submit():
+        usuario = Usuarios.query.filter_by(email = form.email.data).first()
+        if usuario is None:
+            try: 
+                usuario = Usuarios(
+                    nome = form.nome.data, 
+                )
+                db.session.add(usuario)
+                db.session.commit()
+                form.nome.data = ''
+                flash("Registro realizado com sucesso!", "success")
+            except Exception as e:
+                db.session.rollback()
+                flash("Erro ao registrar o usuário: {e}", "danger")
+        else:
+            flash("Esse e-mail já está registrado.", "warning")        
+    return render_template('login/login.html', form=form)
 
 @app.route("/registro", methods=['GET', 'POST'])
 def registro():
