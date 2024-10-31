@@ -1,0 +1,82 @@
+@import url('../vars/vars.css');
+@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.principal {
+    background-color: var(--cor-de-fora);
+}
+
+.principal__conteudo {
+    margin: 0 5%;
+    background-color: var(--cor-de-fundo);
+}
+
+.principal__topo {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.principal__topo-imagem {
+    border: solid;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.principal__topo-dados {
+    margin-left: 2.5rem;
+}
+
+.principal__topo-dados-titulo {
+    font-size: 3rem;
+    font-family: var(--fonte-secundaria);
+}
+
+.principal__topo-lista {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+    padding-top: 2rem;
+}
+
+.principal__topo-elemento {
+    font-size: 1.5rem;
+    font-family: var(--fonte-secundaria);
+}
+
+.informacoes {
+    text-align: left;
+    
+}
+
+.informacoes_topico {
+    padding-left: 2rem;
+    font-family: var(--fonte-secundaria);
+    line-height: 3rem;
+}
+
+.informacoes_galeria {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 3rem;
+}
+
+.informacoes_galeria-titulo {
+    font-size: 2.5rem;
+    font-family: var(--fonte-secundaria);
+    text-align: left;
+    padding-left: 2rem;
+    padding-top: 4rem;
+    
+}
+
+.informacoes_galeria-imagem {
+    width: 20rem;
+    height: 15rem;
+    border: solid;
+}

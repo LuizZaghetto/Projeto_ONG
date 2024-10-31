@@ -1,0 +1,80 @@
+@import url('../vars/vars.css');
+@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.principal {
+    background-color: var(--cor-de-fora);
+}
+
+.principal__conteudo {
+    margin: 0 5%;
+    background-color: var(--cor-de-fundo);
+}
+
+
+
+
+
+.titulo {
+    font-family: var(--fonte-titulo);
+    font-size: large;
+    font-weight: lighter;
+    text-align: center;
+}
+
+.username {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    font-family: var(--fonte-secundaria);
+}
+
+.username-titulo {
+    padding: 0.2rem;
+}
+
+.senha {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    font-family: var(--fonte-secundaria);
+}
+
+.senha-titulo {
+    padding: 0.2rem;
+}
+
+.enviar {
+    text-align: center;
+
+}
+
+.enviar-botao {
+    border: solid;
+    border-color: var(--cor-de-fora);
+    background-color: var(--cor-de-fundo);
+    font-family: var(--fonte-secundaria);
+    color: black;
+    text-align: center;
+}
+
+.enviar-botao:hover {
+    border: solid;
+    border-color: var(--cor-de-fora);
+    background-color: var(--cor-de-fora);
+    font-family: var(--fonte-secundaria);
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.paraRegistro {
+    padding-top: 3rem;
+    text-align: center;
+    font-family: var(--fonte-titulo);
+}

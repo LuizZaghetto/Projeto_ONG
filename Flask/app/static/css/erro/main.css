@@ -1,0 +1,20 @@
+
+@import url('../vars/vars.css');
+@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
+
+.principal {
+    background-color: var(--cor-de-fora);
+    text-align: center;
+}
+.principal__conteudo {
+    margin: 0 5%;
+    background-color: var(--cor-de-fundo);
+}
+.principal__conteudo-titulo {
+    padding-top: 2rem;
+}
+.principal__conteudo-imagem {
+    max-width: 22%; 
+    height: 22%; 
+    paddinG: 4.5rem 0 4.8rem 0;
+}
