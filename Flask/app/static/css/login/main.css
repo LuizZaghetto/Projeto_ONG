@@ -16,6 +16,10 @@
     background-color: var(--cor-de-fundo);
 }
 
+
+
+
+
 .titulo {
     font-family: var(--fonte-titulo);
     font-size: large;
@@ -23,85 +27,54 @@
     text-align: center;
 }
 
-.formularios {
+.username {
     display: flex;
     justify-content: center;
-    padding-bottom: 2rem;
-    padding-top: 1rem;
+    padding: 1rem;
+    font-family: var(--fonte-secundaria);
 }
 
-.formularios-unico {
-   display: grid;
-   font-family: var(--fonte-secundaria);
-   padding-bottom: 1rem;
+.username-titulo {
+    padding: 0.2rem;
 }
 
-.formularios-enviar {
-    padding-top: 1rem;
+.senha {
     display: flex;
     justify-content: center;
-
-
+    padding: 1rem;
+    font-family: var(--fonte-secundaria);
 }
 
-.formularios-enviar-botao {
-    border: none;
-    color: white;
-    padding: 8px 16px;
+.senha-titulo {
+    padding: 0.2rem;
+}
+
+.enviar {
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-} 
 
-.botao1{
-    background-color: brown;
-    color: white;
 }
 
-.botao1:hover {
+.enviar-botao {
+    border: solid;
+    border-color: var(--cor-de-fora);
     background-color: var(--cor-de-fundo);
-    color: black; 
-    border: 2px solid brown
+    font-family: var(--fonte-secundaria);
+    color: black;
+    text-align: center;
 }
 
-.imagens {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    display: flex;
-    justify-content: center;
+.enviar-botao:hover {
+    border: solid;
+    border-color: var(--cor-de-fora);
+    background-color: var(--cor-de-fora);
+    font-family: var(--fonte-secundaria);
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.4s;
 }
 
-.imagens-formato {
-    width: 20rem;
-    height: 20rem;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-
-
-}
-
-.navega {
-    padding: 3rem;
-    display: flex;
-    justify-content: space-evenly;
-    padding-bottom: 10rem;
-}
-
-.paraRegistro{
+.paraRegistro {
+    padding-top: 3rem;
+    text-align: center;
     font-family: var(--fonte-titulo);
-    display: flex;
-    justify-content: center;
-}
-
-.paraRegistro-formato{
-    text-decoration: none;
-    color: brown;
-    transition: 0.4s;
-}
-
-.paraRegistro-formato:hover{
-    color: red;   
 }

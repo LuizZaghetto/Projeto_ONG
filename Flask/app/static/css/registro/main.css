@@ -78,7 +78,8 @@
 .imagens-formato {
     width: 18rem;
     height: 27rem;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    padding-top: 1rem;
+    box-shadow: 4000rem;
 
 }
 
@@ -86,5 +87,4 @@
     padding: 3rem;
     display: flex;
     justify-content: space-evenly;
-    padding-bottom: 10rem;
 }
