@@ -1,6 +1,4 @@
 from app.extensions import db
-
-# Define o perfil do Usuario
 class Usuarios(db.Model):
     __tablename__ = 'pessoa'
     ID_usuario = db.Column(db.Integer, primary_key=True, nullable=False)

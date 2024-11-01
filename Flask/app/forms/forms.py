@@ -3,7 +3,7 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, Email, Length
 
 
-# Criar formulario Registro
+# Criar formulário para Registro
 class registroForm(FlaskForm):
     nome = StringField("Nome de usuário", validators=[DataRequired()])
     email = StringField("Email", validators=[Email()])
@@ -13,6 +13,7 @@ class registroForm(FlaskForm):
     # senha = StringField("Senha", validators=[DataRequired(), Length(min=8, max=20)])
     enviar = SubmitField("Enviar")
 
+# Criar formulário para Login
 class loginForm(FlaskForm):
     nome = StringField("Nome de usuário", validators=[DataRequired()])   
     enviar = SubmitField("Enviar")   

@@ -8,10 +8,21 @@ import app.functions as func
 
 routes_bp = Blueprint('routes', __name__)
 
+# Carregando header e footer
+@routes_bp.route('/header')
+def serve_header():
+    return render_template('header/header.html') 
+
+@routes_bp.route('/footer')
+def serve_footer():
+    return render_template('footer/footer.html')
+
+# Página inicial
 @routes_bp.route("/")
 def landing_page():
     return render_template("landing_page/index.html")
 
+# Página de login
 @routes_bp.route("/login")
 def login():
     form = forms.loginForm()
@@ -33,6 +44,7 @@ def login():
             flash("Esse e-mail já está registrado.", "warning")        
     return render_template('login/login.html', form=form)
 
+# Página de registro
 @routes_bp.route("/registro", methods=['GET', 'POST'])
 def registro():
     form = forms.registroForm()
@@ -62,31 +74,25 @@ def registro():
             flash("Esse e-mail já está registrado.", "warning")        
     return render_template('registro/registro.html', form=form)
 
+# Acessar página de usuário
+@routes_bp.route("/usuarios")
+def usuarios():
+    return render_template("usuarios/index.html")
 
-@routes_bp.route('/header')
-def serve_header():
-    return render_template('header/header.html') 
-
-@routes_bp.route('/footer')
-def serve_footer():
-    return render_template('footer/footer.html')
-
+# Acessar o perfil do bicho
 @routes_bp.route("/perfil_bicho/<nome_bicho>")
 def perfil_bicho(nome_bicho):
     return render_template("perfil_bicho/index.html", nome_bicho=nome_bicho)
 
-# Invalid URL
 
+# Lidar com erros
+# Invalid URL
 @routes_bp.errorhandler(404)
 def page_not_found(e):
     return render_template("erro/erro.html", erro = 404), 404
 
 #Internal Server Error 
-
 @routes_bp.errorhandler(500)
 def page_not_found(e):
     return render_template("erro/erro.html", erro = 500), 500
 
-@routes_bp.route("/usuarios")
-def usuarios():
-    return render_template("usuarios/index.html")

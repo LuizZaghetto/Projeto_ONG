@@ -1,4 +1,4 @@
-from flask import Flask, render_template, abort, flash
+from flask import Flask
 from app.controllers.routes import routes_bp
 from app.extensions import db
 import os
