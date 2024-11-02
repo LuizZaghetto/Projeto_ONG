@@ -17,7 +17,7 @@
 
 .principal__noticias-titulo {
     text-align: center;
-    font-family: var(--fonte-secundaria);
+    font-family: var(--fonte-titulo);
     padding: 1rem;
 }
 
@@ -63,5 +63,6 @@
 .principal__cadastroBicho-texto {
     font-family: var(--fonte-titulo);
     font-weight: 100;
+    padding-top: 1rem;
 }
 

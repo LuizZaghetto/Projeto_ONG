@@ -2,7 +2,7 @@
 
 .rodape {
     background-color: var(--cor-de-fora);
-    padding-top: 2.5rem;
+    padding-top: 1rem;
 }
 
 .rodape__container {
@@ -14,13 +14,25 @@
 .rodape__identifica-texto {
     font-family: var(--fonte-titulo);
     font-weight: 200;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+.rodape__imagem {
+    padding-top: 0.5rem;
+}
+
+.rodape__imagem-formato {
+    width: 4rem;
+    height: 3.5rem;
+}
 .rodape__contato {
     font-family: var(--fonte-secundaria);
+    display: flex;
+    flex-direction: column;
+    padding: 1px;
 }
 
-.rodape__contato-titulo {
-    font-size: 1.5rem;
-    font-weight: 400;
-}
+

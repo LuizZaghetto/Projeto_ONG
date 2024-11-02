@@ -21,11 +21,21 @@
     width: 3rem;
 }
 
+.cabecalho__tag {
+    text-decoration: none;
+}
+
 .cabecalho__titulo {
     font-family: var(--fonte-titulo);
     font-weight: 100;
+    cursor: pointer;
+    color:black ;
+    transition: 0.4s;
 }
 
+.cabecalho__titulo:hover {
+    color: #333333
+}
 .cabecalho__login {
     position: absolute;
     left: 82%;
