@@ -81,6 +81,7 @@ def crud():
     return render_template("crud/crud.html",
     usuarios = usuarios)
 
+# Atualizar usuário
 @routes_bp.route('/admin/atualizar/<int:ID_usuario>', methods=['GET', 'POST'])
 def atualizar(ID_usuario):
     form = forms.registroForm()
