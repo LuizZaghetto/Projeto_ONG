@@ -11,6 +11,7 @@ class registroForm(FlaskForm):
     CPF = StringField("CPF", validators=[DataRequired()])
     telefone = StringField("Número de Telefone", validators=[DataRequired()])
     # senha = StringField("Senha", validators=[DataRequired(), Length(min=8, max=20)])
+    ID_usuario = StringField("ID do usuário")
     enviar = SubmitField("Enviar")
 
 # Criar formulário para Login

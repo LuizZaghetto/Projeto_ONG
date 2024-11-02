@@ -15,31 +15,44 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     {% endfor %}
-
+    
     <h1>Atualizar usuário...</h1>
     <br>
     <div class="shadow p-3 mb-5 bg-body rounded">
-    <form action = "/admin/atualizar/{{atualizacao.ID_usuario}}" method = "POST">
-        {{ form.hidden_tag() }}
+        <form action = "/admin/atualizar/{{atualizacao.ID_usuario}}" method = "POST">
+            {{ form.hidden_tag() }}
 
-        {{ form.nome.label}}
-        {{form.nome(value = atualizacao.nome) }}
-        <br>
-        {{ form.email.label}}
-        {{form.email(value = atualizacao.email) }}
-        <br>
-        {{ form.telefone.label }}
-        {{ form.telefone(value = atualizacao.telefone) }}
-        <br>
-        {{ form.data_nasc.label }}
-        {{ form.data_nasc(value = atualizacao.data_nasc) }}
-        <br>
-        {{ form.CPF.label }}
-        {{ form.CPF(value = atualizacao.CPF) }}
-        <br>
-        {{form.enviar(class= "btn btn-secondary") }}
-    </form>
-</div>
+            {{ form.ID_usuario.label }}
+            {{ form.ID_usuario(value = atualizacao.ID_usuario) }}
+            <br>
+            {{ form.nome.label}}
+            {{form.nome(value = atualizacao.nome) }}
+            <br>
+            {{ form.email.label}}
+            {{form.email(value = atualizacao.email) }}
+            <br>
+            {{ form.telefone.label }}
+            {{ form.telefone(value = atualizacao.telefone) }}
+            <br>
+            {{ form.data_nasc.label }}
+            {{ form.data_nasc(value = atualizacao.data_nasc) }}
+            <br>
+            {{ form.CPF.label }}
+            {{ form.CPF(value = atualizacao.CPF) }}
+            <br>
+
+            {{form.enviar }}
+        </form>
+    </div>
+
+    <table class="table table-hover table-bordered table-striped" id="principal__conteudo__tabela">
+        {% for usuario in usuarios %}
+            <tr>
+            <td> {{usuario.ID_usuario}} - <a href="{{ url_for('routes.atualizar', ID_usuario=usuario.ID_usuario) }}">{{ usuario.nome }}</a> - {{usuario.email}} -
+                {{usuario.telefone}} - {{usuario.data_nasc}} - {{usuario.CPF}} </td> 
+            </tr>
+        {% endfor %}
+    </table>
 
 {% endblock %}
 
