@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint, redirect, url_for, flash, abort
+from flask import render_template, Blueprint, redirect, url_for, flash, abort, request
 import app.forms.forms as forms 
 from flask_sqlalchemy import SQLAlchemy
 import app.models.models as models
@@ -73,6 +73,39 @@ def registro():
         else:
             flash("Esse e-mail já está registrado.", "warning")        
     return render_template('registro/registro.html', form=form)
+
+# Acessar crud temporário
+@routes_bp.route("/admin/crud")
+def crud():
+    usuarios = models.Usuarios.query.order_by(models.Usuarios.ID_usuario)
+    return render_template("crud/crud.html",
+    usuarios = usuarios)
+
+@routes_bp.route('/admin/atualizar/<int:ID_usuario>', methods=['GET', 'POST'])
+def atualizar(ID_usuario):
+    form = forms.registroForm()
+    atualizacao = models.Usuarios.query.get_or_404(ID_usuario)
+    if request.method == "POST":
+        atualizacao.nome = request.form['nome']
+        atualizacao.email = request.form['email']
+        atualizacao.telefone = request.form['telefone']
+        atualizacao.data_nasc = request.form['data_nasc']
+        atualizacao.CPF = request.form['CPF']
+        try:
+            db.session.commit()
+            flash("Usuário adicionado com sucesso")
+            return render_template("atualizar/atualizar.html", 
+            form = form,
+            atualizacao = atualizacao)
+        except:
+            flash("Error")
+            return render_template("atualizar/atualizar.html", 
+            form = form,
+            atualizacao = atualizacao)
+    else:
+        return render_template("atualizar/atualizar.html", 
+        form = form,
+        atualizacao = atualizacao)
 
 # Acessar página de usuário
 @routes_bp.route("/usuarios")

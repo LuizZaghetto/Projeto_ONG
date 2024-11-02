@@ -28,8 +28,9 @@
 
 .cabecalho__login {
     position: absolute;
-    left: 85%;
+    left: 82%;
     display: flex;
+    gap: 2rem;
 }
 
 .cabecalho__login__link {
@@ -43,22 +44,19 @@
 .botao {
     border: none;
   color: white;
-  padding: 16px 32px;
+  padding: 12px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 1rem;
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
-}
-
-.botao1 {
   background-color: brown;
   color: white;
 }
 
-.botao1:hover {
+.botao:hover {
     background-color: var(--cor-de-fundo);
     color: black; 
     border: 2px solid brown
