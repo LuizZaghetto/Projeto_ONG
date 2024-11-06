@@ -2,12 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
 
 
+
 .cabecalho {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;      
     align-items: center;
-    position: relative;
-    background-color: var(--cor-cabecalho);
+    background-color: var(--cor-cabecalho); 
     padding: 1.4rem;
 }
 
@@ -37,10 +37,8 @@
     color: #333333
 }
 .cabecalho__login {
-    position: absolute;
-    left: 82%;
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .cabecalho__login__link {
@@ -70,4 +68,13 @@
     background-color: var(--cor-de-fundo);
     color: black; 
     border: 1px solid brown
+}
+
+@media (max-width:600px) {
+    .cabecalho {
+        padding-top: 1rem;
+        width:100%;
+        display: flex;
+        flex-direction: column;
+    }
 }

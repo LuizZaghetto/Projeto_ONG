@@ -35,4 +35,36 @@
     padding: 1px;
 }
 
+@media (max-width:600px) {
+    .rodape {
+        padding-top: 1rem;
+        width:100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .rodape__identifica-texto {
+        font-family: var(--fonte-titulo);
+        font-weight: 50;
+        padding-top: 1rem;
+        font-size: small;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .rodape__imagem-formato {
+        width: 2rem;
+        height: 1.75rem;
+    }
+
+    .rodape__contato {
+        font-family: var(--fonte-secundaria);
+        display: flex;
+        font-size: small;
+        flex-direction: column;
+        padding: 1px;
+    }    
+
+}
 

@@ -7,7 +7,7 @@
 }
 
 .principal {
-    background-color: #eab05e;
+    background-color: var(--cor-de-fora)
 }
 
 .principal__conteudo {
@@ -67,4 +67,58 @@
     font-weight: 100;
     padding-top: 1rem;
 }
+
+@media screen and (max-width:600px) {
+
+
+    .principal {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+
+    .principal__conteudo {
+        width: 100%
+    }
+
+    .principal__noticias {
+        text-align: center;
+    }
+
+    .principal__noticias-titulo {
+        font-family: var(--fonte-titulo);
+        padding: 1rem;
+    }
+
+    .principal__manchete {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+       
+    }
+
+    .principal__manchete-imagem {
+        margin-right: 0;
+        margin-left: 18%;
+        
+    }
+
+    .principal__manchete-texto {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+
+    .principal__acoes {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .principal__cadastroBicho-imagem {
+        width: 15rem;
+        height: 12.5rem;
+    }
+}
+
 
