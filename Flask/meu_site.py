@@ -15,14 +15,14 @@ def create_app():
     
     # Configuração da chave secreta e do banco de dados
     app.config['SECRET_KEY'] = "123Salsich@#"
-    app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://admin:{database_password}@ong.cnq6aasawjg8.sa-east-1.rds.amazonaws.com/miaumigos"
-    #app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://BD07032415:Ysios4@BD-ACD/BD07032415"
+    #app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://admin:{database_password}@ong.cnq6aasawjg8.sa-east-1.rds.amazonaws.com/miaumigos"
+    app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://BD07032415:Ysios4@BD-ACD/BD07032415"
     
     # Inicializar o SQLAlchemy com o app
     db.init_app(app)
 
-    #with app.app_context():
-      #  db.create_all()
+    with app.app_context():
+        db.create_all()
     
     # Registrar blueprints
     app.register_blueprint(routes_bp)

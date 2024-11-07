@@ -14,6 +14,7 @@
 .principal__conteudo {
     margin: 0 5%;
     background-color: var(--cor-de-fundo);
+    padding-bottom: 20rem;
 }
 
 .titulo {
@@ -96,6 +97,7 @@
     font-family: var(--fonte-titulo);
     display: flex;
     justify-content: center;
+    padding-top: 0;
 }
 
 .paraRegistro-formato{
@@ -106,4 +108,20 @@
 
 .paraRegistro-formato:hover{
     color: red;   
+}
+
+@media (max-width:600px) {
+    .titulo {
+        padding-top: 1rem;
+    }
+    
+    .navega {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .imagens-formato {
+        width: 15rem;
+        height: 15rem;
+    }
 }

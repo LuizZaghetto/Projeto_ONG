@@ -19,6 +19,7 @@
 .principal__conteudo-titulo {
     text-align: center;
     font-family: var(--fonte-titulo);
+    padding: 2rem;
 }
 
 #principal__conteudo__tabela {

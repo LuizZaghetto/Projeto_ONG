@@ -64,6 +64,7 @@
         font-size: small;
         flex-direction: column;
         padding: 1px;
+        margin-right: 0;
     }    
 
 }
