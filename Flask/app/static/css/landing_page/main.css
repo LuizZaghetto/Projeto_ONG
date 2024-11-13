@@ -13,6 +13,9 @@
 .principal__conteudo {
     margin: 0 5%;
     background: var(--cor-de-fundo);
+    background: radial-gradient(circle, rgba(253,238,205,1) 0%, rgba(228,181,104,1) 84%);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
 }
 
 .principal__noticias-titulo {
@@ -60,6 +63,14 @@
     height: 25rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     border-radius: 5%;
+    transition: 0.4s;
+}
+
+.principal__cadastroBicho-imagem:hover {
+    width:36rem;
+    height:30rem;
+    cursor:-webkit-grab
+    
 }
 
 .principal__cadastroBicho-texto {

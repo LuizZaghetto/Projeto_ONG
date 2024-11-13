@@ -8,6 +8,8 @@
     justify-content: space-between;      
     align-items: center;
     background-color: var(--cor-cabecalho); 
+    /* background: linear-gradient(27deg, rgba(238,74,74,1) 0%, rgba(234,134,118,1) 45%, rgba(207,46,37,1) 92%); */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     padding: 1.4rem;
 }
 
@@ -62,6 +64,8 @@
   cursor: pointer;
   background-color: brown;
   color: white;
+  border-radius: 10%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1.5px 3px, rgba(0, 0, 0, 0.23) 0px 1.5px 3px;
 }
 
 .botao:hover {
