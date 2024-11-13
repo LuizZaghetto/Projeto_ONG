@@ -126,12 +126,12 @@ def perfil_bicho(nome_bicho):
 
 # Lidar com erros
 # Invalid URL
-@routes_bp.errorhandler(404)
+@routes_bp.app_errorhandler(404)
 def page_not_found(e):
     return render_template("erro/erro.html", erro = 404), 404
 
 #Internal Server Error 
-@routes_bp.errorhandler(500)
+@routes_bp.app_errorhandler(500)
 def page_not_found(e):
     return render_template("erro/erro.html", erro = 500), 500
 
