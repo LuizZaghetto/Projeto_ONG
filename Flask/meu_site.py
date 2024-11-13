@@ -31,9 +31,6 @@ err = {
 }
 
 def create_app():
-    if 'app' in globals():
-        return app  # Já existe uma instância de app, então não cria novamente
-    
     try:
         app = Flask(__name__, template_folder='app/templates', static_folder='app/static')
         

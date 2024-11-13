@@ -56,7 +56,7 @@ def registro():
                     nome = form.nome.data, 
                     email = form.email.data,
                     telefone = form.telefone.data,
-                    data_nasc = datetime.strptime(form.data_nasc.data, '%Y-%m-%d'),
+                    data_nasc = form.data_nasc.data.strftime('%Y-%m-%d'),                
                     CPF = form.CPF.data
                 )
                 db.session.add(usuario)
@@ -67,6 +67,7 @@ def registro():
                 form.data_nasc.data = ''
                 form.CPF.data = ''
                 flash("Registro realizado com sucesso!", "success")
+                return redirect(url_for("routes.login"))
             except Exception as e:
                 db.session.rollback()
                 flash(f"Erro ao registrar o usuário: {e}", "danger")

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MiauMigos - Registro</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/registro/main.css') }}">
 </head>
 <body>
@@ -38,18 +39,49 @@
                         <div class="formularios-unico">
                             {{ form.email.label }}
                             {{ form.email }}
+                            {% if form.email.errors %}
+                            <div class="alert alert-danger">
+                                {% for error in form.email.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
                         </div> 
                         <div class="formularios-unico">
                             {{ form.telefone.label }}
-                            {{ form.telefone }}
+                            {{ form.telefone(id="telefone", onkeyup="formatarTelefone(this)") }}
+                            {% if form.telefone.errors %}
+                            <div class="alert alert-danger">
+                                {% for error in form.telefone.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
                         </div>
                         <div class="formularios-unico">
                             {{ form.CPF.label }}
-                            {{ form.CPF }}
+                            {{ form.CPF(id="cpf", onkeyup="formatarCPF(this)") }}
+                            {% if form.CPF.errors %}
+                            <div class="alert alert-danger">
+                                {% for error in form.CPF.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
                         </div>
                         <div class="formularios-unico">
                             {{ form.data_nasc.label }}
-                            {{ form.data_nasc }}
+                            <input type="text" id="data_nasc" name="data_nasc" 
+                            placeholder="YYYY-MM-DD" 
+                            value="{{ form.data_nasc.data or '' }}" 
+                            class="form-control">
+                            {% if form.data_nasc.errors %}
+                                <div class="alert alert-danger">
+                                    {% for error in form.data_nasc.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
                         </div>
                         <div class="formularios-enviar">
                             {{ form.enviar(class="formularios-enviar-botao botao1") }}
@@ -61,6 +93,8 @@
                 </div>
             </section>
         </section>
+        <script src="{{ url_for('static', filename = 'js/registro/registro.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     </main>
 {% endblock %}
 {% include 'footer/footer.html' %}
