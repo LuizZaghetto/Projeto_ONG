@@ -113,6 +113,21 @@ def atualizar(ID_usuario):
         form = form,
         atualizacao = atualizacao,
         usuarios = usuarios)
+    
+# # Deletar Usuário
+@routes_bp.route("/admin/excluir/<int:ID_usuario>")
+def excluir(ID_usuario):
+    exclusao = models.Usuarios.query.get_or_404(ID_usuario)
+    usuarios = models.Usuarios.query.order_by(models.Usuarios.ID_usuario)
+    try:
+        db.session.delete(exclusao)
+        db.session.commit()
+        flash(f"Usuario {exclusao.nome} deletado com sucesso")
+
+        return redirect(url_for("routes.crud"))
+    except:
+        flash("Houve um problema ao deletar o usuário")
+        return redirect(url_for("routes.crud"))
 
 # Acessar página de usuário
 @routes_bp.route("/usuarios")

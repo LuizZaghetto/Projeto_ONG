@@ -13,10 +13,26 @@
 
 {% block content %}
 
+
+
+
     <main class="principal">
         <section class="principal__conteudo">
             <h1 class="principal__conteudo-titulo">Usuários da página</h1>
             <div class="principal__conteudo-tabela">
+
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="mensagens-flash">
+                        {% for message in messages %}
+                            <div class="alert alert-success">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {% endwith %}
+                
                 <table class="table table-hover table-bordered table-striped" id="tabela">
                     <tr>
                         <th>ID</th>
@@ -25,11 +41,13 @@
                         <th>Telefone</th>
                         <th>Data de nascimento</th>
                         <th>CPF</th>
+                        <th>Deletar</th>
                     </tr>
                     {% for usuario in usuarios %}
                         <tr>
                         <td> {{usuario.ID_usuario}} </td><td><a href="{{ url_for('routes.atualizar', ID_usuario=usuario.ID_usuario) }}">{{ usuario.nome }}</a> </td><td> {{usuario.email}}</td><td>
                             {{usuario.telefone}} </td><td> {{usuario.data_nasc}} </td><td> {{usuario.CPF}} </td> 
+                            <td> <a href="{{url_for('routes.excluir', ID_usuario = usuario.ID_usuario)}}" id="deletar">Deletar</a> </td> 
                         </tr>
                     {% endfor %}
                     </table>

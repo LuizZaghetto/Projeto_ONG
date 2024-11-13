@@ -29,3 +29,7 @@
 #tabela {
     margin: 2rem 0 0 0;
 }
+
+#deletar {
+    color: red;
+}

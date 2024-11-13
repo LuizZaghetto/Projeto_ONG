@@ -1,9 +1,10 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, DateField 
+from wtforms import StringField, SubmitField, DateField, IntegerField 
 from wtforms.validators import DataRequired, Email, Length, Regexp
 
 # Criar formulário para Registro
 class registroForm(FlaskForm):
+    ID_usuario = IntegerField("")
     nome = StringField("Nome de usuário", validators=[DataRequired()])
     email = StringField("Email", validators=[Email(message="Por favor, insira um email válido.")])
     data_nasc = DateField("Data de Nascimento", format='%Y-%m-%d', validators=[DataRequired(), ])

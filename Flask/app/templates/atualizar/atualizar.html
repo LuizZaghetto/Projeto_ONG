@@ -42,6 +42,8 @@
             <br>
 
             {{form.enviar }}
+
+            <a href="{{ url_for('routes.excluir', ID_usuario=atualizacao.ID_usuario) }}">Deletar</a>
         </form>
     </div>
 
