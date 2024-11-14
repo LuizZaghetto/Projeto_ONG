@@ -1,4 +1,5 @@
 from flask import render_template, Blueprint, redirect, url_for, flash, abort, request
+from werkzeug.security import generate_password_hash, check_password_hash
 import app.forms.forms as forms 
 from flask_sqlalchemy import SQLAlchemy
 import app.models.models as models
@@ -23,26 +24,24 @@ def landing_page():
     return render_template("landing_page/index.html")
 
 # Página de login
-@routes_bp.route("/login")
+@routes_bp.route("/login", methods=['GET', 'POST'])
 def login():
     form = forms.loginForm()
+    verifica_senha = None
+    email = None
     if form.validate_on_submit():
-        usuario = models.Usuarios.query.filter_by(email = form.email.data).first()
-        if usuario is None:
-            try: 
-                usuario = forms.Usuarios(
-                    nome = form.nome.data, 
-                )
-                db.session.add(usuario)
-                db.session.commit()
-                form.nome.data = ''
-                flash("Registro realizado com sucesso!", "success")
-            except Exception as e:
-                db.session.rollback()
-                flash("Erro ao registrar o usuário: {e}", "danger")
-        else:
-            flash("Esse e-mail já está registrado.", "warning")        
-    return render_template('login/login.html', form=form)
+        email = form.email.data
+        senha = form.senha_hash.data
+        form.email.data = ''
+        form.senha_hash.data = ''
+
+        check_senha = models.Usuarios.query.filter_by(email = email).first()
+
+        verifica_senha = check_password_hash(check_senha.senha_hash, senha)
+    return render_template("login/login.html", 
+    verifica_senha = verifica_senha,
+    form = form,
+    email = email)
 
 # Página de registro
 @routes_bp.route("/registro", methods=['GET', 'POST'])
@@ -52,12 +51,19 @@ def registro():
         usuario = models.Usuarios.query.filter_by(email = form.email.data).first()
         if usuario is None:
             try: 
+
+                # Formatar CPF e Telefone no backend
+                cpf_formatado = func.formatar_cpf(form.CPF.data)
+                telefone_formatado = func.formatar_telefone(form.telefone.data)
+                # Aplicando hash a senha
+                senha_hashed = generate_password_hash(form.senha_hash.data)
                 usuario = models.Usuarios(
                     nome = form.nome.data, 
                     email = form.email.data,
                     telefone = form.telefone.data,
                     data_nasc = form.data_nasc.data.strftime('%Y-%m-%d'),                
-                    CPF = form.CPF.data
+                    CPF = form.CPF.data,
+                    senha_hash = senha_hashed
                 )
                 db.session.add(usuario)
                 db.session.commit()

@@ -1,4 +1,5 @@
 from app.extensions import db
+from werkzeug.security import generate_password_hash, check_password_hash
 class Usuarios(db.Model):
     __tablename__ = 'pessoa'
     
@@ -8,9 +9,21 @@ class Usuarios(db.Model):
     telefone = db.Column(db.String(20), nullable=False)
     data_nasc = db.Column(db.Date, nullable=False)
     CPF = db.Column(db.String(15), nullable=False, unique=True)
+    senha_hash = db.Column(db.String(256))
+
+    @property
+    def password(self):
+        raise AttributeError('password is not a readable attribute')
+
+    @password.setter
+    def password(self, password):
+        self.password_hash = generate_password_hash(password)
+    
+    def verify_password(self, password):
+        return check_password_hash(self.password_hash, password)
 
     bichos = db.relationship('Bichos', backref='usuario', lazy='select')
-    adocoes = db.relationship('Adocao', backref='adocoes_usuario', lazy='select')  # Alterado para 'adocoes_usuario'
+    adocoes_usuario = db.relationship('Adocao', back_populates='usuario', lazy='dynamic')
 
 class Bichos(db.Model):
     __tablename__ = "bicho"
@@ -58,7 +71,7 @@ class Adocao(db.Model):
 
     # Relacionamentos
     bicho = db.relationship('Bichos', backref='adocoes_bicho', lazy=True)  # Alterei para 'adocoes_bicho'
-    usuario = db.relationship('Usuarios', backref='adocoes_usuario', lazy=True)  # Alterei para 'adocoes_usuario'
+    usuario = db.relationship('Usuarios', back_populates='adocoes_usuario')
 
     def __repr__(self):
         return f"<Adocao ID={self.ID_adocao}, Bicho={self.ID_bicho}, Usuario={self.ID_usuario}, Data={self.Data_Adocao}>"

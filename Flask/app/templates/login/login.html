@@ -18,14 +18,21 @@
                 <h1>
                     Acesse sua conta
                 </h1>
+            {% if email %}
+                {{verifica_senha}}
+            {% endif %}
             </div>
                 <section class="navega">
                     <div class="formularios">
                         <form method="POST">
                             {{ form.hidden_tag() }}
                             <div class="formularios-unico">   
-                                {{ form.nome.label }}
-                                {{ form.nome }}
+                                {{ form.email.label }}
+                                {{ form.email }}
+                            </div>
+                            <div class="formularios-unico">   
+                                {{ form.senha_hash.label }}
+                                {{ form.senha_hash }}
                             </div>
                             <div class="formularios-enviar">
                                 {{ form.enviar(class="formularios-enviar-botao botao1") }}

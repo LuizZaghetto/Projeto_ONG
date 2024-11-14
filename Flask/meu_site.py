@@ -4,6 +4,8 @@ from app.controllers.routes import routes_bp
 from app.extensions import db
 import os
 from dotenv import load_dotenv
+import app.functions as func
+
 
 # Carregar as variáveis do .env
 load_dotenv()
@@ -51,9 +53,13 @@ def create_app():
 
         with app.app_context():
             db.create_all()
+            # func.atualizar_dados_formatados()
+
         
         # Registrar blueprints
         app.register_blueprint(routes_bp)
+
+
             
         return app
     except Exception as e:
