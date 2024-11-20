@@ -12,16 +12,34 @@
         <a class="cabecalho__tag" href="/"><h1 class= "cabecalho__titulo">MiauMigos</h1></a>
         <img src="{{url_for('static', filename='img/logo_miaumigos.png')}}" alt="Logo da ONG" class="cabecalho__imagem">
     </div>
+    {% if current_user.is_authenticated %}
     <div class="cabecalho__login">
-        <a href="/login">
+        <a href="{{url_for('routes.interface_logado')}}">
             <button type="button" class="botao botao1">
-                Login
+                Perfil
             </button>
         </a>
-        <a href="/registro">
+        <a href= "{{url_for('routes.logout')}}">
             <button type="button" class="botao botao2">
-                Registro
+                Logout
             </button> 
-        </a> 
-    </div> 
+        </a>
+    </div>
+    {% else %}
+        {% if request.endpoint != 'routes.login' and request.endpoint != 'routes.registro' %}
+            <div class="cabecalho__login">
+                <a href="{{url_for('routes.login')}}">
+                    <button type="button" class="botao botao1">
+                        Login
+                    </button>
+                </a>
+                <a href="{{url_for('routes.registro')}}">
+                    <button type="button" class="botao botao2">
+                        Registro
+                    </button> 
+                </a> 
+            </div> 
+        {% endif %}
+    {% endif %}
 </header> 
+

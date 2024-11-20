@@ -5,6 +5,8 @@ from app.extensions import db
 import os
 from dotenv import load_dotenv
 import app.functions as func
+from flask_login import LoginManager 
+import app.models.models as models
 
 
 # Carregar as variáveis do .env
@@ -55,11 +57,16 @@ def create_app():
             db.create_all()
             # func.atualizar_dados_formatados()
 
-        
+        login_manager = LoginManager()
+        login_manager.init_app(app)
+        login_manager.login_view = 'routes.login'
+
+        @login_manager.user_loader
+        def load_user(user_id):
+             return models.Usuarios.query.get(int(user_id))
+
         # Registrar blueprints
         app.register_blueprint(routes_bp)
-
-
             
         return app
     except Exception as e:

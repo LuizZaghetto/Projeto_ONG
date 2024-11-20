@@ -6,6 +6,7 @@ import app.models.models as models
 from app.extensions import db
 from datetime import datetime
 import app.functions as func
+from flask_login import login_user, login_required, logout_user, current_user
 
 routes_bp = Blueprint('routes', __name__)
 
@@ -27,21 +28,21 @@ def landing_page():
 @routes_bp.route("/login", methods=['GET', 'POST'])
 def login():
     form = forms.loginForm()
-    verifica_senha = None
-    email = None
     if form.validate_on_submit():
-        email = form.email.data
-        senha = form.senha_hash.data
-        form.email.data = ''
-        form.senha_hash.data = ''
+        usuario = models.Usuarios.query.filter_by(email=form.email.data).first()
+        if usuario and check_password_hash(usuario.senha_hash, form.senha.data):
+            login_user(usuario)
+            flash("Login bem sucedido")
+            return redirect(url_for('routes.interface_logado'))  # Roteamento do dashboard ou página protegida
+        flash("Invalid username or password!")
+    return render_template('login/login.html', form=form)
 
-        check_senha = models.Usuarios.query.filter_by(email = email).first()
-
-        verifica_senha = check_password_hash(check_senha.senha_hash, senha)
-    return render_template("login/login.html", 
-    verifica_senha = verifica_senha,
-    form = form,
-    email = email)
+# Função de logout
+@routes_bp.route("/logout", methods = ["GET", "POST"])
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('routes.landing_page'))
 
 # Página de registro
 @routes_bp.route("/registro", methods=['GET', 'POST'])
@@ -56,7 +57,7 @@ def registro():
                 cpf_formatado = func.formatar_cpf(form.CPF.data)
                 telefone_formatado = func.formatar_telefone(form.telefone.data)
                 # Aplicando hash a senha
-                senha_hashed = generate_password_hash(form.senha_hash.data)
+                senha_hashed = generate_password_hash(form.senha.data)
                 usuario = models.Usuarios(
                     nome = form.nome.data, 
                     email = form.email.data,
@@ -80,6 +81,12 @@ def registro():
         else:
             flash("Esse e-mail já está registrado.", "warning")        
     return render_template('registro/registro.html', form=form)
+
+# Criar interface de usuário
+@routes_bp.route("/interface_logado")
+@login_required
+def interface_logado():
+    return render_template("interface_logado/interface_logado.html")
 
 # Acessar crud temporário
 @routes_bp.route("/admin/crud")

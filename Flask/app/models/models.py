@@ -1,6 +1,7 @@
 from app.extensions import db
 from werkzeug.security import generate_password_hash, check_password_hash
-class Usuarios(db.Model):
+from flask_login import UserMixin
+class Usuarios(db.Model, UserMixin):
     __tablename__ = 'pessoa'
     
     ID_usuario = db.Column(db.Integer, primary_key=True, nullable=False)
@@ -21,6 +22,10 @@ class Usuarios(db.Model):
     
     def verify_password(self, password):
         return check_password_hash(self.password_hash, password)
+    
+    # Adicionando o método get_id para o Flask-Login
+    def get_id(self):
+        return str(self.ID_usuario)  # Retorne o ID como string
 
     bichos = db.relationship('Bichos', backref='usuario', lazy='select')
     adocoes_usuario = db.relationship('Adocao', back_populates='usuario', lazy='dynamic')
@@ -33,7 +38,7 @@ class Bichos(db.Model):
     especie = db.Column(db.String(20), nullable=False)
     idade = db.Column(db.Integer, nullable=False)
     porte = db.Column(db.String(10), nullable=False)
-    descricao = db.Column(db.String(500), nullable=True)
+    descricao = db.Column(db.Text, nullable=True)
 
     # Relacionamentos
     ID_usuario = db.Column(db.Integer, db.ForeignKey('pessoa.ID_usuario', ondelete='SET NULL'))

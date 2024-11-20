@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/usuarios/main.css')}}">
+</head>
+<body>
+
+{% include 'header/header.html' %}
+{% block content %}
+
+    <main class="principal">
+        <section class="principal__conteudo">
+            <div class="principal__perfil">
+                <div class="principal__perfil-foto">
+                    <img src="" alt="foto do perfil" class="principal__perfil-foto-imagem">
+                </div>
+                <div class="principal__perfil-dados">
+                    <h2 class="principal__perfil-dados-titulo"> {{ current_user.nome}} </h2>
+                    <p class="principal__perfil-dados-texto">Email: {{ current_user.email}}</p>
+                    <p class="principal__perfil-dados-texto">Contato: {{ current_user.telefone}}</p>
+                </div>
+            </div>
+            <nav class="principal__bichos">
+                <h2 class="principal__bichos-titulo">Bichos para adoção</h2>
+                <div class="principal__bichos__catalogo">
+                </div>
+            </nav>
+        </section>
+        
+    </main>
+
+{% endblock %}
+{% include 'footer/footer.html' %}
+
+</body>
