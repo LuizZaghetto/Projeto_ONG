@@ -20,3 +20,23 @@ class loginForm(FlaskForm):
     email = StringField("Email", validators=[DataRequired()])   
     senha = PasswordField("Senha", validators=[DataRequired()])
     enviar = SubmitField("Enviar")   
+
+class registroONGForm(FlaskForm):
+    nome = StringField('Nome', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    telefone = StringField('Telefone', validators=[DataRequired()])
+    CEP = StringField('CEP', validators=[DataRequired()])
+    endereco = StringField('Endereço', validators=[DataRequired()])
+    bairro = StringField('Bairro', validators=[DataRequired()])
+    cidade = StringField('Cidade', validators=[DataRequired()])
+    UF = StringField('UF', validators=[DataRequired()])
+    CNPJ = StringField('CNPJ', validators=[DataRequired()])
+    senha = PasswordField("Digite sua senha", validators=[DataRequired(), EqualTo('senha2', message = "As senhas devem ser iguais")])
+    senha2 = PasswordField("Confirme a senha", validators=[DataRequired()])
+    enviar = SubmitField('Registrar')
+
+# Criar formulário para adicionar Bicho
+class bichoForm(FlaskForm):
+    nome = StringField("Nome do Bicho", validators=[DataRequired()])
+    porte = StringField("Porte do Bicho", validators=[DataRequired()])
+    enviar = SubmitField("Enviar")

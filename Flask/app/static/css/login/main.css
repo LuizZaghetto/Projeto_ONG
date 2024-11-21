@@ -1,14 +1,15 @@
 @import url('../vars/vars.css');
 @import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
 
-
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 .principal {
     background-color: var(--cor-de-fora);
+    min-height: 100vh;
 }
 
 .principal__conteudo {
@@ -17,13 +18,16 @@
     background: radial-gradient(circle, rgba(253,238,205,1) 0%, rgba(228,181,104,1) 84%);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     padding-bottom: 20rem;
+    border-radius: 15px;
 }
 
 .titulo {
     font-family: var(--fonte-titulo);
-    font-size: large;
+    font-size: 1.5rem;
     font-weight: lighter;
     text-align: center;
+    margin-bottom: 2rem;
+    color: brown;
 }
 
 .formularios {
@@ -31,44 +35,51 @@
     justify-content: center;
     padding-bottom: 2rem;
     padding-top: 1rem;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .formularios-unico {
-   display: grid;
-   font-family: var(--fonte-secundaria);
-   padding-bottom: 1rem;
+    display: grid;
+    font-family: var(--fonte-secundaria);
+    padding-bottom: 1rem;
+}
+
+.formularios-unico label {
+    font-weight: bold;
+    color: brown;
+}
+
+.formularios-unico select,
+.formularios-unico input {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 0.5rem;
 }
 
 .formularios-enviar {
     padding-top: 1rem;
     display: flex;
     justify-content: center;
-
-
 }
 
 .formularios-enviar-botao {
     border: none;
     color: white;
-    padding: 8px 16px;
+    padding: 12px 24px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
     border-radius: 10%;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1.5px 3px, rgba(0, 0, 0, 0.23) 0px 1.5px 3px;
-} 
-
-.botao1{
     background-color: brown;
-    color: white;
-    border: 1px solid brown;
 }
 
-.botao1:hover {
+.formularios-enviar-botao:hover {
     background-color: var(--cor-de-fundo);
     color: black; 
     border: 1px solid brown;
@@ -82,12 +93,10 @@
 }
 
 .imagens-formato {
-    width: 20rem;
-    height: 20rem;
+    width: 18rem;
+    height: 18rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     border-radius: 5%;
-
-
 }
 
 .navega {
@@ -97,24 +106,24 @@
     padding-bottom: 10rem;
 }
 
-.paraRegistro{
+.paraRegistro {
     font-family: var(--fonte-titulo);
     display: flex;
     justify-content: center;
     padding-top: 0;
 }
 
-.paraRegistro-formato{
+.paraRegistro-formato {
     text-decoration: none;
     color: brown;
     transition: 0.4s;
 }
 
-.paraRegistro-formato:hover{
-    color: red;   
+.paraRegistro-formato:hover {
+    color: red;
 }
 
-@media (max-width:600px) {
+@media (max-width: 600px) {
     .titulo {
         padding-top: 1rem;
     }
@@ -122,10 +131,15 @@
     .navega {
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
 
     .imagens-formato {
         width: 15rem;
         height: 15rem;
+    }
+
+    .formularios {
+        gap: 1rem;
     }
 }

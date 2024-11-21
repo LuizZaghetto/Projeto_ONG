@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_migrate import Migrate
-from app.controllers.routes import routes_bp
+from app.controllers.routes import routes_bp, auth_routes_bp
 from app.extensions import db
 import os
 from dotenv import load_dotenv
@@ -59,14 +59,15 @@ def create_app():
 
         login_manager = LoginManager()
         login_manager.init_app(app)
-        login_manager.login_view = 'routes.login'
-
+        login_manager.login_view = 'auth_routes.login'
+        
         @login_manager.user_loader
         def load_user(user_id):
              return models.Usuarios.query.get(int(user_id))
 
         # Registrar blueprints
         app.register_blueprint(routes_bp)
+        app.register_blueprint(auth_routes_bp) 
             
         return app
     except Exception as e:

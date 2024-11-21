@@ -22,31 +22,45 @@
                 {{verifica_senha}}
             {% endif %}
             </div>
-                <section class="navega">
-                    <div class="formularios">
-                        <form method="POST">
-                            {{ form.hidden_tag() }}
-                            <div class="formularios-unico">   
-                                {{ form.email.label }}
-                                {{ form.email }}
-                            </div>
-                            <div class="formularios-unico">   
-                                {{ form.senha.label }}
-                                {{ form.senha }}
-                            </div>
-                            <div class="formularios-enviar">
-                                {{ form.enviar(class="formularios-enviar-botao botao1") }}
-                            </div>      
-                        </form>
-                    </div>
-                    <div class="imagens">
-                        <img class="imagens-formato" src="{{url_for('static', filename = 'img/gatorita.png')}}">
-                    </div>          
+            <section class="navega">
+                <div class="formularios">
+                    <form method="POST">
+                        {{ form.hidden_tag() }}
+                        
+                        <!-- Seletor de Tipo de Conta -->
+                        <div class="formularios-unico">   
+                            <label for="tipo_conta">Tipo de Conta</label>
+                            <select name="tipo_conta" id="tipo_conta" class="form-control" required>
+                                <option value="usuario">Usuário</option>
+                                <option value="ong">ONG</option>
+                            </select>
+                        </div>
+
+                        <div class="formularios-unico">   
+                            {{ form.email.label }}
+                            {{ form.email }}
+                        </div>
+
+                        <div class="formularios-unico">   
+                            {{ form.senha.label }}
+                            {{ form.senha }}
+                        </div>
+
+                        <div class="formularios-enviar">
+                            {{ form.enviar(class="formularios-enviar-botao botao1") }}
+                        </div>      
+                    </form>
+                </div>
+                <div class="imagens">
+                    <img class="imagens-formato" src="{{url_for('static', filename = 'img/gatorita.png')}}">
+                </div>          
+            </section>
+
+            <div class="paraRegistro">
+                <p>Não tem uma conta? <a class="paraRegistro-formato" href="/registro">Registre-se aqui</a></p>
+            </div>
         </section>
-        <div class="paraRegistro">
-            <p>Não tem uma conta? <a class="paraRegistro-formato" href="/registro">Registre-se aqui</a></p>
-        </div>
     </main>
-</body>    
 {% endblock %}
 {% include 'footer/footer.html' %}
+</body>    

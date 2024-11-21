@@ -54,11 +54,14 @@ class ONG(db.Model):
     nome = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(50), nullable=False, unique=True)
     telefone = db.Column(db.String(20), nullable=False)
+    CEP = db.Column(db.String(20), nullable = False)
     endereco = db.Column(db.String(100), nullable=False)
     bairro = db.Column(db.String(30), nullable=False)
     cidade = db.Column(db.String(30), nullable=False)
     UF = db.Column(db.String(2), nullable=False)
     CNPJ = db.Column(db.String(15), nullable=False, unique=True)
+    senha_hash = db.Column(db.String(256))
+
 
     # Relacionamento com Bicho
     bichos = db.relationship('Bichos', backref='ong', lazy=True)  # Alterei para 'Bichos' ao invés de 'Bicho'

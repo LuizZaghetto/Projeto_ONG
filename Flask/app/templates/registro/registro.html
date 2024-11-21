@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MiauMigos - Registro</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/registro/main.css') }}">
 </head>
 <body>
@@ -13,29 +12,38 @@
 {% include 'header/header.html' %}
 {% block content %}
 
-    <main class="principal"> 
-        <section class="principal__conteudo">
-            {% for message in get_flashed_messages() %}
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    Hey {{ name }} {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            {% endfor %}
+<main class="principal"> 
+    <section class="principal__conteudo">
+        <div class="titulo">
+            <h1>
+                Crie sua conta
+            </h1>
+        </div>
 
-            <div class="titulo">
-                <h1>
-                    Crie sua conta
-                </h1>
-            </div>
+        <section class="navega">
+            <div class="formularios">
+                <form method="POST">
+                    {{ form.hidden_tag() }}
 
-            <section class="navega">
-                <div class="formularios">
-                    <form method="POST">
-                        {{ form.hidden_tag() }}
+                    <!-- Campo hidden para armazenar o tipo de conta -->
+                    <input type="hidden" name="tipo_conta" id="tipo_conta" value="usuario">
+                    
+                    <!-- Seleciona o tipo de conta -->
+                    <div class="toggle-container">
+                        <input type="radio" id="usuario" name="tipo_conta" value="usuario" checked>
+                        <label for="usuario" class="toggle-option">Usuário</label>
+                        <input type="radio" id="ong" name="tipo_conta" value="ong">
+                        <label for="ong" class="toggle-option">ONG</label>
+                    </div>
+
+                    <!-- Campos para Usuário -->
+                    <div class="campos" id="camposUsuario">
+                                <!-- Nome -->
                         <div class="formularios-unico">   
                             {{ form.nome.label }}
                             {{ form.nome }}
                         </div> 
+                                <!-- Email -->
                         <div class="formularios-unico">
                             {{ form.email.label }}
                             {{ form.email }}
@@ -47,6 +55,7 @@
                             </div>
                             {% endif %}
                         </div> 
+                                <!-- Telefone -->
                         <div class="formularios-unico">
                             {{ form.telefone.label }}
                             {{ form.telefone(id="telefone", onkeyup="formatarTelefone(this)") }}
@@ -58,6 +67,7 @@
                             </div>
                             {% endif %}
                         </div>
+                                <!-- CPF -->
                         <div class="formularios-unico">
                             {{ form.CPF.label }}
                             {{ form.CPF(id="cpf", onkeyup="formatarCPF(this)") }}
@@ -69,6 +79,7 @@
                             </div>
                             {% endif %}
                         </div>
+                                <!-- Data de Nascimento -->
                         <div class="formularios-unico">
                             {{ form.data_nasc.label }}
                             <input type="text" id="data_nasc" name="data_nasc" 
@@ -83,28 +94,88 @@
                                 </div>
                             {% endif %}
                         </div>
-                        <div class="formularios-unico">   
-                            {{ form.senha.label }}
-                            {{ form.senha }}
-                        </div> 
-                        <div class="formularios-unico">   
-                            {{ form.senha2.label }}
-                            {{ form.senha2 }}
-                        </div> 
-                        <div class="formularios-enviar">
-                            {{ form.enviar(class="formularios-enviar-botao botao1") }}
-                        </div>    
-                    </form>
-                </div>
-                <div class="imagens">
-                    <img class="imagens-formato" src="{{url_for('static', filename = 'img/cachorrowilly.jpeg')}}">
-                </div>
-            </section>
+                    </div>
+
+                    <!-- Campos para ONG -->
+                    <div class="campos" id="camposOng" style="display: none;">
+                                <!-- Nome -->
+                        <div class="formularios-unico">
+                            {{ formONG.nome.label }}
+                            {{ formONG.nome }}
+                        </div>
+
+                        <!-- Email -->
+                        <div class="formularios-unico">
+                            {{ formONG.email.label }}
+                            {{ formONG.email }}
+                        </div>
+
+                        <!-- Telefone -->
+                        <div class="formularios-unico">
+                            {{ formONG.telefone.label }}
+                            {{ formONG.telefone }}
+                        </div>
+
+                        <!-- CEP -->
+                        <div class="formularios-unico">
+                            {{ formONG.CEP.label }}
+                            {{ formONG.CEP }}
+                        </div>
+
+                        <!-- Endereço -->
+                        <div class="formularios-unico">
+                            {{ formONG.endereco.label }}
+                            {{ formONG.endereco }}
+                        </div>
+
+                        <!-- Bairro -->
+                        <div class="formularios-unico">
+                            {{ formONG.bairro.label }}
+                            {{ formONG.bairro }}
+                        </div>
+
+                        <!-- Cidade -->
+                        <div class="formularios-unico">
+                            {{ formONG.cidade.label }}
+                            {{ formONG.cidade }}
+                        </div>
+
+                        <!-- UF -->
+                        <div class="formularios-unico">
+                            {{ formONG.UF.label }}
+                            {{ formONG.UF }}
+                        </div>
+
+                        <!-- CNPJ -->
+                        <div class="formularios-unico">
+                            {{ formONG.CNPJ.label }}
+                            {{ formONG.CNPJ }}
+                        </div>
+                    </div>
+
+                    <div class="formularios-unico">   
+                        {{ form.senha.label }}
+                        {{ form.senha }}
+                    </div> 
+                    <div class="formularios-unico">   
+                        {{ form.senha2.label }}
+                        {{ form.senha2 }}
+                    </div> 
+                    <div class="formularios-enviar">
+                        {{ form.enviar(class="formularios-enviar-botao botao1") }}
+                    </div>    
+                </form>
+            </div>
+            <div class="imagens">
+                <img class="imagens-formato" src="{{url_for('static', filename = 'img/cachorrowilly.jpeg')}}">
+            </div>
         </section>
-        <script src="{{ url_for('static', filename = 'js/registro/registro.js') }}"></script>
-        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    </main>
+    </section>
+</main>
+
 {% endblock %}
 {% include 'footer/footer.html' %}
+<script src="{{url_for('static', filename= 'js/registro/registro.js')}}"></script>
+
 </body>
 </html>

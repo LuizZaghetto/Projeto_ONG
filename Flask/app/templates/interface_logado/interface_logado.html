@@ -3,30 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
+    <title>Perfil - {{ current_user.nome }}</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/usuarios/main.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/interface_logado/main.css')}}">
 </head>
 <body>
 
+<!-- Modal -->
+<div id="modalAdicionarBicho" class="modal">
+    <div class="modal-content">
+        <span class="modal-fechar" onclick="fecharModal()">&times;</span>
+        <h2>Adicionar Bicho</h2>
+        <form action="{{ url_for('routes.adicionar_bicho') }}" method="POST">
+            {{form.hidden_tag()}}
+
+            {{form.nome.label}}
+            {{form.nome}}
+
+            {{form.porte.label}}
+            {{form.porte}}
+
+            {{form.enviar}}
+        </form>
+    </div>
+</div>
+
+
 {% include 'header/header.html' %}
 {% block content %}
-
     <main class="principal">
         <section class="principal__conteudo">
             <div class="principal__perfil">
                 <div class="principal__perfil-foto">
-                    <img src="" alt="foto do perfil" class="principal__perfil-foto-imagem">
+                    <img src="{{ url_for('static', filename='img/cachorro-sorri.jpeg') }}" alt="Foto do perfil" class="principal__perfil-foto-imagem">
                 </div>
                 <div class="principal__perfil-dados">
-                    <h2 class="principal__perfil-dados-titulo"> {{ current_user.nome}} </h2>
-                    <p class="principal__perfil-dados-texto">Email: {{ current_user.email}}</p>
-                    <p class="principal__perfil-dados-texto">Contato: {{ current_user.telefone}}</p>
+                    <h2 class="principal__perfil-dados-titulo">{{ current_user.nome }}</h2>
                 </div>
             </div>
             <nav class="principal__bichos">
                 <h2 class="principal__bichos-titulo">Bichos para adoção</h2>
+                <!-- Botão para abrir o modal -->
+                <button class="adicionar-bicho" onclick="abrirModal()">+ Adicionar Bicho</button>                
                 <div class="principal__bichos__catalogo">
+                    {% for animal in current_user.bichos %}
+                    <div class="principal__bichos__catalogo-item">
+                        <img src="{{url_for('static', filename = 'img/admin_bicho.png')}}" alt='Imagem do pet' class="principal__bichos__catalogo-foto">
+                        <div class="principal__bichos__catalogo-informacoes">
+                            <p class="principal__bichos__catalogo-texto">Nome: {{ animal.nome }}</p>
+                            <p class="principal__bichos__catalogo-texto">Idade: {{ animal.idade }}</p>
+                            <p class="principal__bichos__catalogo-texto">Sexo: {{ animal.sexo }}</p>
+                            <p class="principal__bichos__catalogo-texto">Porte: {{ animal.porte }}</p>
+                            <p class="principal__bichos__catalogo-texto">Descrição: {{ animal.descricao }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
                 </div>
             </nav>
         </section>
@@ -35,5 +66,5 @@
 
 {% endblock %}
 {% include 'footer/footer.html' %}
-
+<script src="{{url_for('static', filename = 'js/interface_logado/interface_logado.js')}}"></script>
 </body>

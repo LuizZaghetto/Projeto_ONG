@@ -56,3 +56,24 @@ document.addEventListener('DOMContentLoaded', function () {
         altFormat: "F j, Y"  // Formato alternativo, se você quiser exibir a data de forma diferente
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    let tipoContaInputs = document.querySelectorAll('input[name="tipo_conta"]');
+    tipoContaInputs.forEach(function(input) {
+        input.addEventListener('change', function() {
+            let tipoConta = this.value;
+            // Atualiza o campo hidden com o tipo selecionado
+            document.getElementById('tipo_conta').value = tipoConta;
+            
+            // Mostra ou esconde os campos baseados na seleção
+            if (tipoConta === 'usuario') {
+                document.getElementById('camposUsuario').style.display = 'block';
+                document.getElementById('camposOng').style.display = 'none';
+            } else {
+                document.getElementById('camposUsuario').style.display = 'none';
+                document.getElementById('camposOng').style.display = 'block';
+            }
+        });
+    });
+});

@@ -19,7 +19,7 @@
                 Perfil
             </button>
         </a>
-        <a href= "{{url_for('routes.logout')}}">
+        <a href= "{{url_for('auth_routes.logout')}}">
             <button type="button" class="botao botao2">
                 Logout
             </button> 
@@ -28,12 +28,12 @@
     {% else %}
         {% if request.endpoint != 'routes.login' and request.endpoint != 'routes.registro' %}
             <div class="cabecalho__login">
-                <a href="{{url_for('routes.login')}}">
+                <a href="{{url_for('auth_routes.login')}}">
                     <button type="button" class="botao botao1">
                         Login
                     </button>
                 </a>
-                <a href="{{url_for('routes.registro')}}">
+                <a href="{{url_for('auth_routes.registro')}}">
                     <button type="button" class="botao botao2">
                         Registro
                     </button> 

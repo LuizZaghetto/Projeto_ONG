@@ -7,8 +7,12 @@ from app.extensions import db
 from datetime import datetime
 import app.functions as func
 from flask_login import login_user, login_required, logout_user, current_user
+from app.controllers.auth_routes import auth_routes_bp
 
 routes_bp = Blueprint('routes', __name__)
+
+routes_bp.register_blueprint(auth_routes_bp)
+
 
 # Carregando header e footer
 @routes_bp.route('/header')
@@ -24,69 +28,13 @@ def serve_footer():
 def landing_page():
     return render_template("landing_page/index.html")
 
-# Página de login
-@routes_bp.route("/login", methods=['GET', 'POST'])
-def login():
-    form = forms.loginForm()
-    if form.validate_on_submit():
-        usuario = models.Usuarios.query.filter_by(email=form.email.data).first()
-        if usuario and check_password_hash(usuario.senha_hash, form.senha.data):
-            login_user(usuario)
-            flash("Login bem sucedido")
-            return redirect(url_for('routes.interface_logado'))  # Roteamento do dashboard ou página protegida
-        flash("Invalid username or password!")
-    return render_template('login/login.html', form=form)
-
-# Função de logout
-@routes_bp.route("/logout", methods = ["GET", "POST"])
-@login_required
-def logout():
-    logout_user()
-    return redirect(url_for('routes.landing_page'))
-
-# Página de registro
-@routes_bp.route("/registro", methods=['GET', 'POST'])
-def registro():
-    form = forms.registroForm()
-    if form.validate_on_submit():
-        usuario = models.Usuarios.query.filter_by(email = form.email.data).first()
-        if usuario is None:
-            try: 
-
-                # Formatar CPF e Telefone no backend
-                cpf_formatado = func.formatar_cpf(form.CPF.data)
-                telefone_formatado = func.formatar_telefone(form.telefone.data)
-                # Aplicando hash a senha
-                senha_hashed = generate_password_hash(form.senha.data)
-                usuario = models.Usuarios(
-                    nome = form.nome.data, 
-                    email = form.email.data,
-                    telefone = form.telefone.data,
-                    data_nasc = form.data_nasc.data.strftime('%Y-%m-%d'),                
-                    CPF = form.CPF.data,
-                    senha_hash = senha_hashed
-                )
-                db.session.add(usuario)
-                db.session.commit()
-                form.nome.data = ''
-                form.email.data = ''
-                form.telefone.data = ''
-                form.data_nasc.data = ''
-                form.CPF.data = ''
-                flash("Registro realizado com sucesso!", "success")
-                return redirect(url_for("routes.login"))
-            except Exception as e:
-                db.session.rollback()
-                flash(f"Erro ao registrar o usuário: {e}", "danger")
-        else:
-            flash("Esse e-mail já está registrado.", "warning")        
-    return render_template('registro/registro.html', form=form)
 
 # Criar interface de usuário
 @routes_bp.route("/interface_logado")
 @login_required
 def interface_logado():
-    return render_template("interface_logado/interface_logado.html")
+    form = forms.bichoForm()
+    return render_template("interface_logado/interface_logado.html", form = form)
 
 # Acessar crud temporário
 @routes_bp.route("/admin/crud")
@@ -164,3 +112,15 @@ def page_not_found(e):
 def page_not_found(e):
     return render_template("erro/erro.html", erro = 500), 500
 
+@routes_bp.route("/adicionar_Bicho")
+def adicionar_bicho():
+    form = forms.bichoForm()
+    if form.validate_on_submit():
+        bicho = models.Bichos(
+            nome = form.nome.data,
+            porte = form.porte.data
+        )
+        db.session.add(bicho)
+        db.session.commit()
+        return redirect(url_for('routes.interface_logado'))
+    return render_template("adicionar_bicho")
