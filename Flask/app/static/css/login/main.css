@@ -40,7 +40,6 @@
 }
 
 .formularios-unico {
-    display: grid;
     font-family: var(--fonte-secundaria);
     padding-bottom: 1rem;
 }

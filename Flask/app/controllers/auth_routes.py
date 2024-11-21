@@ -33,51 +33,37 @@ def logout():
 # Página de registro
 @auth_routes_bp.route("/registro", methods=['GET', 'POST'])
 def registro():
-    usuarioForm = forms.registroForm()
-    ONGForm = forms.registroONGForm()
+    form = forms.registroForm()
+    if form.validate_on_submit():
+        usuario = models.Usuarios.query.filter_by(email = form.email.data).first()
+        if usuario is None:
+            try: 
 
-    tipo_conta = request.form.get('tipo_conta')
-
-    if request.method == 'POST':
-        if tipo_conta == 'usuario' and usuarioForm.validate_on_submit():
-            adicionar = models.Usuarios.query.filter_by(email = usuarioForm.email.data).first()
-            if adicionar is None:
-                    # Formatar campos no backend
-                    cpf_formatado = func.formatar_cpf(usuarioForm.CPF.data)
-                    telefone_formatado = func.formatar_telefone(usuarioForm.telefone.data)
-                    # Aplicando hash a senha
-                    senha_hashed = generate_password_hash(usuarioForm.senha.data)
-                    adicionar = models.Usuarios(
-                        nome = usuarioForm.nome.data, 
-                        email = usuarioForm.email.data,
-                        telefone = telefone_formatado,
-                        data_nasc = usuarioForm.data_nasc.data.strftime('%Y-%m-%d'),                
-                        CPF = cpf_formatado,
-                        senha_hash = senha_hashed
-                    )
-        elif tipo_conta == 'ONG' and ONGForm.validate_on_submit():
-            adicionar = models.ONG.query.filter_by(email = ONGForm.email.data).first()
-            if adicionar is None:
-                # Formatar campos no backend
-                    telefone_formatado = func.formatar_telefone(usuarioForm.telefone.data)
+                # Formatar CPF e Telefone no backend
+                cpf_formatado = func.formatar_cpf(form.CPF.data)
+                telefone_formatado = func.formatar_telefone(form.telefone.data)
                 # Aplicando hash a senha
-                    senha_hashed = generate_password_hash(ONGForm.senha.data)
-                    adicionar = models.ONG(
-                    nome = ONGForm.nome.data,
-                    email = ONGForm.email.data, 
-                    telefone = ONGForm.telefone.data, 
-                    CEP = ONGForm.CEP.data,
-                    endereco = ONGForm.endereco.data,
-                    bairro = ONGForm.bairro.data,
-                    cidade = ONGForm.cidade.data,
-                    UF = ONGForm.UF.data, 
-                    CPNJ = ONGForm.CPNJ.data,
+                senha_hashed = generate_password_hash(form.senha.data)
+                usuario = models.Usuarios(
+                    nome = form.nome.data, 
+                    email = form.email.data,
+                    telefone = form.telefone.data,
+                    data_nasc = form.data_nasc.data.strftime('%Y-%m-%d'),                
+                    CPF = form.CPF.data,
                     senha_hash = senha_hashed
                 )
-        if adicionar:
-            db.session.add(adicionar)
-            db.session.commit()
-            return redirect(url_for("auth_routes.login"))
-    return render_template('registro/registro.html', form=usuarioForm, formONG = ONGForm)
-
-
+                db.session.add(usuario)
+                db.session.commit()
+                form.nome.data = ''
+                form.email.data = ''
+                form.telefone.data = ''
+                form.data_nasc.data = ''
+                form.CPF.data = ''
+                flash("Registro realizado com sucesso!", "success")
+                return redirect(url_for("auth_routes.login"))
+            except Exception as e:
+                db.session.rollback()
+                flash(f"Erro ao registrar o usuário: {e}", "danger")
+        else:
+            flash("Esse e-mail já está registrado.", "warning")        
+    return render_template('registro/registro.html', form=form)
