@@ -5,6 +5,7 @@ class Usuarios(db.Model, UserMixin):
     __tablename__ = 'pessoa'
     
     ID_usuario = db.Column(db.Integer, primary_key=True, nullable=False)
+    tipo = db.Column(db.Integer(), nullable = False, default = 0)
     nome = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(50), nullable=False, unique=True)
     telefone = db.Column(db.String(20), nullable=False)
@@ -51,6 +52,7 @@ class ONG(db.Model):
     __tablename__ = 'ong'
 
     ID_ONG = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    tipo = db.Column(db.Integer(), nullable = False, default = 1)
     nome = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(50), nullable=False, unique=True)
     telefone = db.Column(db.String(20), nullable=False)

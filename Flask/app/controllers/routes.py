@@ -33,7 +33,6 @@ def session_timeout():
 def landing_page():
     return render_template("landing_page/index.html")
 
-
 # Criar interface de usuário
 @routes_bp.route("/interface_logado", methods=['GET','POST'])
 @login_required
