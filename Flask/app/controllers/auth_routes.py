@@ -30,15 +30,14 @@ def logout():
     logout_user()
     return redirect(url_for('routes.landing_page'))
 
-# Página de registro
+# Página de registro para Usuário
 @auth_routes_bp.route("/registro", methods=['GET', 'POST'])
-def registro():
+def registroUsuario():
     form = forms.registroForm()
     if form.validate_on_submit():
         usuario = models.Usuarios.query.filter_by(email = form.email.data).first()
         if usuario is None:
             try: 
-
                 # Formatar CPF e Telefone no backend
                 cpf_formatado = func.formatar_cpf(form.CPF.data)
                 telefone_formatado = func.formatar_telefone(form.telefone.data)

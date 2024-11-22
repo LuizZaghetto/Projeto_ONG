@@ -13,21 +13,10 @@ routes_bp = Blueprint('routes', __name__)
 
 routes_bp.register_blueprint(auth_routes_bp)
 
-
-# Carregando header e footer
-@routes_bp.route('/header')
-def serve_header():
-    return render_template('header/header.html') 
-
-@routes_bp.route('/footer')
-def serve_footer():
-    return render_template('footer/footer.html')
-
 # Página inicial
 @routes_bp.route("/")
 def landing_page():
     return render_template("landing_page/index.html")
-
 
 # Criar interface de usuário
 @routes_bp.route("/interface_logado")
