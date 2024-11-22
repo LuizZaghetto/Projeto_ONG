@@ -2,7 +2,7 @@
     --fonte-titulo: "Protest Strike", sans-serif;
     --fonte-secundaria: "Roboto", sans-serif;
     --cor-de-fundo: #fdeecd;
-    --cor-cabecalho: #ea8676;
+    --cor-cabecalho: linear-gradient(27deg, rgba(238,74,74,1) 0%, rgba(234,134,118,1) 45%, rgba(207,46,37,1) 92%);
     --cor-de-fora: #eab05e;
     --cor-borda: #493831;
 }

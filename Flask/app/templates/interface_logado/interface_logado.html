@@ -68,6 +68,7 @@
                 <div class="principal__perfil-dados">
                     <h2 class="principal__perfil-dados-titulo">{{ current_user.nome }}</h2>
                 </div>
+                <a href="{{url_for('routes.atualizar_usuario', ID_usuario = current_user.ID_usuario)}}">Atualizar Conta</a>
             </div>
             <nav class="principal__bichos">
                 <h2 class="principal__bichos-titulo">Bichos para adoção</h2>

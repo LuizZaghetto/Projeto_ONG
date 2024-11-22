@@ -45,7 +45,7 @@
                     </tr>
                     {% for usuario in usuarios %}
                         <tr>
-                        <td> {{usuario.ID_usuario}} </td><td><a href="{{ url_for('routes.atualizar', ID_usuario=usuario.ID_usuario) }}">{{ usuario.nome }}</a> </td><td> {{usuario.email}}</td><td>
+                        <td> {{usuario.ID_usuario}} </td><td><a href="{{ url_for('routes.atualizar_admin', ID_usuario=usuario.ID_usuario) }}">{{ usuario.nome }}</a> </td><td> {{usuario.email}}</td><td>
                             {{usuario.telefone}} </td><td> {{usuario.data_nasc}} </td><td> {{usuario.CPF}} </td> 
                             <td> <a href="{{url_for('routes.excluir', ID_usuario = usuario.ID_usuario)}}" id="deletar">Deletar</a> </td> 
                         </tr>

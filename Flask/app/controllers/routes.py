@@ -34,16 +34,46 @@ def landing_page():
     return render_template("landing_page/index.html")
 
 # Criar interface de usuário
-@routes_bp.route("/interface_logado", methods=['GET','POST'])
+@routes_bp.route("/perfil/<nome_usuario>", methods=['GET','POST'])
 @login_required
-def interface_logado():
+def interface_logado(nome_usuario):
     form = forms.bichoForm()
-    return render_template("interface_logado/interface_logado.html", form = form)
+    return render_template("interface_logado/interface_logado.html", form = form, nome_de_usuario = current_user.nome)
 
+# Interface para usuario atualizar seu perfil
+@routes_bp.route('/atualizar_usuario/<int:ID_usuario>', methods=['GET', 'POST'])
+def atualizar_usuario(ID_usuario):
+    form = forms.registroForm()
+    usuarios = models.Usuarios.query.order_by(models.Usuarios.ID_usuario)
+    atualizacao = models.Usuarios.query.get_or_404(ID_usuario)
+    if request.method == "POST":
+        atualizacao.nome = request.form['nome']
+        atualizacao.email = request.form['email']
+        atualizacao.telefone = request.form['telefone']
+        atualizacao.data_nasc = request.form['data_nasc']
+        atualizacao.CPF = request.form['CPF']
+        try:
+            db.session.commit()
+            flash(f"Usuário {ID_usuario} atualizado com sucesso")
+            return render_template("atualizar_usuario/atualizar_usuario.html", 
+            form = form,
+            atualizacao = atualizacao,
+            usuarios = usuarios)
+        except:
+            flash("Error")
+            return render_template("atualizar_usuario/atualizar_usuario.html", 
+            form = form,
+            atualizacao = atualizacao,
+            usuarios = usuarios)
+    else:
+        return render_template("atualizar_usuario/atualizar_usuario.html", 
+        form = form,
+        atualizacao = atualizacao,
+        usuarios = usuarios)
 
-# Atualizar usuário
-@routes_bp.route('/admin/atualizar/<int:ID_usuario>', methods=['GET', 'POST'])
-def atualizar(ID_usuario):
+# Atualizar usuário usando admin
+@routes_bp.route('/admin/atualizar_admin/<int:ID_usuario>', methods=['GET', 'POST'])
+def atualizar_admin(ID_usuario):
     form = forms.registroForm()
     usuarios = models.Usuarios.query.order_by(models.Usuarios.ID_usuario)
     atualizacao = models.Usuarios.query.get_or_404(ID_usuario)
@@ -56,19 +86,19 @@ def atualizar(ID_usuario):
         atualizacao.ID_usuario = request.form['ID_usuario']
         try:
             db.session.commit()
-            flash("Usuário adicionado com sucesso")
-            return render_template("atualizar/atualizar.html", 
+            flash(f"Usuário {ID_usuario} atualizado com sucesso")
+            return render_template("atualizar_admin/atualizar_admin.html", 
             form = form,
             atualizacao = atualizacao,
             usuarios = usuarios)
         except:
             flash("Error")
-            return render_template("atualizar/atualizar.html", 
+            return render_template("atualizar_admin/atualizar_admin.html", 
             form = form,
             atualizacao = atualizacao,
             usuarios = usuarios)
     else:
-        return render_template("atualizar/atualizar.html", 
+        return render_template("atualizar_admin/atualizar_admin.html", 
         form = form,
         atualizacao = atualizacao,
         usuarios = usuarios)
@@ -110,15 +140,18 @@ def adicionar_bicho():
         return redirect(url_for('routes.interface_logado'))
     return render_template("adicionar_bicho")
 
+# Handler de erro 403 (proibido)
+@auth_routes_bp.app_errorhandler(403)
+def forbidden_error(error):
+    return render_template('errors/403.html'), 403
 
+# Handler de erro 404 (não encontrado)
+@auth_routes_bp.app_errorhandler(404)
+def not_found_error(error):
+    return render_template('errors/404.html'), 404
 
-# Lidar com erros
-# Invalid URL
-@routes_bp.app_errorhandler(404)
-def page_not_found(e):
-    return render_template("erro/erro.html", erro = 404), 404
-
-#Internal Server Error 
-@routes_bp.app_errorhandler(500)
-def page_not_found(e):
-    return render_template("erro/erro.html", erro = 500), 500
+# Handler de erro 500 (erro interno do servidor)
+@auth_routes_bp.app_errorhandler(500)
+def internal_error(error):
+    db.session.rollback()  # Garantir rollback caso o erro seja relacionado ao banco
+    return render_template('errors/500.html'), 500
