@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,28 +8,38 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/login/main.css') }}">
 </head>
-<body>
-    
-{% include 'header/header.html' %}
 
-{% block content %}
-    <main class="principal"> 
+<body>
+
+    {% include 'header/header.html' %}
+
+    {% block content %}
+
+    <main class="principal">
+
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ name }} {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+
         <section class="principal__conteudo">
             <div class="titulo">
                 <h1>
                     Acesse sua conta
                 </h1>
-            {% if email %}
+                {% if email %}
                 {{verifica_senha}}
-            {% endif %}
+                {% endif %}
             </div>
             <section class="navega">
                 <div class="formularios">
-                    <form method="POST">
+                    <form method="POST" action="/login">
                         {{ form.hidden_tag() }}
-                        
+
                         <!-- Seletor de Tipo de Conta -->
-                        <div class="formularios-unico">   
+                        <div class="formularios-unico">
                             <label for="tipo_conta">Tipo de Conta</label>
                             <select name="tipo_conta" id="tipo_conta" class="form-control" required>
                                 <option value="usuario">Usuário</option>
@@ -36,24 +47,24 @@
                             </select>
                         </div>
 
-                        <div class="formularios-unico">   
+                        <div class="formularios-unico">
                             {{ form.email.label }}
                             {{ form.email }}
                         </div>
 
-                        <div class="formularios-unico">   
+                        <div class="formularios-unico">
                             {{ form.senha.label }}
                             {{ form.senha }}
                         </div>
 
                         <div class="formularios-enviar">
                             {{ form.enviar(class="formularios-enviar-botao botao1") }}
-                        </div>      
+                        </div>
                     </form>
                 </div>
                 <div class="imagens">
                     <img class="imagens-formato" src="{{url_for('static', filename = 'img/gatorita.png')}}">
-                </div>          
+                </div>
             </section>
 
             <div class="paraRegistro">
@@ -61,6 +72,6 @@
             </div>
         </section>
     </main>
-{% endblock %}
-{% include 'footer/footer.html' %}
-</body>    
+    {% endblock %}
+    {% include 'footer/footer.html' %}
+</body>

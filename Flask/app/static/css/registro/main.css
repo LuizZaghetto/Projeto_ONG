@@ -10,15 +10,16 @@
 .principal {
     background-color: var(--cor-de-fora);
     min-height: 100vh;
+    padding: 2rem 0;
 }
 
 .principal__conteudo {
-    margin: 0 5%;
+    width: 90%;
+    margin: 0 5rem;
     background-color: var(--cor-de-fundo);
-    background: radial-gradient(circle, rgba(253,238,205,1) 0%, rgba(228,181,104,1) 84%);
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    padding-bottom: 20rem;
     border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 1.6rem;
 }
 
 .titulo {
@@ -114,12 +115,13 @@ input[name="tipo_conta"]:checked + .toggle-option {
     padding-top: 1rem;
     padding-bottom: 1rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
 .imagens-formato {
-    width: 18rem;
-    height: 18rem;
+    width: 27rem;
+    height: 37.5rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     border-radius: 5%;
 }

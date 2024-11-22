@@ -11,19 +11,39 @@
 
 <!-- Modal -->
 <div id="modalAdicionarBicho" class="modal">
-    <div class="modal-content">
+    <div class="modal-conteudo">
         <span class="modal-fechar" onclick="fecharModal()">&times;</span>
         <h2>Adicionar Bicho</h2>
         <form action="{{ url_for('routes.adicionar_bicho') }}" method="POST">
-            {{form.hidden_tag()}}
+            <div class="modalCampos">
+                {{form.hidden_tag()}}
 
-            {{form.nome.label}}
-            {{form.nome}}
+                {{form.nome.label}}
+                {{form.nome}}
 
-            {{form.porte.label}}
-            {{form.porte}}
+                {{form.porte.label}}
+                {{form.porte}}
 
-            {{form.enviar}}
+                {{form.nome.label}}
+                {{form.nome}}
+
+                {{form.nome.label}}
+                {{form.nome}}
+
+                {{form.nome.label}}
+                {{form.nome}}
+
+                {{form.nome.label}}
+                {{form.nome}}
+
+                {{form.nome.label}}
+                {{form.nome}}
+
+                {{form.nome.label}}
+                {{form.nome}}
+
+            <div class="modalDirecao">{{form.enviar(class="modal-submit")}}</div>
+            </div>        
         </form>
     </div>
 </div>

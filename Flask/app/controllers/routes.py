@@ -13,24 +13,22 @@ routes_bp = Blueprint('routes', __name__)
 
 routes_bp.register_blueprint(auth_routes_bp)
 
+
+
 # Página inicial
-@routes_bp.route("/")
+@routes_bp.route("/", methods=['GET', 'POST'])
 def landing_page():
     return render_template("landing_page/index.html")
 
 # Criar interface de usuário
-@routes_bp.route("/interface_logado")
+@routes_bp.route("/interface_logado", methods=['GET','POST'])
 @login_required
 def interface_logado():
+    print('test')
+    print(request)
     form = forms.bichoForm()
     return render_template("interface_logado/interface_logado.html", form = form)
 
-# Acessar crud temporário
-@routes_bp.route("/admin/crud")
-def crud():
-    usuarios = models.Usuarios.query.order_by(models.Usuarios.ID_usuario)
-    return render_template("crud/crud.html",
-    usuarios = usuarios)
 
 # Atualizar usuário
 @routes_bp.route('/admin/atualizar/<int:ID_usuario>', methods=['GET', 'POST'])
@@ -65,7 +63,8 @@ def atualizar(ID_usuario):
         usuarios = usuarios)
     
 # # Deletar Usuário
-@routes_bp.route("/admin/excluir/<int:ID_usuario>")
+@routes_bp.route("/admin/excluir/<int:ID_usuario>", methods=['POST'])
+@login_required
 def excluir(ID_usuario):
     exclusao = models.Usuarios.query.get_or_404(ID_usuario)
     usuarios = models.Usuarios.query.order_by(models.Usuarios.ID_usuario)
@@ -79,15 +78,27 @@ def excluir(ID_usuario):
         flash("Houve um problema ao deletar o usuário")
         return redirect(url_for("routes.crud"))
 
-# Acessar página de usuário
-@routes_bp.route("/usuarios")
-def usuarios():
-    return render_template("usuarios/index.html")
-
 # Acessar o perfil do bicho
 @routes_bp.route("/perfil_bicho/<nome_bicho>")
+@login_required
 def perfil_bicho(nome_bicho):
     return render_template("perfil_bicho/index.html", nome_bicho=nome_bicho)
+
+
+@routes_bp.route("/adicionar_Bicho")
+@login_required
+def adicionar_bicho():
+    form = forms.bichoForm()
+    if form.validate_on_submit():
+        bicho = models.Bichos(
+            nome = form.nome.data,
+            porte = form.porte.data
+        )
+        db.session.add(bicho)
+        db.session.commit()
+        return redirect(url_for('routes.interface_logado'))
+    return render_template("adicionar_bicho")
+
 
 
 # Lidar com erros
@@ -100,16 +111,3 @@ def page_not_found(e):
 @routes_bp.app_errorhandler(500)
 def page_not_found(e):
     return render_template("erro/erro.html", erro = 500), 500
-
-@routes_bp.route("/adicionar_Bicho")
-def adicionar_bicho():
-    form = forms.bichoForm()
-    if form.validate_on_submit():
-        bicho = models.Bichos(
-            nome = form.nome.data,
-            porte = form.porte.data
-        )
-        db.session.add(bicho)
-        db.session.commit()
-        return redirect(url_for('routes.interface_logado'))
-    return render_template("adicionar_bicho")

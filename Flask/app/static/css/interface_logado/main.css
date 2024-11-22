@@ -20,6 +20,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 2rem 0;
+    /* min-height: 100vh; */
 }
 
 .principal__conteudo {
@@ -111,6 +112,29 @@ body {
     word-wrap: break-word; 
 }
 
+.adicionar-bicho {
+  border: 1px solid brown;  
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: brown;
+  color: white;
+  border-radius: 5%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1.5px 3px, rgba(0, 0, 0, 0.23) 0px 1.5px 3px;
+}
+
+.adicionar-bicho:hover {
+    background-color: var(--cor-de-fundo);
+    color: black; 
+    border: 1px solid brown;
+}
+
 /* Modal */
 .modal {
     display: none; /* Escondido por padrão */
@@ -121,17 +145,33 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
+    width: 50%;
 }
 
 /* Conteúdo do modal */
-.modal-content {
+.modal-conteudo {
     position: relative;
     margin: 10% auto;
     padding: 20px;
-    width: 40%;
-    background: white;
+    width: 50%;
+    background-color: var(--cor-de-fundo);
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: var(--fonte-secundaria);
+}
+
+.modalCampos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+
+}
+
+.modalDirecao {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
 /* Botão de fechar */
@@ -145,15 +185,24 @@ body {
 
 /* Botão de enviar no modal */
 .modal-submit {
-    background-color: var(--cor-secundaria);
-    color: white;
-    padding: 10px 15px;
     border: none;
-    border-radius: 5px;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
     cursor: pointer;
-    margin-top: 10px;
+    border-radius: 10%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1.5px 3px, rgba(0, 0, 0, 0.23) 0px 1.5px 3px;
+    background-color: brown;
+    width: 20%;
+    display: flex;
+    justify-content: center;
 }
 
 .modal-submit:hover {
-    background-color: var(--cor-secundaria-clara);
+    background-color: var(--cor-de-fundo);
+    color: black; 
+    border: 1px solid brown;
 }

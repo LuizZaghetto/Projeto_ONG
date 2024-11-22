@@ -71,7 +71,7 @@
 .botao:hover {
     background-color: var(--cor-de-fundo);
     color: black; 
-    border: 1px solid brown
+    border: 1px solid brown;
 }
 
 @media (max-width:600px) {
