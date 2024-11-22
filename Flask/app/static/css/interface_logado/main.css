@@ -12,6 +12,8 @@ body {
     font-family: 'Protest Strike', sans-serif;
     background-color: var(--cor-de-fora);
     color: var(--cor-de-texto);
+    display: flex;
+    flex-direction: column;
 }
 
 .principal {
@@ -20,6 +22,9 @@ body {
     justify-content: center;
     align-items: center;
     padding: 2rem 0;
+    flex-direction: column;
+    width: 100vw;
+    flex: 2;
     /* min-height: 100vh; */
 }
 
@@ -205,4 +210,15 @@ body {
     background-color: var(--cor-de-fundo);
     color: black; 
     border: 1px solid brown;
+}
+
+
+header,footer{
+    width: 100vw;
+    height: 10vh;
+}
+
+main{
+    width: 100vw;
+    height: 80vh;
 }

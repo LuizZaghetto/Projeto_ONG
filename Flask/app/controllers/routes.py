@@ -1,4 +1,5 @@
-from flask import render_template, Blueprint, redirect, url_for, flash, abort, request
+from flask import render_template, Blueprint, redirect, url_for, flash, abort, request, session
+import logging
 from werkzeug.security import generate_password_hash, check_password_hash
 import app.forms.forms as forms 
 from flask_sqlalchemy import SQLAlchemy
@@ -9,11 +10,23 @@ import app.functions as func
 from flask_login import login_user, login_required, logout_user, current_user
 from app.controllers.auth_routes import auth_routes_bp
 
+
+# Configuração básica de logging
+logging.basicConfig(filename="app.log", level=logging.ERROR, 
+                    format="%(asctime)s %(levelname)s: %(message)s")
+
+
+# Configuração do tempo limite de sessão
+SESSION_TIMEOUT = 3600  # Tempo em segundos (1 hora)
+
 routes_bp = Blueprint('routes', __name__)
 
 routes_bp.register_blueprint(auth_routes_bp)
 
-
+@auth_routes_bp.before_request
+def session_timeout():
+    session.permanent = True
+    auth_routes_bp.permanent_session_lifetime = SESSION_TIMEOUT
 
 # Página inicial
 @routes_bp.route("/", methods=['GET', 'POST'])
@@ -25,8 +38,6 @@ def landing_page():
 @routes_bp.route("/interface_logado", methods=['GET','POST'])
 @login_required
 def interface_logado():
-    print('test')
-    print(request)
     form = forms.bichoForm()
     return render_template("interface_logado/interface_logado.html", form = form)
 
