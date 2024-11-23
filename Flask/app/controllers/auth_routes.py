@@ -42,38 +42,78 @@ def logout():
 # Página de registro
 @auth_routes_bp.route("/registro", methods=['GET', 'POST'])
 def registro():
-    form = forms.registroForm()
-    if form.validate_on_submit():
-        usuario = models.Usuarios.query.filter_by(email=form.email.data).first()
-        if usuario is None:
-            try:
-                # Formatar CPF e Telefone no backend
-                cpf_formatado = func.formatar_cpf(form.CPF.data)
-                telefone_formatado = func.formatar_telefone(form.telefone.data)
+    usuarioform = forms.registroForm()
+    ONGform = forms.registroONGForm()
+    
+    # Verificar qual formulário foi enviado
+    if request.method == 'POST':
+        form_type = request.form.get('form_type')
+        
+        if form_type == 'usuario' and usuarioform.validate_on_submit():
+            # Lógica para o formulário de usuário
+            usuario = models.Usuarios.query.filter_by(email=usuarioform.email.data).first()
+            if usuario is None:
+                try:
+                    # Formatar CPF e Telefone no backend
+                    cpf_formatado = func.formatar_cpf(usuarioform.CPF.data)
+                    telefone_formatado = func.formatar_telefone(usuarioform.telefone.data)
+                    
+                    # Aplicando hash à senha
+                    senha_hashed = generate_password_hash(usuarioform.senha.data)
+                    usuario = models.Usuarios(
+                        nome=usuarioform.nome.data,
+                        email=usuarioform.email.data,
+                        telefone=telefone_formatado,
+                        data_nasc=usuarioform.data_nasc.data.strftime('%Y-%m-%d'),
+                        CPF=cpf_formatado,
+                        senha_hash=senha_hashed
+                    )
 
-                # Aplicando hash à senha
-                senha_hashed = generate_password_hash(form.senha.data)
-                usuario = models.Usuarios(
-                    nome=form.nome.data,
-                    email=form.email.data,
-                    telefone=telefone_formatado,
-                    data_nasc=form.data_nasc.data.strftime('%Y-%m-%d'),
-                    CPF=cpf_formatado,
-                    senha_hash=senha_hashed
-                )
+                    # Adicionando e commitando no banco de dados
+                    db.session.add(usuario)
+                    db.session.commit()
 
-                # Adicionando e commitando no banco de dados
-                db.session.add(usuario)
-                db.session.commit()
+                    flash("Registro de usuário realizado com sucesso!", "success")
+                    return redirect(url_for("auth_routes.login"))
+                except Exception as e:
+                    db.session.rollback()  # Reverter mudanças no banco em caso de erro
+                    flash(f"Erro ao registrar o usuário: {e}", "danger")
+            else:
+                flash("Esse e-mail já está registrado.", "warning")
+        elif form_type == 'ong' and ONGform.validate_on_submit():
+            print('oi')
+            # Lógica para o formulário de ONG
+            ong = models.ONG.query.filter_by(email=ONGform.email.data).first()
+            if ong is None:
+                try:
+                    # Aplicando hash à senha
+                    senha_hashed = generate_password_hash(ONGform.senha.data)
+                    ong = models.ONG(
+                        nome=ONGform.nome.data,
+                        email=ONGform.email.data,
+                        telefone=ONGform.telefone.data,
+                        CEP=ONGform.CEP.data,
+                        endereco=ONGform.endereco.data,
+                        bairro=ONGform.bairro.data,
+                        cidade=ONGform.cidade.data,
+                        UF=ONGform.UF.data,
+                        CNPJ=ONGform.CNPJ.data,
+                        senha_hash=senha_hashed
+                    )
 
-                flash("Registro realizado com sucesso!", "success")
-                return redirect(url_for("auth_routes.login"))
-            except Exception as e:
-                db.session.rollback()  # Reverter mudanças no banco em caso de erro
-                flash(f"Erro ao registrar o usuário: {e}", "danger")
+                    # Adicionando e commitando no banco de dados
+                    db.session.add(ong)
+                    db.session.commit()
+
+                    flash("Registro de ONG realizado com sucesso!", "success")
+                    return redirect(url_for("auth_routes.login"))
+                except Exception as e:
+                    db.session.rollback()  # Reverter mudanças no banco em caso de erro
+                    flash(f"Erro ao registrar a ONG: {e}", "danger")
+            else:
+                flash("Esse e-mail já está registrado.", "warning")
         else:
-            flash("Esse e-mail já está registrado.", "warning")
-    elif request.method == 'POST':
-        flash("Erro no formulário, corrija os campos destacados.", "warning")
-    return render_template('registro/registro.html', form=form)
+            flash("Erro no formulário, corrija os campos destacados.", "warning")
+    return render_template('registro/registro.html', usuarioform=usuarioform, ONGform=ONGform)
+
 

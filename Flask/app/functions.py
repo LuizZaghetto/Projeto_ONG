@@ -3,6 +3,7 @@ import re
 import app.models.models as models
 import app.forms.forms as forms 
 from app.extensions import db
+import requests
 
 
 def carregar_json(filename):
@@ -49,3 +50,10 @@ def atualizar_dados_formatados():
         db.session.commit()  # Salva as alterações no banco
 
     print("Dados atualizados com sucesso!")
+
+
+    # def validate_CEP(self, field):
+    #     cep = field.data.replace('-', '').replace('.', '')
+    #     response = requests.get(f'https://viacep.com.br/ws/{cep}/json/')
+    #     if response.status_code != 200 or 'erro' in response.json():
+    #         raise ValidationError("CEP inválido ou não encontrado.")
