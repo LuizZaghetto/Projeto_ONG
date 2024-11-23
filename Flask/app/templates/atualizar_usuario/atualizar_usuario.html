@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MiauMigos - 404</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}">
-    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/atualizar_usuario/main.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
-
+<p id="datinha" style="display: none">{{atualizacao.data_nasc}}</p>
 {% include 'header/header.html' %}
 {% block content %}
 
@@ -22,33 +23,82 @@
                 </div>
             {% endfor %}
 
-            <form action ="/atualizar_usuario/{{atualizacao.ID_usuario}}" method = "POST">        
-            
-            {{ form.hidden_tag() }}
-            {{ form.nome.label }}
-            {{ form.nome(value = atualizacao.nome) }}
-            <br>
-            {{ form.email.label }}
-            {{ form.email(value = atualizacao.email) }}
-            <br>
-            {{ form.telefone.label }}
-            {{ form.telefone(value = atualizacao.telefone) }}
-            <br>
-            {{ form.data_nasc.label }}
-            {{ form.data_nasc(value = atualizacao.data_nasc) }}
-            <br>
-            {{ form.CPF.label }}
-            {{ form.CPF(value = atualizacao.CPF) }}
-            <br>
-            {{ form.enviar }}
+            <form action="/atualizar_usuario/{{atualizacao.ID_usuario}}" method="POST">
+                {{ form.hidden_tag() }}
+                
+                {{ form.nome.label }}<br>
+                {{ form.nome(value=atualizacao.nome) }}
+                <br>
+                
+                <div class="formularios-unico">
+                    {{ form.email.label }}<br>
+                    {{ form.email(id="email", value=atualizacao.email) }}
+                    {% if form.email.errors %}
+                    <div class="alert alert-danger">
+                        {% for error in form.email.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <div class="formularios-unico">
+                    {{ form.telefone.label }}<br>
+                    {{ form.telefone(id="telefone", value=atualizacao.telefone ,onkeyup="formatarTelefone(this)") }}
+                    {% if form.telefone.errors %}
+                    <div class="alert alert-danger">
+                        {% for error in form.telefone.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <div class="formularios-unico">
+                    {{ form.data_nasc.label }}
+                    <input type="text" id="data_nasc" name="data_nasc" 
+                    placeholder="YYYY-MM-DD" 
+                    value= "{{atualizacao.data_nasc}}"
+                    class="form-control">
+                    {% if form.data_nasc.errors %}
+                        <div class="alert alert-danger">
+                            {% for error in form.data_nasc.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <div class="formularios-unico">
+                    {{ form.CPF.label }}<br>
+                    {{ form.CPF(id="cpf", value=atualizacao.CPF, onkeyup="formatarCPF(this)") }}
+                    {% if form.CPF.errors %}
+                    <div class="alert alert-danger">
+                        {% for error in form.CPF.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                
 
-
-
-
-
-
+                <!-- Campos para nova senha (opcional) -->
+                 <p>Alteração de senha</p>
+                {{ form.senha }}
+                <br>
+                
+                <p>Confirmação de alteração de senha</p>
+                {{ form.senha2 }}
+                <br>
+                <!-- Campo obrigatório: senha atual -->
+                <label for="senha_atual">Senha Atual</label><br>
+                <input type="password" name="senha_atual" id="senha_atual" required>
+                <br>
+                {{ form.enviar }}
             </form>
         </section>
+        <script src="{{ url_for('static', filename = 'js/atualizar_usuario/atualizar_usuario.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     </main>
 
 {% endblock %}

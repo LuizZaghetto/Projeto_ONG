@@ -4,3 +4,4 @@ app/__pycache__
 app/controllers/__pycache__
 app/models/__pycache__
 app/forms/__pycache__
+app.log

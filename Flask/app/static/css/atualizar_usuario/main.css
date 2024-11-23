@@ -1,0 +1,8 @@
+.principal {
+    background-color: var(--cor-de-fora);
+    text-align: center;
+}
+.principal__conteudo {
+    margin: 0 5%;
+    background-color: var(--cor-de-fundo);
+}

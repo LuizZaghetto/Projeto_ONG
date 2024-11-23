@@ -33,43 +33,68 @@ def session_timeout():
 def landing_page():
     return render_template("landing_page/index.html")
 
-# Criar interface de usuário
-@routes_bp.route("/perfil/<nome_usuario>", methods=['GET','POST'])
+@routes_bp.route("/perfil", methods=['GET', 'POST'])
 @login_required
-def interface_logado(nome_usuario):
+def interface_logado():
     form = forms.bichoForm()
-    return render_template("interface_logado/interface_logado.html", form = form, nome_de_usuario = current_user.nome)
+    return render_template(
+        "interface_logado/interface_logado.html", 
+        form=form
+    )
 
-# Interface para usuario atualizar seu perfil
 @routes_bp.route('/atualizar_usuario/<int:ID_usuario>', methods=['GET', 'POST'])
 def atualizar_usuario(ID_usuario):
-    form = forms.registroForm()
+    form = forms.AtualizarUsuarioForm()
     usuarios = models.Usuarios.query.order_by(models.Usuarios.ID_usuario)
     atualizacao = models.Usuarios.query.get_or_404(ID_usuario)
     if request.method == "POST":
-        atualizacao.nome = request.form['nome']
-        atualizacao.email = request.form['email']
-        atualizacao.telefone = request.form['telefone']
-        atualizacao.data_nasc = request.form['data_nasc']
-        atualizacao.CPF = request.form['CPF']
-        try:
-            db.session.commit()
-            flash(f"Usuário {ID_usuario} atualizado com sucesso")
-            return render_template("atualizar_usuario/atualizar_usuario.html", 
-            form = form,
-            atualizacao = atualizacao,
-            usuarios = usuarios)
-        except:
-            flash("Error")
-            return render_template("atualizar_usuario/atualizar_usuario.html", 
-            form = form,
-            atualizacao = atualizacao,
-            usuarios = usuarios)
-    else:
-        return render_template("atualizar_usuario/atualizar_usuario.html", 
-        form = form,
-        atualizacao = atualizacao,
-        usuarios = usuarios)
+        if form.validate_on_submit():
+            senha_atual = request.form['senha_atual']
+            if not check_password_hash(atualizacao.senha_hash, senha_atual):
+                flash("Senha atual incorreta. Tente novamente.")
+                return render_template(
+                    "atualizar_usuario/atualizar_usuario.html",
+                    form=form,
+                    atualizacao=atualizacao,
+                    usuarios=usuarios
+                )
+            atualizacao.nome = request.form['nome']
+            atualizacao.email = request.form['email']
+            atualizacao.telefone = request.form['telefone']
+            atualizacao.data_nasc = request.form['data_nasc']
+            atualizacao.CPF = request.form['CPF']
+            nova_senha = request.form['senha']
+            confirmacao_senha = request.form['senha2']
+            if nova_senha and confirmacao_senha:
+                if nova_senha == confirmacao_senha:
+                    atualizacao.senha_hash = generate_password_hash(nova_senha)
+                else:
+                    flash("As senhas não coincidem. Tente novamente.")
+                    return render_template(
+                        "atualizar_usuario/atualizar_usuario.html",
+                        form=form,
+                        atualizacao=atualizacao,
+                        usuarios=usuarios
+                    )
+            try:
+                db.session.commit()
+                flash(f"Usuário {atualizacao.nome} atualizado com sucesso")
+                return redirect(url_for('routes.interface_logado'))
+            except:
+                flash("Erro, tente novamente.")
+                return render_template(
+                    "atualizar_usuario/atualizar_usuario.html",
+                    form=form,
+                    atualizacao=atualizacao,
+                    usuarios=usuarios
+                )
+    return render_template(
+        "atualizar_usuario/atualizar_usuario.html",
+        form=form,
+        atualizacao=atualizacao,
+        usuarios=usuarios
+    )
+
 
 # Atualizar usuário usando admin
 @routes_bp.route('/admin/atualizar_admin/<int:ID_usuario>', methods=['GET', 'POST'])
