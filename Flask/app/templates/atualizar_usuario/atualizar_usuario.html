@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
-<p id="datinha" style="display: none">{{atualizacao.data_nasc}}</p>
 {% include 'header/header.html' %}
 {% block content %}
 
@@ -55,30 +54,13 @@
                 </div>
                 
                 <div class="formularios-unico">
-                    {{ form.data_nasc.label }}
-                    <input type="text" id="data_nasc" name="data_nasc" 
-                    placeholder="YYYY-MM-DD" 
-                    value= "{{atualizacao.data_nasc}}"
-                    class="form-control">
-                    {% if form.data_nasc.errors %}
-                        <div class="alert alert-danger">
-                            {% for error in form.data_nasc.errors %}
-                                <p>{{ error }}</p>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
+                    {{ form.data_nasc.label }}<br>
+                    {{ form.data_nasc(id = data_nasc, value = atualizacao.data_nasc, readonly="readonly", class="readonly")}}
                 </div>
                 
                 <div class="formularios-unico">
                     {{ form.CPF.label }}<br>
-                    {{ form.CPF(id="cpf", value=atualizacao.CPF, onkeyup="formatarCPF(this)") }}
-                    {% if form.CPF.errors %}
-                    <div class="alert alert-danger">
-                        {% for error in form.CPF.errors %}
-                            <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
+                    {{ form.CPF(id="cpf", value=atualizacao.CPF, readonly="readonly", class="readonly") }}
                 </div>
                 
 

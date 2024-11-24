@@ -1,5 +1,3 @@
-let teste = document.getElementById('datinha').textContent
-
 function formatarCPF(input) {
     // Remove qualquer caractere que não seja número
     let valor = input.value.replace(/\D/g, '');
@@ -46,15 +44,5 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         }
-    });
-});
-document.addEventListener('DOMContentLoaded', function () {
-    flatpickr("#data_nasc", {
-        dateFormat: "Y-m-d",  // Define o formato de data
-        minDate: "1900-01-01",  // Defina a data mínima, se necessário
-        maxDate: "today",  // Limita a seleção de data até o dia de hoje
-        altInput: true,  // Exibe o campo de texto alternativo com a data formatada
-        altFormat: "F j, Y", // Formato alternativo, se você quiser exibir a data de forma diferente
-        defaultDate: teste
     });
 });

@@ -81,7 +81,6 @@ def registro():
             else:
                 flash("Esse e-mail já está registrado.", "warning")
         elif form_type == 'ong' and ONGform.validate_on_submit():
-            print('oi')
             # Lógica para o formulário de ONG
             ong = models.ONG.query.filter_by(email=ONGform.email.data).first()
             if ong is None:
