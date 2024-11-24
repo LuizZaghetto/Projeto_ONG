@@ -15,7 +15,7 @@ def login():
     if current_user.is_authenticated:
         form = forms.bichoForm()
         flash('Usuário já autenticado', 'warning')
-        return render_template('interface_logado/interface_logado.html', form=form)
+        return render_template('perfil_usuario/perfil_usuario.html', form=form)
     else:
         form = forms.loginForm()
         if form.validate_on_submit():
@@ -23,7 +23,7 @@ def login():
             if usuario and check_password_hash(usuario.senha_hash, form.senha.data):
                 login_user(usuario)
                 flash("Login bem-sucedido!", "success")
-                return redirect(url_for('routes.interface_logado'))
+                return redirect(url_for('usuario_routes.perfil_usuario'))
             else:
                 flash("Credenciais inválidas.", "danger")
         elif request.method == 'POST':

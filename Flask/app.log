@@ -3720,3 +3720,382 @@
 2024-11-24 18:19:10,548 INFO: 127.0.0.1 - - [24/Nov/2024 18:19:10] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
 2024-11-24 18:19:10,554 INFO: 127.0.0.1 - - [24/Nov/2024 18:19:10] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
 2024-11-24 18:19:10,562 INFO: 127.0.0.1 - - [24/Nov/2024 18:19:10] "[36mGET /static/js/interface_logado/interface_logado.js HTTP/1.1[0m" 304 -
+2024-11-24 18:20:46,854 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-24 18:20:46,854 INFO: [33mPress CTRL+C to quit[0m
+2024-11-24 18:20:46,856 INFO:  * Restarting with stat
+2024-11-24 18:20:48,749 WARNING:  * Debugger is active!
+2024-11-24 18:20:48,760 INFO:  * Debugger PIN: 452-107-489
+2024-11-24 18:20:48,878 INFO: 127.0.0.1 - - [24/Nov/2024 18:20:48] "GET / HTTP/1.1" 200 -
+2024-11-24 18:20:49,171 INFO: 127.0.0.1 - - [24/Nov/2024 18:20:49] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:20:49,171 INFO: 127.0.0.1 - - [24/Nov/2024 18:20:49] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:20:49,179 INFO: 127.0.0.1 - - [24/Nov/2024 18:20:49] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:20:49,181 INFO: 127.0.0.1 - - [24/Nov/2024 18:20:49] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:20:49,184 INFO: 127.0.0.1 - - [24/Nov/2024 18:20:49] "[36mGET /static/img/gato-sorri.png HTTP/1.1[0m" 304 -
+2024-11-24 18:20:49,189 INFO: 127.0.0.1 - - [24/Nov/2024 18:20:49] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:20:49,193 INFO: 127.0.0.1 - - [24/Nov/2024 18:20:49] "[36mGET /static/css/landing_page/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:20:49,196 INFO: 127.0.0.1 - - [24/Nov/2024 18:20:49] "[36mGET /static/img/cachorro.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:20:49,431 INFO: 127.0.0.1 - - [24/Nov/2024 18:20:49] "[36mGET /static/img/logo_miaumigos_icone.ico HTTP/1.1[0m" 304 -
+2024-11-24 18:22:42,255 INFO:  * Detected change in 'C:\\Users\\luizg\\Documentos\\ProgGit\\ONG\\Flask\\app\\controllers\\auth_routes.py', reloading
+2024-11-24 18:22:42,796 INFO:  * Restarting with stat
+2024-11-24 18:22:45,527 WARNING:  * Debugger is active!
+2024-11-24 18:22:45,535 INFO:  * Debugger PIN: 452-107-489
+2024-11-24 18:22:53,353 INFO: 127.0.0.1 - - [24/Nov/2024 18:22:53] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-11-24 18:22:53,591 INFO: 127.0.0.1 - - [24/Nov/2024 18:22:53] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-11-24 18:22:53,613 INFO: 127.0.0.1 - - [24/Nov/2024 18:22:53] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-11-24 18:22:53,690 INFO: 127.0.0.1 - - [24/Nov/2024 18:22:53] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=lIOtPwETZoNK2eGV5kqK HTTP/1.1" 200 -
+2024-11-24 18:22:53,843 INFO: 127.0.0.1 - - [24/Nov/2024 18:22:53] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-11-24 18:23:25,574 INFO:  * Detected change in 'C:\\Users\\luizg\\Documentos\\ProgGit\\ONG\\Flask\\app\\controllers\\routes.py', reloading
+2024-11-24 18:23:26,081 INFO:  * Restarting with stat
+2024-11-24 18:23:28,007 WARNING:  * Debugger is active!
+2024-11-24 18:23:28,016 INFO:  * Debugger PIN: 452-107-489
+2024-11-24 18:23:28,136 INFO: 127.0.0.1 - - [24/Nov/2024 18:23:28] "GET / HTTP/1.1" 200 -
+2024-11-24 18:23:28,457 INFO: 127.0.0.1 - - [24/Nov/2024 18:23:28] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:23:28,464 INFO: 127.0.0.1 - - [24/Nov/2024 18:23:28] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:23:28,470 INFO: 127.0.0.1 - - [24/Nov/2024 18:23:28] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:23:28,473 INFO: 127.0.0.1 - - [24/Nov/2024 18:23:28] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:23:28,484 INFO: 127.0.0.1 - - [24/Nov/2024 18:23:28] "[36mGET /static/css/landing_page/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:23:28,494 INFO: 127.0.0.1 - - [24/Nov/2024 18:23:28] "[36mGET /static/img/gato-sorri.png HTTP/1.1[0m" 304 -
+2024-11-24 18:23:28,500 INFO: 127.0.0.1 - - [24/Nov/2024 18:23:28] "[36mGET /static/img/cachorro.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:23:28,503 INFO: 127.0.0.1 - - [24/Nov/2024 18:23:28] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:23:28,580 INFO: 127.0.0.1 - - [24/Nov/2024 18:23:28] "[36mGET /static/img/logo_miaumigos_icone.ico HTTP/1.1[0m" 304 -
+2024-11-24 18:29:22,654 INFO:  * Detected change in 'C:\\Users\\luizg\\Documentos\\ProgGit\\ONG\\Flask\\app\\controllers\\usuario_routes.py', reloading
+2024-11-24 18:29:22,881 INFO:  * Restarting with stat
+2024-11-24 18:29:24,952 WARNING:  * Debugger is active!
+2024-11-24 18:29:24,958 INFO:  * Debugger PIN: 452-107-489
+2024-11-24 18:29:59,447 INFO:  * Detected change in 'C:\\Users\\luizg\\Documentos\\ProgGit\\ONG\\Flask\\app\\controllers\\routes.py', reloading
+2024-11-24 18:29:59,755 INFO:  * Restarting with stat
+2024-11-24 18:30:07,461 INFO:  * Restarting with stat
+2024-11-24 18:30:41,012 INFO:  * Restarting with stat
+2024-11-24 18:30:46,659 INFO:  * Restarting with stat
+2024-11-24 18:32:42,628 INFO:  * Restarting with stat
+2024-11-24 18:32:45,656 WARNING:  * Debugger is active!
+2024-11-24 18:32:45,664 INFO:  * Debugger PIN: 452-107-489
+2024-11-24 18:32:46,162 INFO: 127.0.0.1 - - [24/Nov/2024 18:32:46] "GET / HTTP/1.1" 200 -
+2024-11-24 18:32:46,479 INFO: 127.0.0.1 - - [24/Nov/2024 18:32:46] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:32:46,486 INFO: 127.0.0.1 - - [24/Nov/2024 18:32:46] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:32:46,493 INFO: 127.0.0.1 - - [24/Nov/2024 18:32:46] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:32:46,495 INFO: 127.0.0.1 - - [24/Nov/2024 18:32:46] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:32:46,523 INFO: 127.0.0.1 - - [24/Nov/2024 18:32:46] "[36mGET /static/css/landing_page/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:32:46,533 INFO: 127.0.0.1 - - [24/Nov/2024 18:32:46] "[36mGET /static/img/gato-sorri.png HTTP/1.1[0m" 304 -
+2024-11-24 18:32:46,540 INFO: 127.0.0.1 - - [24/Nov/2024 18:32:46] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:32:46,545 INFO: 127.0.0.1 - - [24/Nov/2024 18:32:46] "[36mGET /static/img/cachorro.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:32:46,628 INFO: 127.0.0.1 - - [24/Nov/2024 18:32:46] "[36mGET /static/img/logo_miaumigos_icone.ico HTTP/1.1[0m" 304 -
+2024-11-24 18:33:24,337 INFO:  * Detected change in 'C:\\Users\\luizg\\Documentos\\ProgGit\\ONG\\Flask\\app\\controllers\\usuario_routes.py', reloading
+2024-11-24 18:33:24,589 INFO:  * Restarting with stat
+2024-11-24 18:33:37,095 INFO:  * Restarting with stat
+2024-11-24 18:33:38,944 WARNING:  * Debugger is active!
+2024-11-24 18:33:38,951 INFO:  * Debugger PIN: 452-107-489
+2024-11-24 18:33:39,079 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:39] "GET /perfil?nome_usuario=Cleitinho121212 HTTP/1.1" 200 -
+2024-11-24 18:33:39,375 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:39] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:33:39,382 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:39] "[36mGET /static/js/interface_logado/interface_logado.js HTTP/1.1[0m" 304 -
+2024-11-24 18:33:39,389 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:39] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:33:39,394 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:39] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:33:39,403 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:39] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:33:39,409 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:39] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:33:39,412 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:39] "[36mGET /static/css/interface_logado/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:33:43,803 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:43] "GET /atualizar_usuario/33 HTTP/1.1" 200 -
+2024-11-24 18:33:43,865 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:43] "[36mGET /static/css/atualizar_usuario/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:33:43,877 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:43] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:33:43,881 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:43] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:33:43,886 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:43] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:33:43,888 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:43] "[36mGET /static/js/atualizar_usuario/atualizar_usuario.js HTTP/1.1[0m" 304 -
+2024-11-24 18:33:43,891 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:43] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:33:50,134 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:50] "[32mPOST /atualizar_usuario/33 HTTP/1.1[0m" 302 -
+2024-11-24 18:33:50,186 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:50] "GET /perfil HTTP/1.1" 200 -
+2024-11-24 18:33:50,236 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:50] "[36mGET /static/css/interface_logado/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:33:50,245 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:50] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:33:50,252 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:50] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:33:50,255 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:50] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:33:50,261 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:50] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:33:50,267 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:50] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:33:50,267 INFO: 127.0.0.1 - - [24/Nov/2024 18:33:50] "[36mGET /static/js/interface_logado/interface_logado.js HTTP/1.1[0m" 304 -
+2024-11-24 18:34:20,909 INFO:  * Detected change in 'C:\\Users\\luizg\\Documentos\\ProgGit\\ONG\\Flask\\app\\controllers\\routes.py', reloading
+2024-11-24 18:34:21,187 INFO:  * Restarting with stat
+2024-11-24 18:34:24,016 WARNING:  * Debugger is active!
+2024-11-24 18:34:24,023 INFO:  * Debugger PIN: 452-107-489
+2024-11-24 18:34:24,193 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:24] "[35m[1mGET /perfil HTTP/1.1[0m" 500 -
+2024-11-24 18:34:24,356 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:24] "GET /perfil?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2024-11-24 18:34:24,358 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:24] "GET /perfil?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2024-11-24 18:34:24,396 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:24] "GET /perfil?__debugger__=yes&cmd=resource&f=console.png&s=5LLncT8S6ib9BoGQTY4B HTTP/1.1" 200 -
+2024-11-24 18:34:24,476 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:24] "GET /perfil?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2024-11-24 18:34:56,131 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:56] "GET /perfil HTTP/1.1" 200 -
+2024-11-24 18:34:56,165 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:56] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:34:56,167 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:56] "[36mGET /static/css/interface_logado/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:34:56,169 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:56] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:34:56,176 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:56] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:34:56,178 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:56] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:34:56,179 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:56] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:34:56,182 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:56] "[36mGET /static/js/interface_logado/interface_logado.js HTTP/1.1[0m" 304 -
+2024-11-24 18:34:56,266 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:56] "[36mGET /static/img/logo_miaumigos_icone.ico HTTP/1.1[0m" 304 -
+2024-11-24 18:34:58,933 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:58] "GET /atualizar_usuario/33 HTTP/1.1" 200 -
+2024-11-24 18:34:58,980 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:58] "[36mGET /static/css/atualizar_usuario/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:34:58,981 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:58] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:34:58,984 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:58] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:34:58,991 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:58] "[36mGET /static/js/atualizar_usuario/atualizar_usuario.js HTTP/1.1[0m" 304 -
+2024-11-24 18:34:58,993 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:58] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:34:58,993 INFO: 127.0.0.1 - - [24/Nov/2024 18:34:58] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:35:29,052 INFO:  * Detected change in 'C:\\Users\\luizg\\Documentos\\ProgGit\\ONG\\Flask\\app\\controllers\\usuario_routes.py', reloading
+2024-11-24 18:35:29,321 INFO:  * Restarting with stat
+2024-11-24 18:35:31,806 WARNING:  * Debugger is active!
+2024-11-24 18:35:31,814 INFO:  * Debugger PIN: 452-107-489
+2024-11-24 18:35:31,989 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:31] "GET /perfil HTTP/1.1" 200 -
+2024-11-24 18:35:32,395 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:32] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:35:32,409 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:32] "[36mGET /static/js/interface_logado/interface_logado.js HTTP/1.1[0m" 304 -
+2024-11-24 18:35:32,419 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:32] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:35:32,436 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:32] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:35:32,453 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:32] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:35:32,464 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:32] "[36mGET /static/css/interface_logado/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:35:32,467 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:32] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:35:32,567 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:32] "[36mGET /static/img/logo_miaumigos_icone.ico HTTP/1.1[0m" 304 -
+2024-11-24 18:35:34,287 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:34] "GET /perfil?nome_usuario=Cleitinho1212121212112 HTTP/1.1" 200 -
+2024-11-24 18:35:34,356 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:34] "[36mGET /static/css/interface_logado/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:35:34,362 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:34] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:35:34,379 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:34] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:35:34,384 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:34] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:35:34,400 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:34] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:35:34,403 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:34] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:35:34,410 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:34] "[36mGET /static/js/interface_logado/interface_logado.js HTTP/1.1[0m" 304 -
+2024-11-24 18:35:35,799 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:35] "GET /perfil?nome_usuario=Cleitinho1212121212112 HTTP/1.1" 200 -
+2024-11-24 18:35:35,857 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:35] "[36mGET /static/css/interface_logado/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:35:35,861 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:35] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:35:35,864 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:35] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:35:35,867 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:35] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:35:35,875 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:35] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:35:35,878 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:35] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:35:35,880 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:35] "[36mGET /static/js/interface_logado/interface_logado.js HTTP/1.1[0m" 304 -
+2024-11-24 18:35:47,485 INFO:  * Detected change in 'C:\\Users\\luizg\\Documentos\\ProgGit\\ONG\\Flask\\app\\controllers\\routes.py', reloading
+2024-11-24 18:35:47,931 INFO:  * Restarting with stat
+2024-11-24 18:35:49,913 WARNING:  * Debugger is active!
+2024-11-24 18:35:49,922 INFO:  * Debugger PIN: 452-107-489
+2024-11-24 18:35:57,559 INFO:  * Detected change in 'C:\\Users\\luizg\\Documentos\\ProgGit\\ONG\\Flask\\app\\controllers\\usuario_routes.py', reloading
+2024-11-24 18:35:57,800 INFO:  * Restarting with stat
+2024-11-24 18:35:59,619 WARNING:  * Debugger is active!
+2024-11-24 18:35:59,625 INFO:  * Debugger PIN: 452-107-489
+2024-11-24 18:35:59,766 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:59] "[35m[1mGET /perfil?nome_usuario=Cleitinho1212121212112 HTTP/1.1[0m" 500 -
+2024-11-24 18:35:59,906 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:59] "[36mGET /perfil?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-11-24 18:35:59,908 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:59] "[36mGET /perfil?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-11-24 18:35:59,931 INFO: 127.0.0.1 - - [24/Nov/2024 18:35:59] "GET /perfil?__debugger__=yes&cmd=resource&f=console.png&s=HGLFZX8ecH1DZpM5ShoG HTTP/1.1" 200 -
+2024-11-24 18:36:00,008 INFO: 127.0.0.1 - - [24/Nov/2024 18:36:00] "[36mGET /perfil?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-11-24 18:36:19,307 INFO: 127.0.0.1 - - [24/Nov/2024 18:36:19] "GET /perfil?nome_usuario=Cleitinho1212121212112 HTTP/1.1" 200 -
+2024-11-24 18:36:19,340 INFO: 127.0.0.1 - - [24/Nov/2024 18:36:19] "[36mGET /static/css/interface_logado/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:36:19,343 INFO: 127.0.0.1 - - [24/Nov/2024 18:36:19] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:36:19,347 INFO: 127.0.0.1 - - [24/Nov/2024 18:36:19] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:36:19,354 INFO: 127.0.0.1 - - [24/Nov/2024 18:36:19] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:36:19,356 INFO: 127.0.0.1 - - [24/Nov/2024 18:36:19] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:36:19,359 INFO: 127.0.0.1 - - [24/Nov/2024 18:36:19] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:36:19,361 INFO: 127.0.0.1 - - [24/Nov/2024 18:36:19] "[36mGET /static/js/interface_logado/interface_logado.js HTTP/1.1[0m" 304 -
+2024-11-24 18:36:19,483 INFO: 127.0.0.1 - - [24/Nov/2024 18:36:19] "[36mGET /static/img/logo_miaumigos_icone.ico HTTP/1.1[0m" 304 -
+2024-11-24 18:37:16,097 INFO: 127.0.0.1 - - [24/Nov/2024 18:37:16] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-11-24 18:37:16,114 INFO: 127.0.0.1 - - [24/Nov/2024 18:37:16] "GET / HTTP/1.1" 200 -
+2024-11-24 18:37:16,180 INFO: 127.0.0.1 - - [24/Nov/2024 18:37:16] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:37:16,180 INFO: 127.0.0.1 - - [24/Nov/2024 18:37:16] "[36mGET /static/css/landing_page/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:37:16,184 INFO: 127.0.0.1 - - [24/Nov/2024 18:37:16] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:37:16,195 INFO: 127.0.0.1 - - [24/Nov/2024 18:37:16] "[36mGET /static/img/cachorro.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:37:16,203 INFO: 127.0.0.1 - - [24/Nov/2024 18:37:16] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:37:16,207 INFO: 127.0.0.1 - - [24/Nov/2024 18:37:16] "[36mGET /static/img/gato-sorri.png HTTP/1.1[0m" 304 -
+2024-11-24 18:37:16,207 INFO: 127.0.0.1 - - [24/Nov/2024 18:37:16] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:37:16,208 INFO: 127.0.0.1 - - [24/Nov/2024 18:37:16] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:37:17,450 INFO: 127.0.0.1 - - [24/Nov/2024 18:37:17] "GET /login HTTP/1.1" 200 -
+2024-11-24 18:37:17,511 INFO: 127.0.0.1 - - [24/Nov/2024 18:37:17] "[36mGET /static/css/login/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:37:17,522 INFO: 127.0.0.1 - - [24/Nov/2024 18:37:17] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:37:17,523 INFO: 127.0.0.1 - - [24/Nov/2024 18:37:17] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:37:17,531 INFO: 127.0.0.1 - - [24/Nov/2024 18:37:17] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:37:17,544 INFO: 127.0.0.1 - - [24/Nov/2024 18:37:17] "[36mGET /static/img/gatorita.png HTTP/1.1[0m" 304 -
+2024-11-24 18:37:17,546 INFO: 127.0.0.1 - - [24/Nov/2024 18:37:17] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:38:56,124 INFO: 127.0.0.1 - - [24/Nov/2024 18:38:56] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2024-11-24 18:38:56,166 INFO: 127.0.0.1 - - [24/Nov/2024 18:38:56] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2024-11-24 18:38:56,173 INFO: 127.0.0.1 - - [24/Nov/2024 18:38:56] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2024-11-24 18:38:56,204 INFO: 127.0.0.1 - - [24/Nov/2024 18:38:56] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=HGLFZX8ecH1DZpM5ShoG HTTP/1.1" 200 -
+2024-11-24 18:38:56,285 INFO: 127.0.0.1 - - [24/Nov/2024 18:38:56] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2024-11-24 18:39:13,945 INFO:  * Detected change in 'C:\\Users\\luizg\\Documentos\\ProgGit\\ONG\\Flask\\app\\controllers\\auth_routes.py', reloading
+2024-11-24 18:39:14,491 INFO:  * Restarting with stat
+2024-11-24 18:39:16,835 WARNING:  * Debugger is active!
+2024-11-24 18:39:16,850 INFO:  * Debugger PIN: 452-107-489
+2024-11-24 18:39:17,155 INFO: 127.0.0.1 - - [24/Nov/2024 18:39:17] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-11-24 18:39:17,256 INFO: 127.0.0.1 - - [24/Nov/2024 18:39:17] "GET /perfil HTTP/1.1" 200 -
+2024-11-24 18:39:17,673 INFO: 127.0.0.1 - - [24/Nov/2024 18:39:17] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:39:17,679 INFO: 127.0.0.1 - - [24/Nov/2024 18:39:17] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:39:17,684 INFO: 127.0.0.1 - - [24/Nov/2024 18:39:17] "[36mGET /static/js/interface_logado/interface_logado.js HTTP/1.1[0m" 304 -
+2024-11-24 18:39:17,696 INFO: 127.0.0.1 - - [24/Nov/2024 18:39:17] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:39:17,704 INFO: 127.0.0.1 - - [24/Nov/2024 18:39:17] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:39:17,711 INFO: 127.0.0.1 - - [24/Nov/2024 18:39:17] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:39:17,715 INFO: 127.0.0.1 - - [24/Nov/2024 18:39:17] "[36mGET /static/css/interface_logado/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:39:19,596 INFO: 127.0.0.1 - - [24/Nov/2024 18:39:19] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-11-24 18:39:19,671 INFO: 127.0.0.1 - - [24/Nov/2024 18:39:19] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-11-24 18:39:19,722 INFO: 127.0.0.1 - - [24/Nov/2024 18:39:19] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-11-24 18:39:19,725 INFO: 127.0.0.1 - - [24/Nov/2024 18:39:19] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-11-24 18:39:19,766 INFO: 127.0.0.1 - - [24/Nov/2024 18:39:19] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=setUsQtMYvgfIjzsF04o HTTP/1.1" 200 -
+2024-11-24 18:39:19,841 INFO: 127.0.0.1 - - [24/Nov/2024 18:39:19] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-11-24 18:41:03,320 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:03] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-11-24 18:41:03,351 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:03] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:03,352 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:03] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-11-24 18:41:03,370 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:03] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png&s=setUsQtMYvgfIjzsF04o HTTP/1.1[0m" 304 -
+2024-11-24 18:41:03,455 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:03] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-11-24 18:41:05,125 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:05] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-11-24 18:41:05,161 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:05] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-11-24 18:41:05,162 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:05] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:05,185 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:05] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png&s=setUsQtMYvgfIjzsF04o HTTP/1.1[0m" 304 -
+2024-11-24 18:41:05,278 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:05] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-11-24 18:41:12,067 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:12] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-11-24 18:41:12,095 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:12] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:12,096 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:12] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-11-24 18:41:12,114 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:12] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png&s=setUsQtMYvgfIjzsF04o HTTP/1.1[0m" 304 -
+2024-11-24 18:41:12,191 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:12] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-11-24 18:41:19,239 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:19] "GET / HTTP/1.1" 200 -
+2024-11-24 18:41:19,280 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:19] "[36mGET /static/css/landing_page/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:19,285 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:19] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:19,302 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:19] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:19,314 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:19] "[36mGET /static/img/cachorro.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:41:19,315 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:19] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:41:19,327 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:19] "[36mGET /static/img/gato-sorri.png HTTP/1.1[0m" 304 -
+2024-11-24 18:41:19,335 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:19] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:19,336 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:19] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:41:19,450 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:19] "[36mGET /static/img/logo_miaumigos_icone.ico HTTP/1.1[0m" 304 -
+2024-11-24 18:41:43,391 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:43] "GET / HTTP/1.1" 200 -
+2024-11-24 18:41:43,427 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:43] "[36mGET /static/css/landing_page/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:43,430 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:43] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:43,434 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:43] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:43,440 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:43] "[36mGET /static/img/cachorro.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:41:43,441 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:43] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:41:43,447 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:43] "[36mGET /static/img/gato-sorri.png HTTP/1.1[0m" 304 -
+2024-11-24 18:41:43,451 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:43] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:41:43,452 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:43] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:43,554 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:43] "[36mGET /static/img/logo_miaumigos_icone.ico HTTP/1.1[0m" 304 -
+2024-11-24 18:41:50,742 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:50] "GET /login HTTP/1.1" 200 -
+2024-11-24 18:41:50,808 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:50] "[36mGET /static/css/login/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:50,814 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:50] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:50,814 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:50] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:50,815 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:50] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:41:50,816 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:50] "[36mGET /static/img/gatorita.png HTTP/1.1[0m" 304 -
+2024-11-24 18:41:50,827 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:50] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:56,950 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:56] "GET /registro HTTP/1.1" 200 -
+2024-11-24 18:41:57,004 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:57] "[36mGET /static/css/registro/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:57,008 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:57] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:57,012 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:57] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:57,013 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:57] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:41:57,015 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:57] "[36mGET /static/js/registro/registro.js HTTP/1.1[0m" 304 -
+2024-11-24 18:41:57,017 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:57] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:59,732 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:59] "GET /login HTTP/1.1" 200 -
+2024-11-24 18:41:59,782 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:59] "[36mGET /static/css/login/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:59,793 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:59] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:59,799 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:59] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:41:59,808 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:59] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:59,823 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:59] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:41:59,827 INFO: 127.0.0.1 - - [24/Nov/2024 18:41:59] "[36mGET /static/img/gatorita.png HTTP/1.1[0m" 304 -
+2024-11-24 18:42:49,600 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:49] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-11-24 18:42:49,659 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:49] "GET /perfil HTTP/1.1" 200 -
+2024-11-24 18:42:49,715 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:49] "[36mGET /static/css/interface_logado/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:42:49,728 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:49] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:42:49,739 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:49] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:42:49,746 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:49] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:42:49,755 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:49] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:42:49,759 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:49] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:42:49,760 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:49] "[36mGET /static/js/interface_logado/interface_logado.js HTTP/1.1[0m" 304 -
+2024-11-24 18:42:52,040 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:52] "GET /atualizar_usuario/33 HTTP/1.1" 200 -
+2024-11-24 18:42:52,082 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:52] "[36mGET /static/css/atualizar_usuario/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:42:52,084 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:52] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:42:52,091 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:52] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:42:52,096 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:52] "[36mGET /static/js/atualizar_usuario/atualizar_usuario.js HTTP/1.1[0m" 304 -
+2024-11-24 18:42:52,099 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:52] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:42:52,099 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:52] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:42:57,876 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:57] "POST /atualizar_usuario/33 HTTP/1.1" 200 -
+2024-11-24 18:42:57,927 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:57] "[36mGET /static/css/atualizar_usuario/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:42:57,930 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:57] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:42:57,935 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:57] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:42:57,938 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:57] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:42:57,941 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:57] "[36mGET /static/js/atualizar_usuario/atualizar_usuario.js HTTP/1.1[0m" 304 -
+2024-11-24 18:42:57,945 INFO: 127.0.0.1 - - [24/Nov/2024 18:42:57] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:43:15,477 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:15] "POST /atualizar_usuario/33 HTTP/1.1" 200 -
+2024-11-24 18:43:15,515 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:15] "[36mGET /static/css/atualizar_usuario/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:43:15,519 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:15] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:43:15,529 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:15] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:43:15,529 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:15] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:43:15,530 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:15] "[36mGET /static/js/atualizar_usuario/atualizar_usuario.js HTTP/1.1[0m" 304 -
+2024-11-24 18:43:15,531 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:15] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:43:48,954 INFO:  * Detected change in 'C:\\Users\\luizg\\Documentos\\ProgGit\\ONG\\Flask\\app\\controllers\\usuario_routes.py', reloading
+2024-11-24 18:43:49,255 INFO:  * Restarting with stat
+2024-11-24 18:43:52,240 WARNING:  * Debugger is active!
+2024-11-24 18:43:52,253 INFO:  * Debugger PIN: 452-107-489
+2024-11-24 18:43:52,663 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:52] "[32mPOST /atualizar_usuario/33 HTTP/1.1[0m" 302 -
+2024-11-24 18:43:52,763 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:52] "GET /perfil HTTP/1.1" 200 -
+2024-11-24 18:43:53,056 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:53] "[36mGET /static/css/interface_logado/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:43:53,062 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:53] "[36mGET /static/js/interface_logado/interface_logado.js HTTP/1.1[0m" 304 -
+2024-11-24 18:43:53,070 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:53] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:43:53,080 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:53] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:43:53,083 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:53] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:43:53,087 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:53] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:43:53,090 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:53] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:43:53,163 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:53] "[36mGET /static/img/logo_miaumigos_icone.ico HTTP/1.1[0m" 304 -
+2024-11-24 18:43:55,243 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:55] "GET /atualizar_usuario/33 HTTP/1.1" 200 -
+2024-11-24 18:43:55,290 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:55] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:43:55,293 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:55] "[36mGET /static/css/atualizar_usuario/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:43:55,307 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:55] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:43:55,308 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:55] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:43:55,309 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:55] "[36mGET /static/js/atualizar_usuario/atualizar_usuario.js HTTP/1.1[0m" 304 -
+2024-11-24 18:43:55,313 INFO: 127.0.0.1 - - [24/Nov/2024 18:43:55] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:44:05,656 INFO: 127.0.0.1 - - [24/Nov/2024 18:44:05] "GET /perfil?nome_usuario=Cleitinho1212121 HTTP/1.1" 200 -
+2024-11-24 18:44:05,702 INFO: 127.0.0.1 - - [24/Nov/2024 18:44:05] "[36mGET /static/css/interface_logado/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:44:05,705 INFO: 127.0.0.1 - - [24/Nov/2024 18:44:05] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:44:05,710 INFO: 127.0.0.1 - - [24/Nov/2024 18:44:05] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:44:05,713 INFO: 127.0.0.1 - - [24/Nov/2024 18:44:05] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:44:05,716 INFO: 127.0.0.1 - - [24/Nov/2024 18:44:05] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:44:05,724 INFO: 127.0.0.1 - - [24/Nov/2024 18:44:05] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:44:05,726 INFO: 127.0.0.1 - - [24/Nov/2024 18:44:05] "[36mGET /static/js/interface_logado/interface_logado.js HTTP/1.1[0m" 304 -
+2024-11-24 18:45:47,780 INFO:  * Detected change in 'C:\\Users\\luizg\\Documentos\\ProgGit\\ONG\\Flask\\app\\controllers\\admin_routes.py', reloading
+2024-11-24 18:45:47,989 INFO:  * Restarting with stat
+2024-11-24 18:45:50,424 WARNING:  * Debugger is active!
+2024-11-24 18:45:50,430 INFO:  * Debugger PIN: 452-107-489
+2024-11-24 18:46:08,669 INFO:  * Detected change in 'C:\\Users\\luizg\\Documentos\\ProgGit\\ONG\\Flask\\app\\controllers\\routes.py', reloading
+2024-11-24 18:46:08,879 INFO:  * Restarting with stat
+2024-11-24 18:46:17,347 INFO:  * Restarting with stat
+2024-11-24 18:46:34,499 INFO:  * Restarting with stat
+2024-11-24 18:46:39,624 INFO:  * Restarting with stat
+2024-11-24 18:47:10,836 INFO:  * Restarting with stat
+2024-11-24 18:47:14,915 INFO:  * Restarting with stat
+2024-11-24 18:47:16,876 WARNING:  * Debugger is active!
+2024-11-24 18:47:16,885 INFO:  * Debugger PIN: 452-107-489
+2024-11-24 18:47:17,084 INFO: 127.0.0.1 - - [24/Nov/2024 18:47:17] "GET /perfil?nome_usuario=Cleitinho1212121 HTTP/1.1" 200 -
+2024-11-24 18:47:17,379 INFO: 127.0.0.1 - - [24/Nov/2024 18:47:17] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:47:17,385 INFO: 127.0.0.1 - - [24/Nov/2024 18:47:17] "[36mGET /static/js/interface_logado/interface_logado.js HTTP/1.1[0m" 304 -
+2024-11-24 18:47:17,396 INFO: 127.0.0.1 - - [24/Nov/2024 18:47:17] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:47:17,426 INFO: 127.0.0.1 - - [24/Nov/2024 18:47:17] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:47:17,432 INFO: 127.0.0.1 - - [24/Nov/2024 18:47:17] "[36mGET /static/css/interface_logado/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:47:17,438 INFO: 127.0.0.1 - - [24/Nov/2024 18:47:17] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:47:17,444 INFO: 127.0.0.1 - - [24/Nov/2024 18:47:17] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:47:17,517 INFO: 127.0.0.1 - - [24/Nov/2024 18:47:17] "[36mGET /static/img/logo_miaumigos_icone.ico HTTP/1.1[0m" 304 -
+2024-11-24 18:47:29,007 INFO: 127.0.0.1 - - [24/Nov/2024 18:47:29] "GET / HTTP/1.1" 200 -
+2024-11-24 18:47:29,053 INFO: 127.0.0.1 - - [24/Nov/2024 18:47:29] "[36mGET /static/css/landing_page/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:47:29,059 INFO: 127.0.0.1 - - [24/Nov/2024 18:47:29] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:47:29,060 INFO: 127.0.0.1 - - [24/Nov/2024 18:47:29] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:47:29,066 INFO: 127.0.0.1 - - [24/Nov/2024 18:47:29] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:47:29,074 INFO: 127.0.0.1 - - [24/Nov/2024 18:47:29] "[36mGET /static/img/cachorro.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:47:29,080 INFO: 127.0.0.1 - - [24/Nov/2024 18:47:29] "[36mGET /static/img/gato-sorri.png HTTP/1.1[0m" 304 -
+2024-11-24 18:47:29,081 INFO: 127.0.0.1 - - [24/Nov/2024 18:47:29] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:47:29,086 INFO: 127.0.0.1 - - [24/Nov/2024 18:47:29] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:48:59,053 INFO:  * Detected change in 'C:\\Users\\luizg\\Documentos\\ProgGit\\ONG\\Flask\\app\\controllers\\ong_routes.py', reloading
+2024-11-24 18:48:59,269 INFO:  * Restarting with stat
+2024-11-24 18:49:01,543 WARNING:  * Debugger is active!
+2024-11-24 18:49:01,551 INFO:  * Debugger PIN: 452-107-489
+2024-11-24 18:49:26,669 INFO:  * Detected change in 'C:\\Users\\luizg\\Documentos\\ProgGit\\ONG\\Flask\\app\\controllers\\routes.py', reloading
+2024-11-24 18:49:26,880 INFO:  * Restarting with stat
+2024-11-24 18:49:28,944 WARNING:  * Debugger is active!
+2024-11-24 18:49:28,952 INFO:  * Debugger PIN: 452-107-489
+2024-11-24 18:49:40,877 INFO:  * Detected change in 'C:\\Users\\luizg\\Documentos\\ProgGit\\ONG\\Flask\\meu_site.py', reloading
+2024-11-24 18:49:41,093 INFO:  * Restarting with stat
+2024-11-24 18:49:43,180 WARNING:  * Debugger is active!
+2024-11-24 18:49:43,191 INFO:  * Debugger PIN: 452-107-489
+2024-11-24 18:49:48,700 INFO:  * Detected change in 'C:\\Users\\luizg\\Documentos\\ProgGit\\ONG\\Flask\\meu_site.py', reloading
+2024-11-24 18:49:48,929 INFO:  * Restarting with stat
+2024-11-24 18:49:50,674 WARNING:  * Debugger is active!
+2024-11-24 18:49:50,683 INFO:  * Debugger PIN: 452-107-489
+2024-11-24 18:49:54,121 INFO: 127.0.0.1 - - [24/Nov/2024 18:49:54] "GET / HTTP/1.1" 200 -
+2024-11-24 18:49:54,543 INFO: 127.0.0.1 - - [24/Nov/2024 18:49:54] "[36mGET /static/img/logo_miaumigos.png HTTP/1.1[0m" 304 -
+2024-11-24 18:49:54,564 INFO: 127.0.0.1 - - [24/Nov/2024 18:49:54] "[36mGET /static/img/cachorro-sorri.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:49:54,571 INFO: 127.0.0.1 - - [24/Nov/2024 18:49:54] "[36mGET /static/css/footer/footer.css HTTP/1.1[0m" 304 -
+2024-11-24 18:49:54,598 INFO: 127.0.0.1 - - [24/Nov/2024 18:49:54] "[36mGET /static/css/landing_page/main.css HTTP/1.1[0m" 304 -
+2024-11-24 18:49:54,621 INFO: 127.0.0.1 - - [24/Nov/2024 18:49:54] "[36mGET /static/css/vars/vars.css HTTP/1.1[0m" 304 -
+2024-11-24 18:49:54,631 INFO: 127.0.0.1 - - [24/Nov/2024 18:49:54] "[36mGET /static/css/header/header.css HTTP/1.1[0m" 304 -
+2024-11-24 18:49:54,636 INFO: 127.0.0.1 - - [24/Nov/2024 18:49:54] "[36mGET /static/img/gato-sorri.png HTTP/1.1[0m" 304 -
+2024-11-24 18:49:54,641 INFO: 127.0.0.1 - - [24/Nov/2024 18:49:54] "[36mGET /static/img/cachorro.jpeg HTTP/1.1[0m" 304 -
+2024-11-24 18:49:54,722 INFO: 127.0.0.1 - - [24/Nov/2024 18:49:54] "[36mGET /static/img/logo_miaumigos_icone.ico HTTP/1.1[0m" 304 -

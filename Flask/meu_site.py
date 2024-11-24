@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_migrate import Migrate
-from app.controllers.routes import routes_bp, auth_routes_bp
+from app.controllers.routes import routes_bp, auth_routes_bp, usuario_routes_bp, admin_routes_bp, ong_routes_bp
 from app.extensions import db
 import os
 from dotenv import load_dotenv
@@ -68,6 +68,10 @@ def create_app():
         # Registrar blueprints
         app.register_blueprint(routes_bp)
         app.register_blueprint(auth_routes_bp) 
+        app.register_blueprint(usuario_routes_bp) 
+        app.register_blueprint(admin_routes_bp)
+        app.register_blueprint(ong_routes_bp) 
+
             
         return app
     except Exception as e:

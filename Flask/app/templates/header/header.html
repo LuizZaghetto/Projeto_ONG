@@ -13,7 +13,7 @@
     </div>
     {% if current_user.is_authenticated %}
     <div class="cabecalho__login">
-        <a href="{{ url_for('routes.interface_logado', nome_usuario=current_user.nome) }}">
+        <a href="{{ url_for('usuario_routes.perfil_usuario', nome_usuario=current_user.nome) }}">
             <button type="button" class="botao botao1">
                 Perfil
             </button>
