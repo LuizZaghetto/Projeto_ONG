@@ -91,6 +91,10 @@ def registro():
                     # Adicionando e commitando no banco de dados
                     db.session.add(usuario)
                     db.session.commit()
+                    # Concatenando o id no slug
+                    usuario.slug = f"{slug_usuario}-{usuario.ID_usuario}"
+
+                    db.session.commit()  # Commit a atualização do slug com ID
 
                     flash("Registro de usuário realizado com sucesso!", "success")
                     return redirect(url_for("auth_routes.login"))
@@ -126,6 +130,10 @@ def registro():
                     # Adicionando e commitando no banco de dados
                     db.session.add(ong)
                     db.session.commit()
+                    # Concatenando o id no slug
+                    ong.slug = f"{slug_ong}-{ong.ID_ONG}"
+
+                    db.session.commit()  # Commit a atualização do slug com ID
 
                     flash("Registro de ONG realizado com sucesso!", "success")
                     return redirect(url_for("auth_routes.login"))

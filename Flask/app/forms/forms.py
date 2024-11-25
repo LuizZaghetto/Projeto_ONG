@@ -6,7 +6,7 @@ from .estados import ESTADOS_BRASIL
 # Formulários para registro
 # Registro de usuário
 class registroForm(FlaskForm):
-    ID_usuario = IntegerField("")
+    ID_usuario = IntegerField("ID de usuário")
     nome = StringField("Nome de usuário", validators=[DataRequired()])
     email = StringField("Email", validators=[Email(message="Por favor, insira um email válido.")])
     data_nasc = DateField("Data de Nascimento", format='%Y-%m-%d', validators=[DataRequired(), ])
@@ -18,6 +18,7 @@ class registroForm(FlaskForm):
 
 # Registro de ONG
 class ONGregistroForm(FlaskForm):
+    ID_ONG = IntegerField("ID de ONG")
     nome = StringField('Nome', validators=[DataRequired()])
     email = StringField("Email", validators=[Email(message="Por favor, insira um email válido.")])
     telefone = StringField("Número de Telefone", validators=[DataRequired(), Regexp(r'^\(\d{2}\)\s\d{5}-\d{4}$', message="Telefone deve estar no formato (XX) XXXXX-XXXX.")])

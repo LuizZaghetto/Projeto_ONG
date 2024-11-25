@@ -21,7 +21,7 @@
     <h1>Atualizar usuário...</h1>
     <br>
     <div class="shadow p-3 mb-5 bg-body rounded">
-        <form action = "/admin/atualizar_admin/{{atualizacao.ID_usuario}}" method = "POST">
+        <form action = "/admin/atualizar_usuario_admin/{{atualizacao.ID_usuario}}" method = "POST">
             {{ form.hidden_tag() }}
 
             {{ form.ID_usuario.label }}
@@ -44,15 +44,13 @@
             <br>
 
             {{form.enviar }}
-
-<a href="{{ url_for('routes.excluir', ID_usuario=atualizacao.ID_usuario) }}">Deletar</a>
         </form>
     </div>
 
     <table class="table table-hover table-bordered table-striped" id="principal__conteudo__tabela">
         {% for usuario in usuarios %}
             <tr>
-            <td> {{usuario.ID_usuario}} - <a href="{{ url_for('routes.atualizar_admin', ID_usuario=usuario.ID_usuario) }}">{{ usuario.nome }}</a> - {{usuario.email}} -
+            <td> {{usuario.ID_usuario}} - <a href="{{ url_for('admin_routes.atualizar_usuario_admin', ID_usuario=usuario.ID_usuario) }}">{{ usuario.nome }}</a> - {{usuario.email}} -
                 {{usuario.telefone}} - {{usuario.data_nasc}} - {{usuario.CPF}} </td> 
             </tr>
         {% endfor %}
