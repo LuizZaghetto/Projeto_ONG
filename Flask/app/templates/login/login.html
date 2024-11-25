@@ -35,32 +35,56 @@
             </div>
             <section class="navega">
                 <div class="formularios">
+
+                    <!-- Seletor de Tipo de Conta -->
+                    <div class="formularios-unico">
+                        <label for="tipo_conta">Tipo de Conta</label>
+                        <select name="tipo_conta" id="tipo_conta" class="form-control" onchange="alternarFormularios()" required>
+                            <option value="usuario">Usuário</option>
+                            <option value="ong">ONG</option>
+                        </select>
+                    </div>
+                    <div id="form1" class="form-container active">                    
                     <form method="POST" action="/login">
-                        {{ form.hidden_tag() }}
+                        {{ usuarioform.hidden_tag() }}
 
-                        <!-- Seletor de Tipo de Conta -->
+                        <input type="hidden" name="form_type" value="usuario">
+
                         <div class="formularios-unico">
-                            <label for="tipo_conta">Tipo de Conta</label>
-                            <select name="tipo_conta" id="tipo_conta" class="form-control" required>
-                                <option value="usuario">Usuário</option>
-                                <option value="ong">ONG</option>
-                            </select>
+                            {{ usuarioform.email.label }}
+                            {{ usuarioform.email(required="required") }}
                         </div>
 
                         <div class="formularios-unico">
-                            {{ form.email.label }}
-                            {{ form.email }}
-                        </div>
-
-                        <div class="formularios-unico">
-                            {{ form.senha.label }}
-                            {{ form.senha }}
+                            {{ usuarioform.senha.label }}
+                            {{ usuarioform.senha(required="required") }}
                         </div>
 
                         <div class="formularios-enviar">
-                            {{ form.enviar(class="formularios-enviar-botao botao1") }}
+                            {{ usuarioform.enviar(class="formularios-enviar-botao botao1") }}
                         </div>
                     </form>
+                    </div>
+
+                    <div id="form2" class="form-container">
+                    <form method="POST" action="/login">
+                        <input type = "hidden" name="form_type" value="ong">
+
+                        {{ONGform.hidden_tag()}}
+
+                        <div class="formularios-unico">
+                            {{ ONGform.email.label }}
+                            {{ ONGform.email }}
+                        </div>
+                        <div class="formularios-unico">
+                            {{ ONGform.senha.label }}
+                            {{ ONGform.senha }}
+                        </div>
+                        <div class="formularios-enviar">
+                            {{ ONGform.enviar(class="formularios-enviar-botao botao1") }}
+                        </div>
+                    </form>
+                    </div>
                 </div>
                 <div class="imagens">
                     <img class="imagens-formato" src="{{url_for('static', filename = 'img/gatorita.png')}}">
@@ -72,6 +96,7 @@
             </div>
         </section>
     </main>
+    <script src="{{ url_for('static', filename='js/login/login.js') }}"></script>
     {% endblock %}
     {% include 'footer/footer.html' %}
 </body>

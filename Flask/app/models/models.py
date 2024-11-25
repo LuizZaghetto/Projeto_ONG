@@ -48,7 +48,7 @@ class Bichos(db.Model):
     def __repr__(self):
         return f"<Bicho {self.nome}, {self.especie}>"
     
-class ONG(db.Model):
+class ONG(db.Model, UserMixin):
     __tablename__ = 'ong'
 
     ID_ONG = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -74,6 +74,10 @@ class ONG(db.Model):
     
     def verify_password(self, password):
         return check_password_hash(self.password_hash, password)
+    
+    # Adicionando o método get_id para o Flask-Login
+    def get_id(self):
+        return str(self.ID_ONG)  # Retorne o ID como string
 
 
     # Relacionamento com Bicho

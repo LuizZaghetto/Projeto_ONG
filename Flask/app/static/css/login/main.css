@@ -40,6 +40,13 @@
     gap: 1.5rem;
 }
 
+.form-container {
+    display: none;
+}
+.form-container.active {
+    display: block;
+}
+
 .formularios-unico {
     font-family: var(--fonte-secundaria);
     padding-bottom: 1rem;

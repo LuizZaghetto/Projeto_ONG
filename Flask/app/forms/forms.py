@@ -3,7 +3,8 @@ from wtforms import StringField, SubmitField, DateField, IntegerField, PasswordF
 from wtforms.validators import DataRequired, Email, Length, Regexp, EqualTo, Optional
 from .estados import ESTADOS_BRASIL
 
-# Criar formulário para Registro
+# Formulários para registro
+# Registro de usuário
 class registroForm(FlaskForm):
     ID_usuario = IntegerField("")
     nome = StringField("Nome de usuário", validators=[DataRequired()])
@@ -15,14 +16,8 @@ class registroForm(FlaskForm):
     senha2 = PasswordField("Confirme a senha", validators=[DataRequired()])
     enviar = SubmitField("Enviar")
 
-
-# Criar formulário para Login
-class loginForm(FlaskForm):
-    email = StringField("Email", validators=[DataRequired()])   
-    senha = PasswordField("Senha", validators=[DataRequired()])
-    enviar = SubmitField("Enviar")   
-
-class registroONGForm(FlaskForm):
+# Registro de ONG
+class ONGregistroForm(FlaskForm):
     nome = StringField('Nome', validators=[DataRequired()])
     email = StringField("Email", validators=[Email(message="Por favor, insira um email válido.")])
     telefone = StringField("Número de Telefone", validators=[DataRequired(), Regexp(r'^\(\d{2}\)\s\d{5}-\d{4}$', message="Telefone deve estar no formato (XX) XXXXX-XXXX.")])
@@ -41,8 +36,23 @@ class registroONGForm(FlaskForm):
     senha2 = PasswordField("Confirme a senha", validators=[DataRequired()])
     enviar = SubmitField('Registrar')
 
+# Formulários para login
+# Login de Usuário
+class loginForm(FlaskForm):
+    email = StringField("Email", validators=[DataRequired()])   
+    senha = PasswordField("Senha", validators=[DataRequired()])
+    enviar = SubmitField("Enviar")   
+
+# Login de ONG
+class ONGloginForm(FlaskForm):
+    email = StringField("Email", validators=([DataRequired()]))
+    senha = PasswordField("Senha", validators=([DataRequired()]))
+    enviar = SubmitField("Enviar")
+
+
 # Criar formulário para adicionar Bicho
 class bichoForm(FlaskForm):
+
     nome = StringField("Nome do Bicho", validators=[DataRequired()])
     porte = StringField("Porte do Bicho", validators=[DataRequired()])
     enviar = SubmitField("Enviar")

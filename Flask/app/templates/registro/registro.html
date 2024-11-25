@@ -29,8 +29,13 @@
         </div>
     {% endfor %}
     <h1>Formulários Alternáveis</h1>
-    <button type="button" onclick="alternarFormularios()">Alternar Formulário</button>
-
+    <div class="formularios-unico">
+        <label for="tipo_conta">Tipo de Conta</label>
+        <select name="tipo_conta" id="tipo_conta" class="form-control" onchange="alternarFormularios()" required>
+            <option value="usuario">Usuário</option>
+            <option value="ong">ONG</option>
+        </select>
+    </div>
     <div id="form1" class="form-container active">
         <h2>Formulário 1</h2>
         <form method="POST">

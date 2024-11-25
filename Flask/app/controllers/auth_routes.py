@@ -12,23 +12,33 @@ auth_routes_bp = Blueprint('auth_routes', __name__)
 # Página de login
 @auth_routes_bp.route("/login", methods=['GET', 'POST'])
 def login():
+    usuarioform = forms.loginForm()
+    ONGform = forms.ONGloginForm()
     if current_user.is_authenticated:
         form = forms.bichoForm()
         flash('Usuário já autenticado', 'warning')
         return render_template('perfil_usuario/perfil_usuario.html', form=form)
     else:
-        form = forms.loginForm()
-        if form.validate_on_submit():
-            usuario = models.Usuarios.query.filter_by(email=form.email.data).first()
-            if usuario and check_password_hash(usuario.senha_hash, form.senha.data):
-                login_user(usuario)
-                flash("Login bem-sucedido!", "success")
-                return redirect(url_for('usuario_routes.perfil_usuario'))
-            else:
-                flash("Credenciais inválidas.", "danger")
-        elif request.method == 'POST':
-            flash("Erro no formulário, corrija os campos destacados.", "warning")
-        return render_template('login/login.html', form=form)
+        if request.method == "POST":
+            form_type = request.form.get('form_type')
+            if form_type == 'usuario' and usuarioform.validate_on_submit():
+                usuario = models.Usuarios.query.filter_by(email=usuarioform.email.data).first()
+                if usuario and check_password_hash(usuario.senha_hash, usuarioform.senha.data):
+                    login_user(usuario)
+                    flash("Login bem-sucedido!", "success")
+                    return redirect(url_for('usuario_routes.perfil_usuario'))
+                else:
+                    flash("Credenciais inválidas.", "danger")
+            elif form_type == 'ong' and ONGform.validate_on_submit():
+                ong = models.ONG.query.filter_by(email = ONGform.email.data).first()
+                if ong and check_password_hash(ong.senha_hash, ONGform.senha.data):
+                    login_user(ong)
+                    flash("Login bem-sucedido!", "success")
+                    return render_template('landing_page/index.html')
+                else:
+                    flash("Credenciais inválidas.", "danger")
+    return render_template('login/login.html', usuarioform = usuarioform, ONGform = ONGform)
+
 
 
 # Função de logout
@@ -43,7 +53,7 @@ def logout():
 @auth_routes_bp.route("/registro", methods=['GET', 'POST'])
 def registro():
     usuarioform = forms.registroForm()
-    ONGform = forms.registroONGForm()
+    ONGform = forms.ONGregistroForm()
     
     # Verificar qual formulário foi enviado
     if request.method == 'POST':
