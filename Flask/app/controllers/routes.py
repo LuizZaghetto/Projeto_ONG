@@ -39,6 +39,19 @@ def session_timeout():
 def landing_page():
     return render_template("landing_page/index.html")
 
+# Acessar o Perfil
+@routes_bp.route("/redirecionar-perfil")
+@login_required
+def perfil():
+    if current_user.tipo == 0:
+        return redirect(url_for("usuario_routes.perfil_usuario", slug = current_user.slug))
+    elif current_user.tipo == 1:
+        return redirect(url_for("ong_routes.perfil_ong"))
+    else:
+        flash("Tipo de usuário desconhecido.", "warning")
+        return redirect(url_for("auth_routes_bp.login"))
+
+
 # Acessar o perfil do bicho
 @routes_bp.route("/perfil_bicho/<nome_bicho>")
 @login_required

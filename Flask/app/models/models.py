@@ -1,6 +1,8 @@
 from app.extensions import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from slugify import slugify
+
 class Usuarios(db.Model, UserMixin):
     __tablename__ = 'pessoa'
     
@@ -12,6 +14,8 @@ class Usuarios(db.Model, UserMixin):
     data_nasc = db.Column(db.Date, nullable=False)
     CPF = db.Column(db.String(15), nullable=False, unique=True)
     senha_hash = db.Column(db.String(256))
+    slug = db.Column(db.String(150), unique=True, nullable=False)
+
 
     @property
     def password(self):
@@ -24,9 +28,14 @@ class Usuarios(db.Model, UserMixin):
     def verify_password(self, password):
         return check_password_hash(self.password_hash, password)
     
-    # Adicionando o método get_id para o Flask-Login
     def get_id(self):
-        return str(self.ID_usuario)  # Retorne o ID como string
+        return f"usuario-{self.ID_usuario}"  # Prefixa com "usuario-"
+    
+    def save(self):
+        if not self.slug:
+            self.slug = slugify.generate_slug(self.nome)
+        db.session.add(self)
+        db.session.commit()
 
     bichos = db.relationship('Bichos', backref='usuario', lazy='select')
     adocoes_usuario = db.relationship('Adocao', back_populates='usuario', lazy='dynamic')
@@ -63,6 +72,8 @@ class ONG(db.Model, UserMixin):
     UF = db.Column(db.String(2), nullable=False)
     CNPJ = db.Column(db.String(18), nullable=False, unique=True)
     senha_hash = db.Column(db.String(256))
+    slug = db.Column(db.String(150), unique=True, nullable=False)
+
 
     @property
     def password(self):
@@ -77,7 +88,13 @@ class ONG(db.Model, UserMixin):
     
     # Adicionando o método get_id para o Flask-Login
     def get_id(self):
-        return str(self.ID_ONG)  # Retorne o ID como string
+        return f"ong-{self.ID_ONG}"
+    
+    def save(self):
+        if not self.slug:
+            self.slug = slugify.generate_slug(self.nome)
+        db.session.add(self)
+        db.session.commit()
 
 
     # Relacionamento com Bicho

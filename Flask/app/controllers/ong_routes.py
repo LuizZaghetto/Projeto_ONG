@@ -10,3 +10,12 @@ import app.functions as func
 from flask_login import login_user, login_required, logout_user, current_user
 
 ong_routes_bp = Blueprint('ong_routes', __name__)
+
+@ong_routes_bp.route("/perfil {current.user.nome}", methods=['GET', 'POST'])
+@login_required
+def perfil_ong():
+    form = forms.bichoForm()
+    return render_template(
+        "perfil_ong/perfil_ong.html", 
+        form=form
+    )

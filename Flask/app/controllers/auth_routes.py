@@ -6,38 +6,43 @@ from app.extensions import db
 from datetime import datetime
 import app.functions as func
 from flask_login import login_user, login_required, logout_user, current_user
+from slugify import slugify
+
+
 
 auth_routes_bp = Blueprint('auth_routes', __name__)
 
-# Página de login
 @auth_routes_bp.route("/login", methods=['GET', 'POST'])
 def login():
     usuarioform = forms.loginForm()
     ONGform = forms.ONGloginForm()
+
+    # Se o usuário já está autenticado, redirecionar para seu perfil
     if current_user.is_authenticated:
-        form = forms.bichoForm()
-        flash('Usuário já autenticado', 'warning')
-        return render_template('perfil_usuario/perfil_usuario.html', form=form)
-    else:
-        if request.method == "POST":
-            form_type = request.form.get('form_type')
-            if form_type == 'usuario' and usuarioform.validate_on_submit():
-                usuario = models.Usuarios.query.filter_by(email=usuarioform.email.data).first()
-                if usuario and check_password_hash(usuario.senha_hash, usuarioform.senha.data):
-                    login_user(usuario)
-                    flash("Login bem-sucedido!", "success")
-                    return redirect(url_for('usuario_routes.perfil_usuario'))
-                else:
-                    flash("Credenciais inválidas.", "danger")
-            elif form_type == 'ong' and ONGform.validate_on_submit():
-                ong = models.ONG.query.filter_by(email = ONGform.email.data).first()
-                if ong and check_password_hash(ong.senha_hash, ONGform.senha.data):
-                    login_user(ong)
-                    flash("Login bem-sucedido!", "success")
-                    return render_template('landing_page/index.html')
-                else:
-                    flash("Credenciais inválidas.", "danger")
-    return render_template('login/login.html', usuarioform = usuarioform, ONGform = ONGform)
+        return redirect(url_for("routes.perfil"))
+
+    if request.method == "POST":
+        form_type = request.form.get('form_type')
+        if form_type == 'usuario' and usuarioform.validate_on_submit():
+            usuario = models.Usuarios.query.filter_by(email=usuarioform.email.data).first()
+            if usuario and check_password_hash(usuario.senha_hash, usuarioform.senha.data):
+                login_user(usuario)
+                flash("Login bem-sucedido!", "success")
+                return redirect(url_for("routes.perfil"))
+            else:
+                flash("Credenciais inválidas.", "danger")
+        elif form_type == 'ong' and ONGform.validate_on_submit():
+            ong = models.ONG.query.filter_by(email=ONGform.email.data).first()
+            if ong and check_password_hash(ong.senha_hash, ONGform.senha.data):
+                login_user(ong)
+                flash("Login bem-sucedido!", "success")
+                return redirect(url_for("routes.perfil"))
+            else:
+                flash("Credenciais inválidas.", "danger")
+        else:
+            flash("Por favor, preencha o formulário corretamente.", "warning")
+
+    return render_template("login/login.html", usuarioform=usuarioform, ONGform=ONGform)
 
 
 
@@ -70,13 +75,17 @@ def registro():
                     
                     # Aplicando hash à senha
                     senha_hashed = generate_password_hash(usuarioform.senha.data)
+
+                    slug_usuario = slugify(usuarioform.nome.data)
+
                     usuario = models.Usuarios(
                         nome=usuarioform.nome.data,
                         email=usuarioform.email.data,
                         telefone=telefone_formatado,
                         data_nasc=usuarioform.data_nasc.data.strftime('%Y-%m-%d'),
                         CPF=cpf_formatado,
-                        senha_hash=senha_hashed
+                        senha_hash=senha_hashed,
+                        slug = slug_usuario
                     )
 
                     # Adicionando e commitando no banco de dados
@@ -97,6 +106,9 @@ def registro():
                 try:
                     # Aplicando hash à senha
                     senha_hashed = generate_password_hash(ONGform.senha.data)
+
+                    slug_ong = slugify(ONGform.nome.data)
+
                     ong = models.ONG(
                         nome=ONGform.nome.data,
                         email=ONGform.email.data,
@@ -107,7 +119,8 @@ def registro():
                         cidade=ONGform.cidade.data,
                         UF=ONGform.UF.data,
                         CNPJ=ONGform.CNPJ.data,
-                        senha_hash=senha_hashed
+                        senha_hash=senha_hashed,
+                        slug = slug_ong
                     )
 
                     # Adicionando e commitando no banco de dados

@@ -9,14 +9,25 @@ from flask_login import login_user, login_required, logout_user, current_user
 
 usuario_routes_bp = Blueprint('usuario_routes', __name__)
 
-@usuario_routes_bp.route("/perfil", methods=['GET', 'POST'])
+@usuario_routes_bp.route("/perfil-<slug>", methods=['GET', 'POST'])
 @login_required
-def perfil_usuario():
+def perfil_usuario(slug):
+    # Buscar o usuário baseado no slug
+    usuario = models.Usuarios.query.filter_by(slug=slug).first_or_404()
+
+    # Verificar se o usuário autenticado é o mesmo que está acessando o perfil
+    if usuario.ID_usuario != current_user.ID_usuario:
+        flash("Você não tem permissão para acessar este perfil.", "danger")
+        return redirect(url_for('routes.landing_page'))  # Redirecionar para a página inicial ou outra página de sua escolha
+
     form = forms.bichoForm()
+    
     return render_template(
         "perfil_usuario/perfil_usuario.html", 
-        form=form
+        form=form,
+        usuario=usuario
     )
+
 
 @usuario_routes_bp.route('/atualizar_usuario/<int:ID_usuario>', methods=['GET', 'POST'])
 def atualizar_usuario(ID_usuario):
@@ -55,7 +66,7 @@ def atualizar_usuario(ID_usuario):
             try:
                 db.session.commit()
                 flash(f"Usuário {atualizacao.nome} atualizado com sucesso")
-                return redirect(url_for('usuario_routes.perfil_usuario'))
+                return redirect(url_for('usuario_routes.perfil_usuario', slug = current_user.slug))
             except:
                 flash("Erro, tente novamente.")
                 return render_template(

@@ -63,7 +63,23 @@ def create_app():
         
         @login_manager.user_loader
         def load_user(user_id):
-             return models.Usuarios.query.get(int(user_id))
+            # Identifique o prefixo para determinar o tipo
+            if user_id.startswith("usuario-"):
+                user_id = user_id.replace("usuario-", "")
+                usuario = models.Usuarios.query.get(int(user_id))
+                if usuario:
+                        print(f"Usuário carregado: {usuario.nome}, Tipo: {usuario.tipo}")
+                return usuario
+            elif user_id.startswith("ong-"):
+                    user_id = user_id.replace("ong-", "")
+                    ong = models.ONG.query.get(int(user_id))
+                    if ong:
+                        print(f"ONG carregada: {ong.nome}, Tipo: {ong.tipo}")
+                        return ong
+            print("Usuário não encontrado")
+            return None
+
+
 
         # Registrar blueprints
         app.register_blueprint(routes_bp)
