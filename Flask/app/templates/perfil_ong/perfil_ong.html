@@ -67,8 +67,12 @@
 
                 <div class="principal__perfil-dados">
                     <h2 class="principal__perfil-dados-titulo">{{ current_user.nome }}</h2>
+                    <p class="principal__perfil-dados-texto">Email: {{ current_user.email }}</p>
+                    <p class="principal__perfil-dados-texto">Telefone: {{ current_user.telefone }}</p>
+                    <p class="principal__perfil-dados-texto">Endereço: {{ current_user.endereco }}</p>
+                    <p class="principal__perfil-dados-texto">CNPJ: {{ current_user.bairro }}</p>
                 </div>
-                <a href="{{url_for('usuario_routes.atualizar_usuario', ID_usuario = current_user.ID_usuario)}}">Atualizar Conta</a>
+                <a href="{{url_for('ong_routes.atualizar_ong', ID_ONG = current_user.ID_ONG)}}">Atualizar Conta</a>
             </div>
             <nav class="principal__bichos">
                 <h2 class="principal__bichos-titulo">Bichos para adoção</h2>

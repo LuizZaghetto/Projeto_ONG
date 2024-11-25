@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MiauMigos - Atualizar {{ current_user.nome }}</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/atualizar_usuario/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/atualizar_ong/main.css') }}">
 </head>
 <body>
 {% include 'header/header.html' %}
@@ -21,7 +21,7 @@
                 </div>
             {% endfor %}
 
-            <form action="/atualizar_usuario/{{atualizacao.ID_usuario}}" method="POST">
+            <form action="/atualizar_ong/{{ atualizacao.ID_ong }}" method="POST">
                 {{ form.hidden_tag() }}
                 
                 {{ form.nome.label }}<br>
@@ -51,15 +51,37 @@
                     </div>
                     {% endif %}
                 </div>
-                
+
                 <div class="formularios-unico">
-                    {{ form.data_nasc.label }}<br>
-                    {{ form.data_nasc(id = data_nasc, value = atualizacao.data_nasc, readonly="readonly", class="readonly")}}
+                    {{ form.CEP.label }}
+                    {{ form.CEP(id="CEP", value = atualizacao.CEP, onblur="preencherEndereco()", onkeyup="formatarCEP(this)") }}
+                    {% if form.CEP.errors %}
+                    <div class="alert alert-danger">
+                        {% for error in form.CEP.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
                 </div>
                 
                 <div class="formularios-unico">
-                    {{ form.CPF.label }}<br>
-                    {{ form.CPF(id="cpf", value=atualizacao.CPF, readonly="readonly", class="readonly") }}
+                    {{ form.endereco.label }}<br>
+                    {{ form.endereco(id="endereco", value=atualizacao.endereco) }}
+                </div>
+                
+                <div class="formularios-unico">
+                    {{ form.bairro.label }}<br>
+                    {{ form.bairro(id = "bairro", value = atualizacao.bairro)}}
+                </div>
+
+                <div class="formularios-unico">
+                    {{ form.cidade.label }}<br>
+                    {{ form.cidade(id = "cidade", value = atualizacao.cidade)}}
+                </div>
+                
+                <div class="formularios-unico">
+                    {{ form.UF.label }}<br>
+                    {{ form.UF(id = "UF")}}
                 </div>
                 
 
@@ -72,14 +94,18 @@
                 {{ form.senha2 }}
                 <br>
                 <!-- Campo obrigatório: senha atual -->
-                <label for="senha_atual">Senha Atual</label><br>
-                <input type="password" name="senha_atual" id="senha_atual" required>
-                <br>
+                {% if form.senha.errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.senha.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            
                 {{ form.enviar }}
             </form>
         </section>
-        <script src="{{ url_for('static', filename = 'js/atualizar_usuario/atualizar_usuario.js') }}"></script>
-        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        <script src="{{ url_for('static', filename = 'js/atualizar_ong/atualizar_ong.js') }}"></script>
     </main>
 
 {% endblock %}

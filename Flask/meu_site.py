@@ -98,5 +98,16 @@ def create_app():
 
 
 app = create_app()
-if __name__ == "__main__": 
-    app.run(debug = True)
+if __name__ == "__main__":
+    app = create_app()
+    with app.app_context():  # Garante que estamos no contexto do app
+        try:
+            # Geração de usuários
+            usuarios = func.criar_usuarios()
+            func.adicionar_usuarios_ao_bd(usuarios)
+            print("Usuários criados e adicionados com sucesso ao banco de dados.")
+        except Exception as e:
+            print(f"Erro ao criar usuários: {e}")
+
+    # Inicia o servidor Flask
+    app.run(debug=True)

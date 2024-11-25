@@ -4,7 +4,13 @@ import app.models.models as models
 import app.forms.forms as forms 
 from app.extensions import db
 import requests
+import random
+from faker import Faker
+from werkzeug.security import generate_password_hash
+import app.models.models as models
 
+
+fake = Faker("pt_BR")
 
 def carregar_json(filename):
     try:
@@ -51,9 +57,28 @@ def atualizar_dados_formatados():
 
     print("Dados atualizados com sucesso!")
 
+def criar_usuarios():
+    usuarios = []
+    for _ in range(100):
+        senha = fake.password(length=12, special_chars=True, digits=True, upper_case=True, lower_case=True)
+        senha_hash = generate_password_hash(senha)  # Hashea a senha gerada
+        usuario = models.Usuarios(
+            nome=fake.name(),
+            email=fake.email(),
+            telefone=fake.phone_number(),
+            data_nasc=fake.date_of_birth(minimum_age=18, maximum_age=70),
+            CPF=fake.ssn(),
+            senha_hash=senha_hash,  # Ajuste o campo de senha no seu modelo
+        )
+        print(f"Usuário criado: {usuario.nome}, Email: {usuario.email}, Senha: {senha}")
+        usuarios.append(usuario)
+    return usuarios
 
-    # def validate_CEP(self, field):
-    #     cep = field.data.replace('-', '').replace('.', '')
-    #     response = requests.get(f'https://viacep.com.br/ws/{cep}/json/')
-    #     if response.status_code != 200 or 'erro' in response.json():
-    #         raise ValidationError("CEP inválido ou não encontrado.")
+def adicionar_usuarios_ao_bd(usuarios):
+    try:
+        db.session.bulk_save_objects(usuarios)
+        db.session.commit()
+        print("100 usuários adicionados com sucesso!")
+    except Exception as e:
+        db.session.rollback()
+        print(f"Erro ao adicionar usuários: {e}")

@@ -69,3 +69,23 @@ class AtualizarUsuarioForm(FlaskForm):
     senha = PasswordField("Nova senha", validators=[Optional(), EqualTo('senha2', message="As senhas devem ser iguais")])
     senha2 = PasswordField("Confirme a nova senha", validators=[Optional()])
     enviar = SubmitField("Atualizar")
+
+# Criar formulário para atualizar ONG
+class AtualizarONGForm(FlaskForm):
+    nome = StringField('Nome', validators=[DataRequired()])
+    email = StringField("Email", validators=[Email(message="Por favor, insira um email válido.")])
+    telefone = StringField("Número de Telefone", validators=[DataRequired(), Regexp(r'^\(\d{2}\)\s\d{5}-\d{4}$', message="Telefone deve estar no formato (XX) XXXXX-XXXX.")])
+    CEP = StringField('CEP', validators=[DataRequired(), Regexp(r'^\d{5}-\d{3}$', message="CEP deve estar no formato XXXXX-XXX.")])
+    endereco = StringField('Endereço', validators=[DataRequired()])
+    bairro = StringField('Bairro', validators=[DataRequired()])
+    cidade = StringField('Cidade', validators=[DataRequired()])
+    UF = SelectField(
+        'UF', 
+        choices=ESTADOS_BRASIL, 
+        validators=[DataRequired()],
+        default=''
+    )
+    senha_atual = PasswordField("Senha Atual", validators=[DataRequired()])  
+    senha = PasswordField("Nova senha", validators=[Optional(), EqualTo('senha2', message="As senhas devem ser iguais")])
+    senha2 = PasswordField("Confirme a nova senha", validators=[Optional()])
+    enviar = SubmitField('Atualizar')

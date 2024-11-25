@@ -12,7 +12,7 @@ class Usuarios(db.Model, UserMixin):
     email = db.Column(db.String(50), nullable=False, unique=True)
     telefone = db.Column(db.String(20), nullable=False)
     data_nasc = db.Column(db.Date, nullable=False)
-    CPF = db.Column(db.String(15), nullable=False, unique=True)
+    CPF = db.Column(db.String(14), nullable=False, unique=True)
     senha_hash = db.Column(db.String(256))
     slug = db.Column(db.String(150), unique=True, nullable=False)
 
