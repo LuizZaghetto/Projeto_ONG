@@ -41,8 +41,8 @@ def create_app():
         
         # Configuração da chave secreta e do banco de dados
         app.config['SECRET_KEY'] = secret_key
-        app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{database_user}:{database_password}@{database_host}/{database_name}"
-        #app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{database2_user}:{database2_password}@{database2_host}/{database2_name}"
+        #app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{database_user}:{database_password}@{database_host}/{database_name}"
+        app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{database2_user}:{database2_password}@{database2_host}/{database2_name}"
 
         # Pasta de migrações personalizada
         app.config['MIGRATION_DIR'] = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'app', 'migrations')
@@ -99,15 +99,7 @@ def create_app():
 
 app = create_app()
 if __name__ == "__main__":
-    app = create_app()
-    with app.app_context():  # Garante que estamos no contexto do app
-        try:
-            # Geração de usuários
-            usuarios = func.criar_usuarios()
-            func.adicionar_usuarios_ao_bd(usuarios)
-            print("Usuários criados e adicionados com sucesso ao banco de dados.")
-        except Exception as e:
-            print(f"Erro ao criar usuários: {e}")
+
 
     # Inicia o servidor Flask
     app.run(debug=True)
