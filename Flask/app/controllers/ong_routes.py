@@ -8,6 +8,8 @@ from app.extensions import db
 from datetime import datetime
 import app.functions as func
 from flask_login import login_user, login_required, logout_user, current_user
+from slugify import slugify
+
 
 ong_routes_bp = Blueprint('ong_routes', __name__)
 
@@ -36,9 +38,7 @@ def atualizar_ong(ID_ONG):
     form = forms.AtualizarONGForm()
     ongs = models.ONG.query.order_by(models.ONG.ID_ONG)
     atualizacao = models.ONG.query.get_or_404(ID_ONG)
-    print("teste inicial")
     if request.method == "POST":
-        print("Reconhecendo o post")
         if form.validate_on_submit():
             senha_atual = request.form['senha_atual']
             if not check_password_hash(atualizacao.senha_hash, senha_atual):
@@ -49,6 +49,7 @@ def atualizar_ong(ID_ONG):
                     atualizacao=atualizacao,
                     ongs=ongs
                 )
+            nome_anterior = atualizacao.nome  
             atualizacao.nome = request.form['nome']
             atualizacao.email = request.form['email']
             atualizacao.telefone = request.form['telefone']
@@ -73,6 +74,9 @@ def atualizar_ong(ID_ONG):
                         atualizacao=atualizacao,
                         ongs=ongs                    
                     )
+            if nome_anterior != atualizacao.nome:
+                slug_nome = slugify(atualizacao.nome)
+                atualizacao.slug = f"{slug_nome}-{atualizacao.ID_ONG}"
             try:
                 db.session.commit()
                 flash(f"ONG {atualizacao.nome} atualizada com sucesso")

@@ -14,7 +14,7 @@ class registroForm(FlaskForm):
     telefone = StringField("Número de Telefone", validators=[DataRequired(), Regexp(r'^\(\d{2}\)\s\d{5}-\d{4}$', message="Telefone deve estar no formato (XX) XXXXX-XXXX.")])
     senha = PasswordField("Digite sua senha", validators=[DataRequired(), EqualTo('senha2', message = "As senhas devem ser iguais")])
     senha2 = PasswordField("Confirme a senha", validators=[DataRequired()])
-    enviar = SubmitField("Enviar")
+    enviar = SubmitField("Registrar")
 
 # Registro de ONG
 class ONGregistroForm(FlaskForm):

@@ -21,7 +21,7 @@
                 </div>
             {% endfor %}
 
-            <form action="/atualizar_ong/{{ atualizacao.ID_ong }}" method="POST">
+            <form action="{{ url_for('ong_routes.atualizar_ong', ID_ONG=atualizacao.ID_ONG) }}" method="POST">
                 {{ form.hidden_tag() }}
                 
                 {{ form.nome.label }}<br>
@@ -94,6 +94,8 @@
                 {{ form.senha2 }}
                 <br>
                 <!-- Campo obrigatório: senha atual -->
+                {{ form.senha_atual.label }}<br>
+                {{ form.senha_atual }}
                 {% if form.senha.errors %}
                 <div class="alert alert-danger">
                     {% for error in form.senha.errors %}

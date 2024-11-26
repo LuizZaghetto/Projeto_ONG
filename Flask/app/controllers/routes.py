@@ -43,6 +43,7 @@ def landing_page():
 @routes_bp.route("/redirecionar-perfil")
 @login_required
 def perfil():
+    print(current_user.tipo)
     if current_user.tipo == 0:
         return redirect(url_for("usuario_routes.perfil_usuario", slug = current_user.slug))
     elif current_user.tipo == 1:

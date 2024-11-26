@@ -26,6 +26,10 @@ database2_user =os. getenv("DATABASE2_USER")
 database2_host = os.getenv("DATABASE2_HOST")
 database2_password = os.getenv("DATABASE2_PASSWORD")
 database2_name = os.getenv("DATABASE2_NAME")
+# Banco Local
+database3_host = os.getenv("DATABASE3_HOST")
+database3_name = os.getenv("DATABASE3_NAME")
+database3_user = os.getenv("DATABASE3_USER")
 
 err = {
     'OperationalError': 'Erro ao conectar ao banco de dados.',
@@ -41,8 +45,12 @@ def create_app():
         
         # Configuração da chave secreta e do banco de dados
         app.config['SECRET_KEY'] = secret_key
+        # Banco Principal
         #app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{database_user}:{database_password}@{database_host}/{database_name}"
-        app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{database2_user}:{database2_password}@{database2_host}/{database2_name}"
+        # Banco Secundário
+        #app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{database2_user}:{database2_password}@{database2_host}/{database2_name}"
+        # Banco Local
+        app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{database3_user}:123Salsich%40#@{database3_host}/{database3_name}"
 
         # Pasta de migrações personalizada
         app.config['MIGRATION_DIR'] = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'app', 'migrations')
@@ -99,7 +107,4 @@ def create_app():
 
 app = create_app()
 if __name__ == "__main__":
-
-
-    # Inicia o servidor Flask
     app.run(debug=True)

@@ -8,6 +8,7 @@ from app.extensions import db
 from datetime import datetime
 import app.functions as func
 from flask_login import login_user, login_required, logout_user, current_user
+from slugify import slugify
 
 admin_routes_bp = Blueprint('admin_routes', __name__)
 
@@ -26,12 +27,18 @@ def atualizar_usuario_admin(ID_usuario):
     usuarios = models.Usuarios.query.order_by(models.Usuarios.ID_usuario)
     atualizacao = models.Usuarios.query.get_or_404(ID_usuario)
     if request.method == "POST":
+        nome_anterior = atualizacao.nome  
         atualizacao.nome = request.form['nome']
         atualizacao.email = request.form['email']
         atualizacao.telefone = request.form['telefone']
         atualizacao.data_nasc = request.form['data_nasc']
         atualizacao.CPF = request.form['CPF']
         atualizacao.ID_usuario = request.form['ID_usuario']
+        
+        if nome_anterior != atualizacao.nome:
+            slug_nome = slugify(atualizacao.nome)
+            atualizacao.slug = f"{slug_nome}-{atualizacao.ID_usuario}"
+        
         try:
             db.session.commit()
             flash(f"Usuário {ID_usuario} atualizado com sucesso")
@@ -58,6 +65,7 @@ def atualizar_ONG_admin(ID_ONG):
     ongs = models.ONG.query.order_by(models.ONG.ID_ONG)
     atualizacao = models.ONG.query.get_or_404(ID_ONG)
     if request.method == "POST":
+        nome_anterior = atualizacao.nome  # Armazena o nome atual para comparação
         atualizacao.nome = request.form['nome']
         atualizacao.email = request.form['email']
         atualizacao.telefone = request.form['telefone']
@@ -68,6 +76,10 @@ def atualizar_ONG_admin(ID_ONG):
         atualizacao.UF = request.form['UF']
         atualizacao.CNPJ = request.form['CNPJ']
         atualizacao.ID_ONG = request.form['ID_ONG']
+
+        if nome_anterior != atualizacao.nome:
+            slug_nome = slugify(atualizacao.nome)
+            atualizacao.slug = f"{slug_nome}-{atualizacao.ID_ONG}"
         try:
             db.session.commit()
             flash(f"ONG {ID_ONG} atualizada com sucesso")
