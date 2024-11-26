@@ -70,7 +70,7 @@
                     <p class="principal__perfil-dados-texto">Email: {{ current_user.email }}</p>
                     <p class="principal__perfil-dados-texto">Telefone: {{ current_user.telefone }}</p>
                     <p class="principal__perfil-dados-texto">Endereço: {{ current_user.endereco }}</p>
-                    <p class="principal__perfil-dados-texto">CNPJ: {{ current_user.bairro }}</p>
+                    <p class="principal__perfil-dados-texto">CNPJ: {{ current_user.CNPJ }}</p>
                 </div>
                 <a href="{{url_for('ong_routes.atualizar_ong', ID_ONG = current_user.ID_ONG)}}">Atualizar Conta</a>
             </div>

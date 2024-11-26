@@ -36,11 +36,23 @@
             {{ form.telefone.label }}
             {{ form.telefone(value=atualizacao.telefone) }}
             <br>
+            {{ form.CEP.label }}
+            {{ form.CEP(value=atualizacao.CEP) }}
+            <br>
             {{ form.CNPJ.label }}
             {{ form.CNPJ(value=atualizacao.CNPJ) }}
             <br>
             {{ form.endereco.label }}
             {{ form.endereco(value=atualizacao.endereco) }}
+            <br>
+            {{ form.bairro.label }}
+            {{ form.bairro(value=atualizacao.bairro) }}
+            <br>
+            {{ form.cidade.label }}
+            {{ form.cidade(value=atualizacao.cidade) }}
+            <br>
+            {{ form.UF.label }}
+            {{ form.UF(value=atualizacao.UF) }}
             <br>
 
             {{ form.enviar }}
@@ -75,6 +87,11 @@
                     <td>{{ ong.telefone }}</td>
                     <td>{{ ong.CNPJ }}</td>
                     <td>{{ ong.endereco }}</td>
+                    <td><form action="{{ url_for('admin_routes.excluir_ONG_admin', ID_ONG=atualizacao.ID_ONG) }}" method="POST" style="display:inline;">
+                        {{ form.hidden_tag() }}
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <button type="submit" class="btn btn-danger">Deletar</button>
+                    </form></td>
                 </tr>
             {% endfor %}
         </tbody>

@@ -45,6 +45,7 @@ def atualizar_usuario(ID_usuario):
                     atualizacao=atualizacao,
                     usuarios=usuarios
                 )
+            nome_anterior = atualizacao.nome  
             atualizacao.nome = request.form['nome']
             atualizacao.email = request.form['email']
             atualizacao.telefone = request.form['telefone']
@@ -63,6 +64,10 @@ def atualizar_usuario(ID_usuario):
                         atualizacao=atualizacao,
                         usuarios=usuarios
                     )
+            if nome_anterior != atualizacao.nome:
+                slug_nome = (atualizacao.nome)
+                atualizacao.slug = f"{slug_nome}-{atualizacao.ID_usuario}"
+
             try:
                 db.session.commit()
                 flash(f"Usuário {atualizacao.nome} atualizado com sucesso")
