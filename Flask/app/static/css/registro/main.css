@@ -27,6 +27,7 @@
     text-align: center;
     margin-bottom: 2rem;
     color: brown;
+    padding-top: 2rem;
 }
 
 .formularios {
@@ -158,9 +159,14 @@ input[name="tipo_conta"]:checked + .toggle-option {
 .organizarForms {
     display: grid;
     grid-template-columns: auto auto auto;
-    padding: 10px
+    padding: 10px;
+    gap: 2rem;
 }
 
+.botaoRegistro {
+    text-align: center;
+    padding-bottom: 1rem;
+}
 
 
 

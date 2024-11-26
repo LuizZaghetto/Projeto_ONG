@@ -100,8 +100,8 @@
 }
 
 .imagens-formato {
-    width: 18rem;
-    height: 18rem;
+    width: 25rem;
+    height: 25rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     border-radius: 5%;
 }

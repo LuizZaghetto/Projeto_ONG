@@ -110,7 +110,7 @@
                             </div>
                             {% endif %}
                         </div>
-                        <div class="formularios-enviar">
+                        <div class="botaoRegistro">
                             {{ usuarioform.enviar(class="formularios-enviar-botao botao1") }}
                         </div>    
                     </form>
@@ -228,15 +228,15 @@
                             </div>
                         
 
-                            {{ONGform.enviar(class="formularios-enviar-botao botao2")}}<br>
+                            <div class="botaoRegistro">{{ONGform.enviar(class="formularios-enviar-botao botao2")}}</div><br>
                         </form>
                     </div>
                 
                 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
                 <script src="{{url_for('static', filename='js/registro/registro.js')}}"></script>
             </div>
-            <div>
-                <img class="imagens-formato" src="{{url_for('static', filename = 'img/gatorita.png')}}">
+            <div class="imagens">
+                <img class="imagens-formato" src="{{url_for('static', filename = 'img/willysorri.jpg')}}">
             </div>
         </div>
        
