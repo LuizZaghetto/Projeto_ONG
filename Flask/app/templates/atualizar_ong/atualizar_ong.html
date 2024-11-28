@@ -1,134 +1,142 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MiauMigos - Atualizar {{ current_user.nome }}</title>
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/atualizar_ong/main.css') }}">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MiauMigos - Atualizar {{ current_user.nome }}</title>
+<link
+rel="shortcut icon"
+href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}"
+/>
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/atualizar_ong/main.css') }}"
+/>
 </head>
 <body>
-{% include 'header/header.html' %}
-{% block content %}
+{% include 'header/header.html' %} {% block content %}
 
-    <main class="principal">
-        <section class="principal__conteudo">
-            <div class="titulo">
-                <h1>
-                    Atualize seus dados
-                </h1>
-            </div>    
+<main class="principal">
+<section class="principal__conteudo">
+<div class="titulo">
+<h1>Atualize seus dados</h1>
+</div>
 
-            {% for message in get_flashed_messages() %}
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            {% endfor %}
+{% for message in get_flashed_messages() %}
+<div
+class="alert alert-success alert-dismissible fade show float-message"
+role="alert"
+>
+{{ message }}
+<button
+type="button"
+class="btn-close"
+data-bs-dismiss="alert"
+aria-label="Close"
+></button>
+</div>
+{% endfor %}
 
-            <form action="{{ url_for('ong_routes.atualizar_ong', ID_ONG=atualizacao.ID_ONG) }}" method="POST">
-                {{ form.hidden_tag() }}
-                
-                
-                
-                <div class="formularios">
-                    <div class="formularios-unico">
-                    {{ form.nome.label }}<br>
-                    {{ form.nome(value=atualizacao.nome) }}
-                    </div>
-                
-                    <div class="formularios-unico">
-                        {{ form.email.label }}<br>
-                        {{ form.email(id="email", value=atualizacao.email) }}
-                        {% if form.email.errors %}
-                        <div class="alert alert-danger">
-                            {% for error in form.email.errors %}
-                                <p>{{ error }}</p>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                    </div>
-                    
-                    <div class="formularios-unico">
-                        {{ form.telefone.label }}<br>
-                        {{ form.telefone(id="telefone", value=atualizacao.telefone ,onkeyup="formatarTelefone(this)") }}
-                        {% if form.telefone.errors %}
-                        <div class="alert alert-danger">
-                            {% for error in form.telefone.errors %}
-                                <p>{{ error }}</p>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                    </div>
+<form
+action="{{ url_for('ong_routes.atualizar_ong', ID_ONG=atualizacao.ID_ONG) }}"
+method="POST"
+>
+{{ form.hidden_tag() }}
 
-                    <div class="formularios-unico">
-                        {{ form.CEP.label }}
-                        <br>
-                        {{ form.CEP(id="CEP", value = atualizacao.CEP, onblur="preencherEndereco()", onkeyup="formatarCEP(this)") }}
-                        {% if form.CEP.errors %}
-                        <div class="alert alert-danger">
-                            {% for error in form.CEP.errors %}
-                                <p>{{ error }}</p>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                    </div>
-                    
-                    <div class="formularios-unico">
-                        {{ form.endereco.label }}<br>
-                        {{ form.endereco(id="endereco", value=atualizacao.endereco) }}
-                    </div>
-                    
-                    <div class="formularios-unico">
-                        {{ form.bairro.label }}<br>
-                        {{ form.bairro(id = "bairro", value = atualizacao.bairro)}}
-                    </div>
+<div class="formularios">
+<div class="formularios-unico">
+{{ form.nome.label }}<br />
+{{ form.nome(value=atualizacao.nome) }}
+</div>
 
-                    <div class="formularios-unico">
-                        {{ form.cidade.label }}<br>
-                        {{ form.cidade(id = "cidade", value = atualizacao.cidade)}}
-                    </div>
-                    
-                    <div class="formularios-unico">
-                        {{ form.UF.label }}<br>
-                        {{ form.UF(id = "UF")}}
-                    </div>
-                      
+<div class="formularios-unico">
+{{ form.email.label }}<br />
+{{ form.email(id="email", value=atualizacao.email) }} {% if form.email.errors %}
+<div class="alert alert-danger">
+{% for error in form.email.errors %}
+<p>{{ error }}</p>
+{% endfor %}
+</div>
+{% endif %}
+</div>
 
-                    <!-- Campos para nova senha (opcional) -->
-                    <br>
-                    <div class="formularios-unico">
-                        {{ form.senha.label }} <br>
-                        {{ form.senha }}
-                    </div>
-                    <br>
-                    
-                    <div class="formularios-unico">
-                        {{ form.senha2.label }} <br>
-                        {{ form.senha2 }}
-                    </div>    
-                    <br>
-                    <!-- Campo obrigatório: senha atual -->
-                    <div class="formularios-unico">
-                        {{ form.senha_atual.label }}  <br>
-                        {{ form.senha_atual }}
-                        {% if form.senha.errors %}
-                    </div>    
-                    <div class="alert alert-danger">
-                        {% for error in form.senha.errors %}
-                            <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>      
-                <br>
-                <div>
-                    {{ form.enviar(class="formularios-enviar-botao") }}
-                </div>
-            </form>
-        </section>
-        <script src="{{ url_for('static', filename = 'js/atualizar_ong/atualizar_ong.js') }}"></script>
-    </main>
+<div class="formularios-unico">
+{{ form.telefone.label }}<br />
+{{ form.telefone(id="telefone", value=atualizacao.telefone
+,onkeyup="formatarTelefone(this)") }} {% if form.telefone.errors %}
+<div class="alert alert-danger">
+{% for error in form.telefone.errors %}
+<p>{{ error }}</p>
+{% endfor %}
+</div>
+{% endif %}
+</div>
 
-{% endblock %}
-{% include 'footer/footer.html' %}
+<div class="formularios-unico">
+{{ form.CEP.label }}
+<br />
+{{ form.CEP(id="CEP", value = atualizacao.CEP, onblur="preencherEndereco()",
+onkeyup="formatarCEP(this)") }} {% if form.CEP.errors %}
+<div class="alert alert-danger">
+{% for error in form.CEP.errors %}
+<p>{{ error }}</p>
+{% endfor %}
+</div>
+{% endif %}
+</div>
+
+<div class="formularios-unico">
+{{ form.endereco.label }}<br />
+{{ form.endereco(id="endereco", value=atualizacao.endereco) }}
+</div>
+
+<div class="formularios-unico">
+{{ form.bairro.label }}<br />
+{{ form.bairro(id = "bairro", value = atualizacao.bairro)}}
+</div>
+
+<div class="formularios-unico">
+{{ form.cidade.label }}<br />
+{{ form.cidade(id = "cidade", value = atualizacao.cidade)}}
+</div>
+
+<div class="formularios-unico">
+{{ form.UF.label }}<br />
+{{ form.UF(id = "UF")}}
+</div>
+
+<!-- Campos para nova senha (opcional) -->
+<br />
+<div class="formularios-unico">
+{{ form.senha.label }} <br />
+{{ form.senha }}
+</div>
+<br />
+
+<div class="formularios-unico">
+{{ form.senha2.label }} <br />
+{{ form.senha2 }}
+</div>
+<br />
+<!-- Campo obrigatório: senha atual -->
+<div class="formularios-unico">
+{{ form.senha_atual.label }} <br />
+{{ form.senha_atual }} {% if form.senha.errors %}
+</div>
+<div class="alert alert-danger">
+{% for error in form.senha.errors %}
+<p>{{ error }}</p>
+{% endfor %}
+</div>
+{% endif %}
+</div>
+<br />
+<div>{{ form.enviar(class="formularios-enviar-botao") }}</div>
+</form>
+</section>
+<script src="{{ url_for('static', filename = 'js/atualizar_ong/atualizar_ong.js') }}"></script>
+</main>
+
+{% endblock %} {% include 'footer/footer.html' %}
+</body>
+</html>

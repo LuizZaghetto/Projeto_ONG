@@ -9,8 +9,8 @@ from flask_login import login_user, login_required, logout_user, current_user
 from slugify import slugify
 
 
-
 auth_routes_bp = Blueprint('auth_routes', __name__)
+
 
 @auth_routes_bp.route("/login", methods=['GET', 'POST'])
 def login():
@@ -24,7 +24,8 @@ def login():
     if request.method == "POST":
         form_type = request.form.get('form_type')
         if form_type == 'usuario' and usuarioform.validate_on_submit():
-            usuario = models.Usuarios.query.filter_by(email=usuarioform.email.data).first()
+            usuario = models.Usuarios.query.filter_by(
+                email=usuarioform.email.data).first()
             if usuario and check_password_hash(usuario.senha_hash, usuarioform.senha.data):
                 login_user(usuario)
                 flash("Login bem-sucedido!", "success")
@@ -45,7 +46,6 @@ def login():
     return render_template("login/login.html", usuarioform=usuarioform, ONGform=ONGform)
 
 
-
 # Função de logout
 @auth_routes_bp.route("/logout", methods=["GET", "POST"])
 @login_required
@@ -55,26 +55,32 @@ def logout():
     return redirect(url_for('routes.landing_page'))
 
 # Página de registro
+
+
 @auth_routes_bp.route("/registro", methods=['GET', 'POST'])
 def registro():
     usuarioform = forms.registroForm()
     ONGform = forms.ONGregistroForm()
-    
+    if current_user.is_authenticated:
+        return redirect(url_for("routes.perfil"))
     # Verificar qual formulário foi enviado
     if request.method == 'POST':
         form_type = request.form.get('form_type')
-        
+
         if form_type == 'usuario' and usuarioform.validate_on_submit():
             # Lógica para o formulário de usuário
-            usuario = models.Usuarios.query.filter_by(email=usuarioform.email.data).first()
+            usuario = models.Usuarios.query.filter_by(
+                email=usuarioform.email.data).first()
             if usuario is None:
                 try:
                     # Formatar CPF e Telefone no backend
                     cpf_formatado = func.formatar_cpf(usuarioform.CPF.data)
-                    telefone_formatado = func.formatar_telefone(usuarioform.telefone.data)
-                    
+                    telefone_formatado = func.formatar_telefone(
+                        usuarioform.telefone.data)
+
                     # Aplicando hash à senha
-                    senha_hashed = generate_password_hash(usuarioform.senha.data)
+                    senha_hashed = generate_password_hash(
+                        usuarioform.senha.data)
 
                     slug_usuario = slugify(usuarioform.nome.data)
 
@@ -82,10 +88,11 @@ def registro():
                         nome=usuarioform.nome.data,
                         email=usuarioform.email.data,
                         telefone=telefone_formatado,
-                        data_nasc=usuarioform.data_nasc.data.strftime('%Y-%m-%d'),
+                        data_nasc=usuarioform.data_nasc.data.strftime(
+                            '%Y-%m-%d'),
                         CPF=cpf_formatado,
                         senha_hash=senha_hashed,
-                        slug = slug_usuario
+                        slug=slug_usuario
                     )
 
                     # Adicionando e commitando no banco de dados
@@ -124,7 +131,7 @@ def registro():
                         UF=ONGform.UF.data,
                         CNPJ=ONGform.CNPJ.data,
                         senha_hash=senha_hashed,
-                        slug = slug_ong
+                        slug=slug_ong
                     )
 
                     # Adicionando e commitando no banco de dados
@@ -145,5 +152,3 @@ def registro():
         else:
             flash("Erro no formulário, corrija os campos destacados.", "warning")
     return render_template('registro/registro.html', usuarioform=usuarioform, ONGform=ONGform)
-
-

@@ -1,92 +1,111 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MiauMigos - Crud</title>
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/crud/crud.css')}}">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MiauMigos - Crud</title>
+<link
+rel="shortcut icon"
+href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}"
+/>
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/crud/crud.css')}}"
+/>
 </head>
 <body>
+{% include 'header/header.html' %} {% block content %}
 
-{% include 'header/header.html' %}
+<main class="principal">
+<section class="principal__conteudo">
+<h1 class="principal__conteudo-titulo">Usuários da página</h1>
+<div class="principal__conteudo-tabela">
+{% with messages = get_flashed_messages() %} {% if messages %}
+<div class="mensagens-flash">
+{% for message in messages %}
+<div class="alert alert-success float-message">{{ message }}</div>
+{% endfor %}
+</div>
+{% endif %} {% endwith %}
 
-{% block content %}
+<table class="table table-hover table-bordered table-striped" id="tabela">
+<tr>
+<th>ID</th>
+<th>Nome</th>
+<th>Email</th>
+<th>Telefone</th>
+<th>Data de nascimento</th>
+<th>CPF</th>
+<th>Deletar</th>
+</tr>
+{% for usuario in usuarios %}
+<tr>
+<td>{{usuario.ID_usuario}}</td>
+<td>
+<a
+href="{{ url_for('admin_routes.atualizar_usuario_admin', ID_usuario=usuario.ID_usuario) }}"
+>{{ usuario.nome }}</a
+>
+</td>
+<td>{{usuario.email}}</td>
+<td>{{usuario.telefone}}</td>
+<td>{{usuario.data_nasc}}</td>
+<td>{{usuario.CPF}}</td>
+<td>
+<form
+action="{{ url_for('admin_routes.excluir_usuario_admin', ID_usuario=usuario.ID_usuario) }}"
+method="POST"
+style="display: inline"
+>
+<button type="submit" id="deletar" class="btn btn-danger" style="color: white">
+Deletar
+</button>
+</form>
+</td>
+</tr>
+{% endfor %}
+</table>
 
+<table class="table table-hover table-bordered table-striped" id="tabela">
+<tr>
+<th>ID</th>
+<th>Nome</th>
+<th>Email</th>
+<th>Telefone</th>
+<th>CNPJ</th>
+<th>Endereço</th>
+<th>Deletar</th>
+</tr>
+{% for ong in ongs %}
+<tr>
+<td>{{ ong.ID_ONG }}</td>
+<td>
+<a href="{{ url_for('admin_routes.atualizar_ONG_admin', ID_ONG=ong.ID_ONG) }}"
+>{{ ong.nome }}</a
+>
+</td>
+<td>{{ ong.email }}</td>
+<td>{{ ong.telefone }}</td>
+<td>{{ ong.CNPJ }}</td>
+<td>{{ ong.endereco }}</td>
+<td>
+<form
+action="{{ url_for('admin_routes.excluir_ONG_admin', ID_ONG=ong.ID_ONG) }}"
+method="POST"
+style="display: inline"
+>
+<button type="submit" id="deletar" class="btn btn-danger" style="color: white">
+Deletar
+</button>
+</form>
+</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+</section>
+</main>
 
-
-
-    <main class="principal">
-        <section class="principal__conteudo">
-            <h1 class="principal__conteudo-titulo">Usuários da página</h1>
-            <div class="principal__conteudo-tabela">
-
-                {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    <div class="mensagens-flash">
-                        {% for message in messages %}
-                            <div class="alert alert-success">
-                                {{ message }}
-                            </div>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-                {% endwith %}
-                
-                <table class="table table-hover table-bordered table-striped" id="tabela">
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>Telefone</th>
-                        <th>Data de nascimento</th>
-                        <th>CPF</th>
-                        <th>Deletar</th>
-                    </tr>
-                    {% for usuario in usuarios %}
-                        <tr>
-                        <td> {{usuario.ID_usuario}} </td><td><a href="{{ url_for('admin_routes.atualizar_usuario_admin', ID_usuario=usuario.ID_usuario) }}">{{ usuario.nome }}</a> </td><td> {{usuario.email}}</td><td>
-                            {{usuario.telefone}} </td><td> {{usuario.data_nasc}} </td><td> {{usuario.CPF}} </td> 
-                            <td> <form action="{{ url_for('admin_routes.excluir_usuario_admin', ID_usuario=usuario.ID_usuario) }}" method="POST" style="display:inline;">
-                                <button type="submit" id="deletar" class="btn btn-danger" style="color: white;">Deletar</button>
-                            </form> </td>
-                        </tr>
-                    {% endfor %}
-                </table>
-
-                <table class="table table-hover table-bordered table-striped" id="tabela">
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>Telefone</th>
-                        <th>CNPJ</th>
-                        <th>Endereço</th>
-                        <th>Deletar</th>
-                    </tr>
-                    {% for ong in ongs %}
-                        <tr>
-                            <td>{{ ong.ID_ONG }}</td>
-                            <td><a href="{{ url_for('admin_routes.atualizar_ONG_admin', ID_ONG=ong.ID_ONG) }}">{{ ong.nome }}</a></td>
-                            <td>{{ ong.email }}</td>
-                            <td>{{ ong.telefone }}</td>
-                            <td>{{ ong.CNPJ }}</td>
-                            <td>{{ ong.endereco }}</td>
-                            <td>
-                                <form action="{{ url_for('admin_routes.excluir_ONG_admin', ID_ONG=ong.ID_ONG) }}" method="POST" style="display:inline;">
-                                    <button type="submit" id="deletar" class="btn btn-danger" style="color: white;">Deletar</button>
-                                </form>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </table>
-            </div>
-        </section>
-    </main>
-
-{% endblock %}
-
-{% include 'footer/footer.html' %}
-
+{% endblock %} {% include 'footer/footer.html' %}
 </body>
 </html>

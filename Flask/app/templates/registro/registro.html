@@ -1,250 +1,261 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MiauMigos - Registro</title>
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/registro/main.css') }}">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MiauMigos - Registro</title>
+<link
+rel="shortcut icon"
+href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}"
+/>
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+/>
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/registro/main.css') }}"
+/>
 </head>
 
- <body>
-{% include 'header/header.html' %}
-{% block content %}
-
-
+<body>
+{% include 'header/header.html' %} {% block content %}
 
 <main class="principal">
-    {% for message in get_flashed_messages() %}
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    {% endfor %}
-    <section class="principal__conteudo">
-        <h1 class="titulo">Crie sua conta</h1>
+{% for message in get_flashed_messages() %}
+<div
+class="alert alert-success alert-dismissible fade show float-message"
+role="alert"
+>
+{{ message }}
+<button
+type="button"
+class="btn-close"
+data-bs-dismiss="alert"
+aria-label="Close"
+></button>
+</div>
+{% endfor %}
+<section class="principal__conteudo">
+<h1 class="titulo">Crie sua conta</h1>
 
-        <div class="organizarConteudo">
-            <div>
-                <div class="formularios-unico">
-                    <label for="tipo_conta">Tipo de Conta</label>
-                    <select name="tipo_conta" id="tipo_conta" class="form-control" onchange="alternarFormularios()" required>
-                        <option value="usuario">Usuário</option>
-                        <option value="ong">ONG</option>
-                    </select>
-                </div>
-                <div id="form1" class="form-container active">
-                    <form method="POST">
-                        <input type="hidden" name="form_type" value="usuario">
-                        {{ usuarioform.hidden_tag() }}
-                        <div class="formularios-unico">   
-                            {{ usuarioform.nome.label }}
-                            {{ usuarioform.nome(required="required") }}
-                        </div> 
-                        <div class="formularios-unico">
-                            {{ usuarioform.email.label }}
-                            {{ usuarioform.email(required="required") }}
-                            {% if usuarioform.email.errors %}
-                            <div class="alert alert-danger">
-                                {% for error in usuarioform.email.errors %}
-                                    <p>{{ error }}</p>
-                                {% endfor %}
-                            </div>
-                            {% endif %}
-                        </div> 
-                        <div class="formularios-unico">
-                            {{ usuarioform.telefone.label }}
-                            {{ usuarioform.telefone(id="telefone", required = "required", onkeyup="formatarTelefone(this)") }}
-                            {% if usuarioform.telefone.errors %}
-                            <div class="alert alert-danger">
-                                {% for error in usuarioform.telefone.errors %}
-                                    <p>{{ error }}</p>
-                                {% endfor %}
-                            </div>
-                            {% endif %}
-                        </div>
-                        <div class="formularios-unico">
-                            {{ usuarioform.CPF.label }}
-                            {{ usuarioform.CPF(id="cpf", required = "required", onkeyup="formatarCPF(this)") }}
-                            {% if usuarioform.CPF.errors %}
-                            <div class="alert alert-danger">
-                                {% for error in usuarioform.CPF.errors %}
-                                    <p>{{ error }}</p>
-                                {% endfor %}
-                            </div>
-                            {% endif %}
-                        </div>
-                        <div class="formularios-unico">
-                            {{ usuarioform.data_nasc.label }}
-                            <input type="text" id="data_nasc" name="data_nasc" 
-                            placeholder="YYYY-MM-DD" 
-                            class="form-control" required>
-                            {% if usuarioform.data_nasc.errors %}
-                                <div class="alert alert-danger">
-                                    {% for error in usuarioform.data_nasc.errors %}
-                                        <p>{{ error }}</p>
-                                    {% endfor %}
-                                </div>
-                            {% endif %}
-                        </div>
-                        <div class="formularios-unico">
-                            {{ usuarioform.senha.label }}
-                            {{ usuarioform.senha(id="senha", required = "required") }}
-                            {% if usuarioform.senha.errors %}
-                            <div class="alert alert-danger">
-                                {% for error in usuarioform.senha.errors %}
-                                    <p>{{ error }}</p>
-                                {% endfor %}
-                            </div>
-                            {% endif %}
-                        </div> 
-                        <div class="formularios-unico">
-                            {{ usuarioform.senha2.label }}
-                            {{ usuarioform.senha2(id="senha2", required = "required") }}
-                            {% if usuarioform.senha2.errors %}
-                            <div class="alert alert-danger">
-                                {% for error in usuarioform.senha2.errors %}
-                                    <p>{{ error }}</p>
-                                {% endfor %}
-                            </div>
-                            {% endif %}
-                        </div>
-                        <div class="botaoRegistro">
-                            {{ usuarioform.enviar(class="formularios-enviar-botao botao1") }}
-                        </div>    
-                    </form>
-                </div>
+<div class="organizarConteudo">
+<div>
+<div class="formularios-unico">
+<label for="tipo_conta">Tipo de Conta</label>
+<select
+name="tipo_conta"
+id="tipo_conta"
+class="form-control"
+onchange="alternarFormularios()"
+required
+>
+<option value="usuario">Usuário</option>
+<option value="ong">ONG</option>
+</select>
+</div>
+<div id="form1" class="form-container active">
+<form method="POST">
+<input type="hidden" name="form_type" value="usuario" />
+{{ usuarioform.hidden_tag() }}
+<div class="formularios-unico">
+{{ usuarioform.nome.label }} {{ usuarioform.nome(required="required") }}
+</div>
+<div class="formularios-unico">
+{{ usuarioform.email.label }} {{ usuarioform.email(required="required") }} {% if
+usuarioform.email.errors %}
+<div class="alert alert-danger">
+{% for error in usuarioform.email.errors %}
+<p>{{ error }}</p>
+{% endfor %}
+</div>
+{% endif %}
+</div>
+<div class="formularios-unico">
+{{ usuarioform.telefone.label }} {{ usuarioform.telefone(id="telefone", required
+= "required", onkeyup="formatarTelefone(this)") }} {% if
+usuarioform.telefone.errors %}
+<div class="alert alert-danger">
+{% for error in usuarioform.telefone.errors %}
+<p>{{ error }}</p>
+{% endfor %}
+</div>
+{% endif %}
+</div>
+<div class="formularios-unico">
+{{ usuarioform.CPF.label }} {{ usuarioform.CPF(id="cpf", required = "required",
+onkeyup="formatarCPF(this)") }} {% if usuarioform.CPF.errors %}
+<div class="alert alert-danger">
+{% for error in usuarioform.CPF.errors %}
+<p>{{ error }}</p>
+{% endfor %}
+</div>
+{% endif %}
+</div>
+<div class="formularios-unico">
+{{ usuarioform.data_nasc.label }}
+<input
+type="text"
+id="data_nasc"
+name="data_nasc"
+placeholder="YYYY-MM-DD"
+class="form-control"
+required
+/>
+{% if usuarioform.data_nasc.errors %}
+<div class="alert alert-danger">
+{% for error in usuarioform.data_nasc.errors %}
+<p>{{ error }}</p>
+{% endfor %}
+</div>
+{% endif %}
+</div>
+<div class="formularios-unico">
+{{ usuarioform.senha.label }} {{ usuarioform.senha(id="senha", required =
+"required") }} {% if usuarioform.senha.errors %}
+<div class="alert alert-danger">
+{% for error in usuarioform.senha.errors %}
+<p>{{ error }}</p>
+{% endfor %}
+</div>
+{% endif %}
+</div>
+<div class="formularios-unico">
+{{ usuarioform.senha2.label }} {{ usuarioform.senha2(id="senha2", required =
+"required") }} {% if usuarioform.senha2.errors %}
+<div class="alert alert-danger">
+{% for error in usuarioform.senha2.errors %}
+<p>{{ error }}</p>
+{% endfor %}
+</div>
+{% endif %}
+</div>
+<div class="botaoRegistro">
+{{ usuarioform.enviar(class="formularios-enviar-botao botao1") }}
+</div>
+</form>
+</div>
 
-                <div id="form2" class="form-container">
-                    <form method="POST">
-                        <input type="hidden" name="form_type" value="ong">
-                        {{ONGform.hidden_tag()}}
+<div id="form2" class="form-container">
+<form method="POST">
+<input type="hidden" name="form_type" value="ong" />
+{{ONGform.hidden_tag()}}
 
-                        <div class="organizarForms">
-                            <div class="formularios-unico">
-                                {{ ONGform.nome.label }}
-                                {{ ONGform.nome(id="nome") }}
-                            </div>
+<div class="organizarForms">
+<div class="formularios-unico">
+{{ ONGform.nome.label }} {{ ONGform.nome(id="nome") }}
+</div>
 
-                            <div class="formularios-unico">
-                                {{ ONGform.email.label }}
-                                {{ ONGform.email(id="email") }}
-                                {% if ONGform.email.errors %}
-                                <div class="alert alert-danger">
-                                    {% for error in ONGform.email.errors %}
-                                        <p>{{ error }}</p>
-                                    {% endfor %}
-                                </div>
-                                {% endif %}
-                            </div>
+<div class="formularios-unico">
+{{ ONGform.email.label }} {{ ONGform.email(id="email") }} {% if
+ONGform.email.errors %}
+<div class="alert alert-danger">
+{% for error in ONGform.email.errors %}
+<p>{{ error }}</p>
+{% endfor %}
+</div>
+{% endif %}
+</div>
 
-                            <div class="formularios-unico">
-                                {{ ONGform.telefone.label }}
-                                {{ ONGform.telefone(id="telefone", onkeyup="formatarTelefone(this)") }}
-                                {% if ONGform.telefone.errors %}
-                                <div class="alert alert-danger">
-                                    {% for error in ONGform.telefone.errors %}
-                                        <p>{{ error }}</p>
-                                    {% endfor %}
-                                </div>
-                                {% endif %}
-                            </div>
+<div class="formularios-unico">
+{{ ONGform.telefone.label }} {{ ONGform.telefone(id="telefone",
+onkeyup="formatarTelefone(this)") }} {% if ONGform.telefone.errors %}
+<div class="alert alert-danger">
+{% for error in ONGform.telefone.errors %}
+<p>{{ error }}</p>
+{% endfor %}
+</div>
+{% endif %}
+</div>
 
-                            <div class="formularios-unico">
-                                {{ ONGform.CEP.label }}
-                                {{ ONGform.CEP(id="CEP", onblur="preencherEndereco()", onkeyup="formatarCEP(this)") }}
-                                {% if ONGform.CEP.errors %}
-                                <div class="alert alert-danger">
-                                    {% for error in ONGform.CEP.errors %}
-                                        <p>{{ error }}</p>
-                                    {% endfor %}
-                                </div>
-                                {% endif %}
-                            </div>
+<div class="formularios-unico">
+{{ ONGform.CEP.label }} {{ ONGform.CEP(id="CEP", onblur="preencherEndereco()",
+onkeyup="formatarCEP(this)") }} {% if ONGform.CEP.errors %}
+<div class="alert alert-danger">
+{% for error in ONGform.CEP.errors %}
+<p>{{ error }}</p>
+{% endfor %}
+</div>
+{% endif %}
+</div>
 
-                            <div class="formularios-unico">
-                                    {{ ONGform.endereco.label }}
-                                    {{ ONGform.endereco(id="endereco") }}
-                                </div>
+<div class="formularios-unico">
+{{ ONGform.endereco.label }} {{ ONGform.endereco(id="endereco") }}
+</div>
 
-                                <div class="formularios-unico">
-                                    {{ ONGform.bairro.label }}
-                                    {{ ONGform.bairro(id="bairro") }}
-                                </div>
+<div class="formularios-unico">
+{{ ONGform.bairro.label }} {{ ONGform.bairro(id="bairro") }}
+</div>
 
-                                <div class="formularios-unico">
-                                    {{ ONGform.cidade.label }}
-                                    {{ ONGform.cidade(id="cidade") }}
-                                </div>
+<div class="formularios-unico">
+{{ ONGform.cidade.label }} {{ ONGform.cidade(id="cidade") }}
+</div>
 
-                                <div class="formularios-unico">
-                                    {{ ONGform.UF.label }}
-                                    {{ ONGform.UF(id="UF", onkeyup="formatarUF(this)") }}
-                                    {% if ONGform.UF.errors %}
-                                    <div class="alert alert-danger">
-                                        {% for error in ONGform.UF.errors %}
-                                            <p>{{ error }}</p>
-                                        {% endfor %}
-                                    </div>
-                                    {% endif %}
-                                </div>
-                            </div>
+<div class="formularios-unico">
+{{ ONGform.UF.label }} {{ ONGform.UF(id="UF", onkeyup="formatarUF(this)") }} {%
+if ONGform.UF.errors %}
+<div class="alert alert-danger">
+{% for error in ONGform.UF.errors %}
+<p>{{ error }}</p>
+{% endfor %}
+</div>
+{% endif %}
+</div>
+</div>
 
-                            <div class="formularios-unico">
-                                {{ ONGform.CNPJ.label }}
-                                {{ ONGform.CNPJ(id="CNPJ", onkeyup="formatarCNPJ(this)") }}
-                                {% if ONGform.CNPJ.errors %}
-                                <div class="alert alert-danger">
-                                    {% for error in ONGform.CNPJ.errors %}
-                                        <p>{{ error }}</p>
-                                    {% endfor %}
-                                </div>
-                                {% endif %}
-                            </div>
+<div class="formularios-unico">
+{{ ONGform.CNPJ.label }} {{ ONGform.CNPJ(id="CNPJ",
+onkeyup="formatarCNPJ(this)") }} {% if ONGform.CNPJ.errors %}
+<div class="alert alert-danger">
+{% for error in ONGform.CNPJ.errors %}
+<p>{{ error }}</p>
+{% endfor %}
+</div>
+{% endif %}
+</div>
 
-                            <div class="formularios-unico">
-                                {{ ONGform.senha.label }}
-                                {{ ONGform.senha(id="senha") }}
-                                {% if ONGform.senha.errors %}
-                                <div class="alert alert-danger">
-                                    {% for error in ONGform.senha.errors %}
-                                        <p>{{ error }}</p>
-                                    {% endfor %}
-                                </div>
-                                {% endif %}
-                            </div>
+<div class="formularios-unico">
+{{ ONGform.senha.label }} {{ ONGform.senha(id="senha") }} {% if
+ONGform.senha.errors %}
+<div class="alert alert-danger">
+{% for error in ONGform.senha.errors %}
+<p>{{ error }}</p>
+{% endfor %}
+</div>
+{% endif %}
+</div>
 
-                            <div class="formularios-unico">
-                                {{ ONGform.senha2.label }}
-                                {{ ONGform.senha2(id="senha2") }}
-                                {% if ONGform.senha2.errors %}
-                                <div class="alert alert-danger">
-                                    {% for error in ONGform.senha2.errors %}
-                                        <p>{{ error }}</p>
-                                    {% endfor %}
-                                </div>
-                                {% endif %}
-                            </div>
-                        
+<div class="formularios-unico">
+{{ ONGform.senha2.label }} {{ ONGform.senha2(id="senha2") }} {% if
+ONGform.senha2.errors %}
+<div class="alert alert-danger">
+{% for error in ONGform.senha2.errors %}
+<p>{{ error }}</p>
+{% endfor %}
+</div>
+{% endif %}
+</div>
 
-                            <div class="botaoRegistro">{{ONGform.enviar(class="formularios-enviar-botao botao2")}}</div><br>
-                        </form>
-                    </div>
-                
-                <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-                <script src="{{url_for('static', filename='js/registro/registro.js')}}"></script>
-            </div>
-            <div class="imagens">
-                <img class="imagens-formato" src="{{url_for('static', filename = 'img/willysorri.jpg')}}">
-            </div>
-        </div>
-       
-    </section>
+<div class="botaoRegistro">
+{{ONGform.enviar(class="formularios-enviar-botao botao2")}}
+</div>
+<br />
+</form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="{{url_for('static', filename='js/registro/registro.js')}}"></script>
+</div>
+<div class="imagens">
+<img
+class="imagens-formato"
+src="{{url_for('static', filename = 'img/willysorri.jpg')}}"
+/>
+</div>
+</div>
+</section>
 </main>
 
-
-{% endblock %}
-{% include 'footer/footer.html' %}
+{% endblock %} {% include 'footer/footer.html' %}
 </body>
 </html>

@@ -1,102 +1,114 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MiauMigos - Login</title>
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login/main.css') }}">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MiauMigos - Login</title>
+<link
+rel="shortcut icon"
+href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}"
+/>
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/login/main.css') }}"
+/>
 </head>
 
 <body>
+{% include 'header/header.html' %} {% block content %}
 
-    {% include 'header/header.html' %}
+<main class="principal">
+{% for message in get_flashed_messages() %}
+<div
+class="alert alert-success alert-dismissible fade show float-message"
+role="alert"
+>
+{{ name }} {{ message }}
+<button
+type="button"
+class="btn-close"
+data-bs-dismiss="alert"
+aria-label="Close"
+></button>
+</div>
+{% endfor %}
 
-    {% block content %}
+<section class="principal__conteudo">
+<div class="titulo">
+<h1>Acesse sua conta</h1>
+{% if email %} {{verifica_senha}} {% endif %}
+</div>
+<section class="navega">
+<div class="formularios">
+<!-- Seletor de Tipo de Conta -->
+<div class="formularios-unico">
+<label for="tipo_conta">Tipo de Conta</label>
+<select
+name="tipo_conta"
+id="tipo_conta"
+class="form-control"
+onchange="alternarFormularios()"
+required
+>
+<option value="usuario">Usuário</option>
+<option value="ong">ONG</option>
+</select>
+</div>
+<div id="form1" class="form-container active">
+<form method="POST" action="/login">
+{{ usuarioform.hidden_tag() }}
 
-    <main class="principal">
+<input type="hidden" name="form_type" value="usuario" />
 
-        {% for message in get_flashed_messages() %}
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ name }} {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        {% endfor %}
+<div class="formularios-unico">
+{{ usuarioform.email.label }} {{ usuarioform.email(required="required") }}
+</div>
 
-        <section class="principal__conteudo">
-            <div class="titulo">
-                <h1>
-                    Acesse sua conta
-                </h1>
-                {% if email %}
-                {{verifica_senha}}
-                {% endif %}
-            </div>
-            <section class="navega">
-                <div class="formularios">
+<div class="formularios-unico">
+{{ usuarioform.senha.label }} {{ usuarioform.senha(required="required") }}
+</div>
 
-                    <!-- Seletor de Tipo de Conta -->
-                    <div class="formularios-unico">
-                        <label for="tipo_conta">Tipo de Conta</label>
-                        <select name="tipo_conta" id="tipo_conta" class="form-control" onchange="alternarFormularios()" required>
-                            <option value="usuario">Usuário</option>
-                            <option value="ong">ONG</option>
-                        </select>
-                    </div>
-                    <div id="form1" class="form-container active">                    
-                    <form method="POST" action="/login">
-                        {{ usuarioform.hidden_tag() }}
+<div class="formularios-enviar">
+{{ usuarioform.enviar(class="formularios-enviar-botao botao1") }}
+</div>
+</form>
+</div>
 
-                        <input type="hidden" name="form_type" value="usuario">
+<div id="form2" class="form-container">
+<form method="POST" action="/login">
+<input type="hidden" name="form_type" value="ong" />
 
-                        <div class="formularios-unico">
-                            {{ usuarioform.email.label }}
-                            {{ usuarioform.email(required="required") }}
-                        </div>
+{{ONGform.hidden_tag()}}
 
-                        <div class="formularios-unico">
-                            {{ usuarioform.senha.label }}
-                            {{ usuarioform.senha(required="required") }}
-                        </div>
+<div class="formularios-unico">
+{{ ONGform.email.label }} {{ ONGform.email }}
+</div>
+<div class="formularios-unico">
+{{ ONGform.senha.label }} {{ ONGform.senha }}
+</div>
+<div class="formularios-enviar">
+{{ ONGform.enviar(class="formularios-enviar-botao botao1") }}
+</div>
+</form>
+</div>
+</div>
+<div class="imagens">
+<img
+class="imagens-formato"
+src="{{url_for('static', filename = 'img/gatorita.png')}}"
+/>
+</div>
+</section>
 
-                        <div class="formularios-enviar">
-                            {{ usuarioform.enviar(class="formularios-enviar-botao botao1") }}
-                        </div>
-                    </form>
-                    </div>
-
-                    <div id="form2" class="form-container">
-                    <form method="POST" action="/login">
-                        <input type = "hidden" name="form_type" value="ong">
-
-                        {{ONGform.hidden_tag()}}
-
-                        <div class="formularios-unico">
-                            {{ ONGform.email.label }}
-                            {{ ONGform.email }}
-                        </div>
-                        <div class="formularios-unico">
-                            {{ ONGform.senha.label }}
-                            {{ ONGform.senha }}
-                        </div>
-                        <div class="formularios-enviar">
-                            {{ ONGform.enviar(class="formularios-enviar-botao botao1") }}
-                        </div>
-                    </form>
-                    </div>
-                </div>
-                <div class="imagens">
-                    <img class="imagens-formato" src="{{url_for('static', filename = 'img/gatorita.png')}}">
-                </div>
-            </section>
-
-            <div class="paraRegistro">
-                <p>Não tem uma conta? <a class="paraRegistro-formato" href="/registro">Registre-se aqui</a></p>
-            </div>
-        </section>
-    </main>
-    <script src="{{ url_for('static', filename='js/login/login.js') }}"></script>
-    {% endblock %}
-    {% include 'footer/footer.html' %}
+<div class="paraRegistro">
+<p>
+Não tem uma conta?
+<a class="paraRegistro-formato" href="/registro">Registre-se aqui</a>
+</p>
+</div>
+</section>
+</main>
+<script src="{{ url_for('static', filename='js/login/login.js') }}"></script>
+{% endblock %} {% include 'footer/footer.html' %}
 </body>
+</html>
