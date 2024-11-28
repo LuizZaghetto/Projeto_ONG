@@ -72,7 +72,9 @@
                     <p class="principal__perfil-dados-texto">Endereço: {{ current_user.endereco }}</p>
                     <p class="principal__perfil-dados-texto">CNPJ: {{ current_user.CNPJ }}</p>
                 </div>
-                <a href="{{url_for('ong_routes.atualizar_ong', ID_ONG = current_user.ID_ONG)}}">Atualizar Conta</a>
+                <a class="atualizar-conta" href="{{url_for('ong_routes.atualizar_ong', ID_ONG = current_user.ID_ONG)}}">
+                    <button type="button" class="modal-submit">Atualizar Conta</button>
+                </a>
             </div>
             <nav class="principal__bichos">
                 <h2 class="principal__bichos-titulo">Bichos para adoção</h2>

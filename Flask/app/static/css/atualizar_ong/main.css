@@ -2,3 +2,67 @@
     padding: 0;
     margin: 0;
 }
+
+.principal {
+    background-color: var(--cor-de-fora);
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+.principal__conteudo {
+    width: 90%;
+    margin: 0 5rem;
+    background-color: var(--cor-de-fundo);
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 1.6rem;
+    padding-bottom: 7rem;
+}
+
+.titulo {
+    font-family: var(--fonte-titulo);
+    font-size: 1.5rem;
+    font-weight: lighter;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: brown;
+}
+
+.formularios-unico {
+    font-family: var(--fonte-secundaria);
+    padding-bottom: 1rem;
+}
+
+.formularios {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.formularios-enviar-botao {
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 10%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1.5px 3px, rgba(0, 0, 0, 0.23) 0px 1.5px 3px;
+    background-color: brown;
+}
+
+.formularios-enviar-botao:hover {
+    background-color: var(--cor-de-fundo);
+    color: black; 
+    border: 1px solid brown;
+}
+
+.botao {
+    display: flex;
+    justify-content: center;
+}
