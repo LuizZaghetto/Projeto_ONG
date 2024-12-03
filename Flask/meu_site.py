@@ -87,14 +87,18 @@ def create_app():
             print("Usuário não encontrado")
             return None
 
-
-
         # Registrar blueprints
         app.register_blueprint(routes_bp)
         app.register_blueprint(auth_routes_bp) 
         app.register_blueprint(usuario_routes_bp) 
         app.register_blueprint(admin_routes_bp)
         app.register_blueprint(ong_routes_bp) 
+
+        UPLOAD_FOLDER = os.path.join(os.getcwd(), 'app', 'static', 'uploads', 'usuarios')
+        os.makedirs(UPLOAD_FOLDER, exist_ok=True)  # Cria as pastas caso não existam
+
+        app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+        app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024
 
             
         return app

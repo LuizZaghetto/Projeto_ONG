@@ -18,9 +18,9 @@ def perfil_usuario(slug):
     # Verificar se o usuário autenticado é o mesmo que está acessando o perfil
     if usuario.ID_usuario != current_user.ID_usuario:
         flash("Você não tem permissão para acessar este perfil.", "danger")
-        return redirect(url_for('routes.landing_page'))  # Redirecionar para a página inicial ou outra página de sua escolha
+        return redirect(url_for('routes.landing_page'))  # Redirecionar para a página inicial
 
-    form = forms.bichoForm()
+    form = forms.BichoForm()
     
     return render_template(
         "perfil_usuario/perfil_usuario.html", 

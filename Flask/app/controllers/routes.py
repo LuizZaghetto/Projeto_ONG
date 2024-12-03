@@ -60,19 +60,37 @@ def perfil_bicho(nome_bicho):
     return render_template("perfil_bicho/index.html", nome_bicho=nome_bicho)
 
 
-@routes_bp.route("/adicionar_Bicho")
+@routes_bp.route("/adicionar_bicho", methods=['GET', 'POST'])
 @login_required
 def adicionar_bicho():
-    form = forms.bichoForm()
+    form = forms.BichoForm()
+    
+    # Verificar o tipo de usuário
+    if current_user.tipo == 1:  # Certifique-se de que o atributo `tipo` está implementado no usuário
+        id_ong = current_user.ID_ONG
+        id_usuario = None
+    else:  # Usuário comum
+        id_usuario = current_user.ID_usuario
+        id_ong = None
+
     if form.validate_on_submit():
         bicho = models.Bichos(
-            nome = form.nome.data,
-            porte = form.porte.data
+            nome=form.nome.data,
+            especie=form.especie.data,
+            idade=form.idade.data,
+            porte=form.porte.data,
+            sexo = form.sexo.data,
+            descricao=form.descricao.data,
+            ID_usuario=id_usuario,
+            ID_ONG=id_ong
         )
         db.session.add(bicho)
         db.session.commit()
-        return redirect(url_for('routes.perfil_usuario'))
-    return render_template("adicionar_bicho")
+        flash("Bicho cadastrado com sucesso!", "success")
+        return redirect(url_for('routes.perfil'))
+
+    return render_template("perfil_usuario/adicionar_bicho.html", form=form)
+
 
 # Handler de erro 403 (proibido)
 @auth_routes_bp.app_errorhandler(403)

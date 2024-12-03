@@ -8,6 +8,8 @@ import random
 from faker import Faker
 from werkzeug.security import generate_password_hash
 import app.models.models as models
+import hashlib
+import time
 
 
 fake = Faker("pt_BR")
@@ -82,3 +84,9 @@ def adicionar_usuarios_ao_bd(usuarios):
     except Exception as e:
         db.session.rollback()
         print(f"Erro ao adicionar usuários: {e}")
+
+def gerar_hash(filename):
+    """Gera um hash único baseado no nome do arquivo e no timestamp atual."""
+    timestamp = str(time.time()).encode('utf-8')
+    nome_arquivo = filename.encode('utf-8')
+    return hashlib.sha256(nome_arquivo + timestamp).hexdigest()[:15]

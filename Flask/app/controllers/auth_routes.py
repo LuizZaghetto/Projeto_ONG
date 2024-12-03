@@ -7,6 +7,8 @@ from datetime import datetime
 import app.functions as func
 from flask_login import login_user, login_required, logout_user, current_user
 from slugify import slugify
+import os
+from flask import current_app
 
 
 auth_routes_bp = Blueprint('auth_routes', __name__)
@@ -81,8 +83,16 @@ def registro():
                     # Aplicando hash à senha
                     senha_hashed = generate_password_hash(
                         usuarioform.senha.data)
-
+                
                     slug_usuario = slugify(usuarioform.nome.data)
+
+                    avatar = usuarioform.avatar.data
+                    avatar_filename = None
+                    if avatar and hasattr(avatar, 'filename'):  # Verifica se é um arquivo válido
+                        avatar_filename = f"{slug_usuario}-{func.gerar_hash(avatar.filename)}.jpg"
+                        avatar_path = os.path.join(current_app.config['UPLOAD_FOLDER'], avatar_filename)
+                        avatar.save(avatar_path)
+
 
                     usuario = models.Usuarios(
                         nome=usuarioform.nome.data,
@@ -92,7 +102,8 @@ def registro():
                             '%Y-%m-%d'),
                         CPF=cpf_formatado,
                         senha_hash=senha_hashed,
-                        slug=slug_usuario
+                        slug=slug_usuario,
+                        avatar=f"uploads/usuarios/{avatar_filename}" if avatar_filename else None
                     )
 
                     # Adicionando e commitando no banco de dados

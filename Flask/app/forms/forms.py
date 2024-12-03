@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, DateField, IntegerField, PasswordField, SelectField
-from wtforms.validators import DataRequired, Email, Length, Regexp, EqualTo, Optional
+from wtforms import StringField, SubmitField, DateField, IntegerField, PasswordField, SelectField, TextAreaField, FileField
+from wtforms.validators import DataRequired, Email, Length, Regexp, EqualTo, Optional, NumberRange
+from flask_wtf.file import FileAllowed
 from .estados import ESTADOS_BRASIL
 
 # Formulários para registro
@@ -14,6 +15,7 @@ class registroForm(FlaskForm):
     telefone = StringField("Número de Telefone", validators=[DataRequired(), Regexp(r'^\(\d{2}\)\s\d{5}-\d{4}$', message="Telefone deve estar no formato (XX) XXXXX-XXXX.")])
     senha = PasswordField("Digite sua senha", validators=[DataRequired(), EqualTo('senha2', message = "As senhas devem ser iguais")])
     senha2 = PasswordField("Confirme a senha", validators=[DataRequired()])
+    avatar = FileField("Avatar", validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif'], message="Somente imagens são permitidas."), DataRequired(message="O avatar é obrigatório.")])
     enviar = SubmitField("Registrar")
 
 # Registro de ONG
@@ -52,10 +54,13 @@ class ONGloginForm(FlaskForm):
 
 
 # Criar formulário para adicionar Bicho
-class bichoForm(FlaskForm):
-
-    nome = StringField("Nome do Bicho", validators=[DataRequired()])
-    porte = StringField("Porte do Bicho", validators=[DataRequired()])
+class BichoForm(FlaskForm):
+    nome = StringField("Nome", validators=[DataRequired(), Length(max=50, message="O nome deve ter no máximo 50 caracteres.")])
+    especie = SelectField("Espécie", choices=[('Cachorro', 'Cachorro'), ('Gato', 'Gato')], validators=[DataRequired()])
+    idade = IntegerField("Idade", validators=[DataRequired(),  NumberRange(min=0, max=50, message="A idade deve estar entre 0 e 50.")])
+    sexo = SelectField("Sexo", choices=[('Feminino', 'Feminino'), ('Masculino', 'Masculino')], validators = [DataRequired()])
+    porte = SelectField("Porte", choices=[('Pequeno', 'Pequeno'), ('Médio', 'Médio'), ('Grande', 'Grande')], validators=[DataRequired()])
+    descricao = TextAreaField("Descrição", validators=[Optional(), Length(max=500, message="A descrição deve ter no máximo 500 caracteres.")])
     enviar = SubmitField("Enviar")
 
 # Criar formulário para atualizar usuário

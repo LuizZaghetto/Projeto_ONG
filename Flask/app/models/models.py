@@ -15,6 +15,7 @@ class Usuarios(db.Model, UserMixin):
     CPF = db.Column(db.String(14), nullable=False, unique=True)
     senha_hash = db.Column(db.String(256))
     slug = db.Column(db.String(150), unique=True, nullable=False)
+    avatar_path = db.Column(db.String(150), nullable=True)
 
 
     @property
@@ -45,6 +46,7 @@ class Bichos(db.Model):
     
     ID_bicho = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nome = db.Column(db.String(50), nullable=False)
+    sexo = db.Column(db.String(10), nullable = False)
     especie = db.Column(db.String(20), nullable=False)
     idade = db.Column(db.Integer, nullable=False)
     porte = db.Column(db.String(10), nullable=False)
