@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    let id = 1
     const cardContainer = document.getElementById('card-container');
     const passarBtn = document.getElementById('passar');
     const gosteiBtn = document.getElementById('gostei');
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const newCard = document.createElement('div');
         newCard.className = 'card';
         newCard.id = 'current-card';
+        newCard.dataset.currentId = ++id
         newCard.innerHTML = `
             <img src="URL_DA_NOVA_IMAGEM" alt="Foto do animal">
             <h2>Nome do Novo Perfil</h2>
