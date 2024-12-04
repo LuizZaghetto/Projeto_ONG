@@ -17,11 +17,14 @@ body {
 
 .principal {
     background-color: var(--cor-de-fora);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 2rem 0;
+    flex-direction: column;
     width: 100vw;
     flex: 2;
     min-height: 100vh;
-    padding-top: 1rem;
 }
 
 .principal__conteudo {
@@ -31,6 +34,12 @@ body {
     border-radius: 15px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
     padding: 1.6rem;
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    font-family: var(--fonte-titulo);
 }
 
 .principal__perfil {
@@ -185,13 +194,7 @@ body {
     cursor: pointer;
 }
 
-.atualizar-conta {
-    text-decoration: none;
-}
-
 /* Botão de enviar no modal */
-
-
 .modal-submit {
     border: none;
     color: white;
@@ -204,10 +207,9 @@ body {
     border-radius: 10%;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1.5px 3px, rgba(0, 0, 0, 0.23) 0px 1.5px 3px;
     background-color: brown;
-    width: 50%;
+    width: 20%;
     display: flex;
     justify-content: center;
-    
 }
 
 .modal-submit:hover {
@@ -225,4 +227,4 @@ header,footer{
 main{
     width: 100vw;
     height: 80vh;
-}
+}           

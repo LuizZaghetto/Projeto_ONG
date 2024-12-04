@@ -39,6 +39,11 @@ def session_timeout():
 def landing_page():
     return render_template("landing_page/index.html")
 
+@routes_bp.route("/adotar_bicho")
+def adotar_bicho():
+    bichos = models.Bichos.query.order_by(models.Bichos.ID_bicho)
+    return render_template("adotar_bicho/adotar_bicho.html", bichos=bichos)
+
 # Acessar o Perfil
 @routes_bp.route("/redirecionar-perfil")
 @login_required

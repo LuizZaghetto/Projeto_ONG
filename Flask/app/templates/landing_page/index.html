@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MiauMigos - Início</title>
+    <title>MiauMigos</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/landing_page/main.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,24 +31,24 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{ url_for('static', filename='img/noticia1.jpg') }}" class="d-block w-100" alt="Primeira notícia">
+                    <img src="{{ url_for('static', filename='img/noticiacerto1.jpg') }}" class="d-block w-100" alt="Primeira notícia">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Notícia 1</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h5 class="texto_noticia">BichoBom precisa de doações</h5>
+                        <p class="texto_noticia">ONG passa por dificuldades devido ao grande número de animais resgatados</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ url_for('static', filename='img/noticia2.jpg') }}" class="d-block w-100" alt="Segunda notícia">
+                    <img src="{{ url_for('static', filename='img/noticiacerto2.jpg') }}" class="d-block w-100" alt="Segunda notícia">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Notícia 2</h5>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h5 class="texto_noticia">Feira de adoção em Itatiba</h5>
+                        <p class="texto_noticia">Evento acontece neste sábado no parque da cidade</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ url_for('static', filename='img/noticia3.jpg') }}" class="d-block w-100" alt="Terceira notícia">
+                    <img src="{{ url_for('static', filename='img/noticiacerto3.jpeg') }}" class="d-block w-100" alt="Terceira notícia">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Notícia 3</h5>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h5 class="texto_noticia">BichoBet patrocina ONGs por todo o Brasil</h5>
+                        <p class="texto_noticia">Empresa fecha ação filantrópica gigante</p>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                 <h2 class="principal__cadastroBicho-texto">Cadastre um bichinho</h2>
             </div>
             <div class="principal__Bicho">
-                <img class="principal__cadastroBicho-imagem" src="{{url_for('static', filename = 'img/cachorro-sorri.jpeg')}}" alt="Cachorro">
+                <a href="{{url_for('routes.adotar_bicho')}}"><img class="principal__cadastroBicho-imagem" src="{{url_for('static', filename = 'img/cachorro-sorri.jpeg')}}" alt="Cachorro"></a>
                 <h2 class="principal__cadastroBicho-texto">Adote um bichinho</h2>
             </div>
         </div>        

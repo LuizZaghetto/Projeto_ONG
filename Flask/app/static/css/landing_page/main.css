@@ -25,6 +25,20 @@
     padding: 1rem;
 }
 
+.texto_noticia_formato {
+    display: flex;
+    justify-content: center;
+}
+
+.texto_noticia {
+    background-color: wheat;
+    border:solid;
+    border-color: var(--cor-de-fora);
+    width: 15rem;
+    color: black;
+    font-family: var(--fonte-titulo);
+}
+
 .principal__manchete{
     display: flex;
     justify-content: center;
@@ -64,12 +78,13 @@
     height: 25rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     border-radius: 5%;
-    transition: 0.4s;
+    transition: 0.6s;
 }
 
 .principal__cadastroBicho-imagem:hover {
-    width:31rem;
-    height:26rem;
+    /* width:31rem;
+    height:26rem; */
+    scale: 1.05;
     cursor:-webkit-grab
     
 }

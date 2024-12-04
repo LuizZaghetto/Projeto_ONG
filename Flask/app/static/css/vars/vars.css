@@ -7,3 +7,7 @@
     --cor-de-fora: #eab05e;
     --cor-borda: #493831;
 }
+
+.main {
+    overflow-x: hidden;
+}
