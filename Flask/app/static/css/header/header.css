@@ -1,4 +1,3 @@
-@import url(../vars/vars.css);
 @import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
 
 
@@ -7,10 +6,10 @@
     display: flex;
     justify-content: space-between;      
     align-items: center;
-    background-color: var(--cor-cabecalho); 
-    /* background: linear-gradient(27deg, rgba(238,74,74,1) 0%, rgba(234,134,118,1) 45%, rgba(207,46,37,1) 92%); */
+    background: var(--cor-cabecalho);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    padding: 1.4rem;
+    padding: 2rem;
+    height: 5rem;
 }
 
 .cabecalho__inicio {
@@ -71,7 +70,7 @@
 .botao:hover {
     background-color: var(--cor-de-fundo);
     color: black; 
-    border: 1px solid brown
+    border: 1px solid brown;
 }
 
 @media (max-width:600px) {

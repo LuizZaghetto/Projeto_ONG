@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiauMigos - Adotar</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}">
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/adotar_bicho/main.css')}}"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    
+{% include 'header/header.html' %}
+
+{% block content %}
+
+<main class="principal">
+    <section class="principal__conteudo">
+        <div class="titulo">
+            <h1>Adote um bicho</h1>
+        </div>
+
+        <div class="principal__bichos__catalogo">
+            {% for animal in bichos %}
+            <div class="principal__bichos__catalogo-item">
+              <img
+                src="{{url_for('static', filename = 'img/admin_bicho.png')}}"
+                alt="Imagem do pet"
+                class="principal__bichos__catalogo-foto"
+              />
+              <div class="principal__bichos__catalogo-informacoes">
+                <p class="principal__bichos__catalogo-texto">
+                    Nome: {{ animal.nome }}
+                  </p>
+                  <p class="principal__bichos__catalogo-texto">
+                    Espécie: {{ animal.especie }}
+                  </p>
+                  <p class="principal__bichos__catalogo-texto">
+                    Sexo: {{ animal.sexo }}
+                  </p>
+                  <p class="principal__bichos__catalogo-texto">
+                    Idade: {{ animal.idade }}
+                  </p>
+                  <p class="principal__bichos__catalogo-texto">
+                    Porte: {{ animal.porte }}
+                  </p>
+                  <p class="principal__bichos__catalogo-texto">
+                    Descrição: {{ animal.descricao }}
+                  </p>
+              </div>
+            </div>
+            {% endfor %}
+
+    </section>
+</main>
+
+{% endblock %}
+
+{% include 'footer/footer.html' %}
+</body>
+</html>

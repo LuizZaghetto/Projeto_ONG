@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Protest Strike', sans-serif;
+    background-color: var(--cor-de-fora);
+    color: var(--cor-de-texto);
+    display: flex;
+    flex-direction: column;
+}
+
+.principal {
+    background-color: var(--cor-de-fora);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    flex-direction: column;
+    width: 100vw;
+    flex: 2;
+    min-height: 100vh;
+}
+
+.principal__conteudo {
+    width: 90%;
+    margin: 0 5rem;
+    background-color: var(--cor-de-fundo);
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 1.6rem;
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    font-family: var(--fonte-titulo);
+}
+
+.principal__perfil {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.principal__perfil-foto-imagem {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--cor-secundaria);
+}
+
+.principal__perfil-dados {
+    flex-grow: 1;
+}
+
+.principal__perfil-dados-titulo {
+    font-size: 2.5rem;
+    color: var(--cor-secundaria);
+    margin-bottom: 0.5rem;
+}
+
+.principal__perfil-dados-texto {
+    font-size: 1.2rem;
+    color: var(--cor-texto-claro);
+}
+
+.principal__bichos {
+    margin-top: 2rem;
+}
+
+.principal__bichos-titulo {
+    text-align: center;
+    margin-right: 2.8rem;
+}
+
+
+
+.principal__bichos__catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem; 
+    padding: 2rem;
+}
+
+.principal__bichos__catalogo-item {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    background-color: #fff; 
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    max-width: 15rem;
+}
+
+.principal__bichos__catalogo-foto {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 5px;
+}
+
+.principal__bichos__catalogo-informacoes {
+    margin-top: 1rem;
+    font-family: var(--fonte-secundaria);
+    line-height: 1.5rem;
+}
+
+.principal__bichos__catalogo-texto {
+    max-width: 100%;
+    word-wrap: break-word; 
+}
+
+.adicionar-bicho {
+  border: 1px solid brown;  
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: brown;
+  color: white;
+  border-radius: 5%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1.5px 3px, rgba(0, 0, 0, 0.23) 0px 1.5px 3px;
+}
+
+.adicionar-bicho:hover {
+    background-color: var(--cor-de-fundo);
+    color: black; 
+    border: 1px solid brown;
+}
+
+/* Modal */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    width: 50%;
+}
+
+/* Conteúdo do modal */
+.modal-conteudo {
+    position: relative;
+    margin: 10% auto;
+    padding: 20px;
+    width: 50%;
+    background-color: var(--cor-de-fundo);
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: var(--fonte-secundaria);
+}
+
+.modalCampos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+
+}
+
+.modalDirecao {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* Botão de fechar */
+.modal-fechar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Botão de enviar no modal */
+.modal-submit {
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 10%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1.5px 3px, rgba(0, 0, 0, 0.23) 0px 1.5px 3px;
+    background-color: brown;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-submit:hover {
+    background-color: var(--cor-de-fundo);
+    color: black; 
+    border: 1px solid brown;
+}
+
+
+header,footer{
+    width: 100vw;
+    height: 10vh;
+}
+
+main{
+    width: 100vw;
+    height: 80vh;
+}           

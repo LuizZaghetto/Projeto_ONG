@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil - {{ current_user.nome }}</title>
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='img/logo_miaumigos_icone.ico') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/perfil_ong/main.css')}}"
+    />
+  </head>
+
+  <body>
+    {% include 'header/header.html' %} {% block content %}
+
+    <main class="principal">
+      <!-- Modal -->
+      <div id="modalAdicionarBicho" class="modal">
+        <div class="modal-conteudo">
+          <span class="modal-fechar" onclick="fecharModal()">&times;</span>
+          <h2>Adicionar Bicho</h2>
+          <form action="{{ url_for('routes.adicionar_bicho') }}" method="POST">
+            <div class="modalCampos">
+                {{ form.hidden_tag() }}
+                
+                <div class="campo">
+                    {{ form.nome.label }}
+                    {{ form.nome(class="form-control") }}
+                </div>
+                
+                <div class="campo">
+                    {{ form.especie.label }}
+                    {{ form.especie(class="form-control") }}
+                </div>
+
+                <div class="campo">
+                    {{ form.sexo.label }}
+                    {{ form.sexo(class="form-control") }}
+                </div>
+                
+                <div class="campo">
+                    {{ form.idade.label }}
+                    {{ form.idade(class="form-control") }}
+                </div>
+                
+                <div class="campo">
+                    {{ form.porte.label }}
+                    {{ form.porte(class="form-control") }}
+                </div>
+                
+                <div class="campo">
+                    {{ form.descricao.label }}
+                    {{ form.descricao(class="form-control") }}
+                </div>
+        
+                <div class="modalDirecao">
+                    {{ form.enviar(class="modal-submit btn btn-primary") }}
+                </div>
+            </div>
+        </form>
+        </div>
+      </div>
+      {% for message in get_flashed_messages() %}
+      <div
+        class="alert alert-success alert-dismissible fade show float-message"
+        role="alert"
+      >
+        {{ message }}
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+      {% endfor %}
+      <section class="principal__conteudo">
+        <div class="principal__perfil">
+          <div class="principal__perfil-foto">
+            <img
+              src="{{ url_for('static', filename='img/cachorro-sorri.jpeg') }}"
+              alt="Foto do perfil"
+              class="principal__perfil-foto-imagem"
+            />
+          </div>
+
+          <div class="principal__perfil-dados">
+            <h2 class="principal__perfil-dados-titulo">
+              {{ current_user.nome }}
+            </h2>
+            <p class="principal__perfil-dados-texto">
+              Email: {{ current_user.email }}
+            </p>
+            <p class="principal__perfil-dados-texto">
+              Telefone: {{ current_user.telefone }}
+            </p>
+            <p class="principal__perfil-dados-texto">
+              Endereço: {{ current_user.endereco }}
+            </p>
+            <p class="principal__perfil-dados-texto">
+              CNPJ: {{ current_user.CNPJ }}
+            </p>
+          </div>
+          <a
+            class="atualizar-conta"
+            href="{{url_for('ong_routes.atualizar_ong', ID_ONG = current_user.ID_ONG)}}"
+          >
+            <button type="button" class="modal-submit">Atualizar Conta</button>
+          </a>
+        </div>
+        <nav class="principal__bichos">
+          <h2 class="principal__bichos-titulo">Bichos para adoção</h2>
+          <!-- Botão para abrir o modal -->
+          <button class="adicionar-bicho" onclick="abrirModal()">
+            + Adicionar Bicho
+          </button>
+          <div class="principal__bichos__catalogo">
+            {% for animal in current_user.bichos %}
+            <div class="principal__bichos__catalogo-item">
+              <img
+                src="{{url_for('static', filename = 'img/admin_bicho.png')}}"
+                alt="Imagem do pet"
+                class="principal__bichos__catalogo-foto"
+              />
+              <div class="principal__bichos__catalogo-informacoes">
+                <p class="principal__bichos__catalogo-texto">
+                  Nome: {{ animal.nome }}
+                </p>
+                <p class="principal__bichos__catalogo-texto">
+                  Espécie: {{ animal.especie }}
+                </p>
+                <p class="principal__bichos__catalogo-texto">
+                  Sexo: {{ animal.sexo }}
+                </p>
+                <p class="principal__bichos__catalogo-texto">
+                  Idade: {{ animal.idade }}
+                </p>
+                <p class="principal__bichos__catalogo-texto">
+                  Porte: {{ animal.porte }}
+                </p>
+                <p class="principal__bichos__catalogo-texto">
+                  Descrição: {{ animal.descricao }}
+                </p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </nav>
+      </section>
+    </main>
+
+    {% endblock %} {% include 'footer/footer.html' %}
+    <script src="{{url_for('static', filename = 'js/interface_logado/interface_logado.js')}}"></script>
+  </body>
+</html>

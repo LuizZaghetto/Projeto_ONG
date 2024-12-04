@@ -22,6 +22,14 @@
     padding: 2rem;
 }
 
-#principal__conteudo__tabela {
+.principal__conteudo-tabela {
+    padding: 2.5rem;
+}
+
+#tabela {
     margin: 2rem 0 0 0;
+}
+
+#deletar {
+    color: red;
 }

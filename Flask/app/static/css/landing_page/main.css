@@ -1,4 +1,3 @@
-@import url('../vars/vars.css');
 @import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
 
 * {
@@ -7,21 +6,37 @@
 }
 
 .principal {
-    background-color: var(--cor-de-fora)
+    background-color: var(--cor-de-fora);
+    padding: 2rem 0;
 }
 
 .principal__conteudo {
-    margin: 0 5%;
-    background: var(--cor-de-fundo);
-    background: radial-gradient(circle, rgba(253,238,205,1) 0%, rgba(228,181,104,1) 84%);
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-
+    width: 90%;
+    margin: 0 5rem;
+    background-color: var(--cor-de-fundo);
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 1.6rem;
 }
 
 .principal__noticias-titulo {
     text-align: center;
     font-family: var(--fonte-titulo);
     padding: 1rem;
+}
+
+.texto_noticia_formato {
+    display: flex;
+    justify-content: center;
+}
+
+.texto_noticia {
+    background-color: wheat;
+    border:solid;
+    border-color: var(--cor-de-fora);
+    width: 15rem;
+    color: black;
+    font-family: var(--fonte-titulo);
 }
 
 .principal__manchete{
@@ -63,12 +78,13 @@
     height: 25rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     border-radius: 5%;
-    transition: 0.4s;
+    transition: 0.6s;
 }
 
 .principal__cadastroBicho-imagem:hover {
-    width:36rem;
-    height:30rem;
+    /* width:31rem;
+    height:26rem; */
+    scale: 1.05;
     cursor:-webkit-grab
     
 }
@@ -78,6 +94,19 @@
     font-weight: 100;
     padding-top: 1rem;
 }
+
+.carousel-item img {
+    width: 100%; 
+    object-fit: cover;
+    max-height: 400px; /* Tamanho padrão */
+}
+
+@media (max-width: 768px) {
+    .carousel-item img {
+        max-height: 250px; /* Tamanho menor para dispositivos móveis */
+    }
+}
+
 
 @media screen and (max-width:600px) {
 
