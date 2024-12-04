@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         newCard.id = 'current-card';
         newCard.dataset.currentId = ++id
         newCard.innerHTML = `
-            <img src="URL_DA_NOVA_IMAGEM" alt="Foto do animal">
+            <img src="../static/img/cachorro-sorri.jpeg" alt="Foto do animal">
             <h2>Nome do Novo Perfil</h2>
             <p>Descrição do novo perfil.</p>
         `;

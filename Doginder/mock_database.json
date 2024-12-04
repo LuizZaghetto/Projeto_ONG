@@ -1,0 +1,222 @@
+[
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 1,
+        "animal_name": "Luna",
+        "animal_species": "Cachorro",
+        "animal_size": "Médio",
+        "animal_gender": "Fêmea",
+        "animal_age": "2 anos",
+        "animal_desc": "Cachorra brincalhona e muito carinhosa."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 2,
+        "animal_name": "Thor",
+        "animal_species": "Gato",
+        "animal_size": "Pequeno",
+        "animal_gender": "Macho",
+        "animal_age": "1 ano",
+        "animal_desc": "Gato esperto e cheio de energia."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 3,
+        "animal_name": "Mel",
+        "animal_species": "Cachorro",
+        "animal_size": "Grande",
+        "animal_gender": "Fêmea",
+        "animal_age": "3 anos",
+        "animal_desc": "Amigável e protetora, ótima para famílias."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 4,
+        "animal_name": "Bolt",
+        "animal_species": "Cachorro",
+        "animal_size": "Grande",
+        "animal_gender": "Macho",
+        "animal_age": "5 anos",
+        "animal_desc": "Cachorro muito ativo e obediente."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 5,
+        "animal_name": "Mia",
+        "animal_species": "Gato",
+        "animal_size": "Pequeno",
+        "animal_gender": "Fêmea",
+        "animal_age": "6 meses",
+        "animal_desc": "Filhote curiosa e cheia de charme."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 6,
+        "animal_name": "Zeca",
+        "animal_species": "Pássaro",
+        "animal_size": "Pequeno",
+        "animal_gender": "Macho",
+        "animal_age": "1 ano",
+        "animal_desc": "Pássaro colorido que canta lindamente."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 7,
+        "animal_name": "Lila",
+        "animal_species": "Coelho",
+        "animal_size": "Pequeno",
+        "animal_gender": "Fêmea",
+        "animal_age": "8 meses",
+        "animal_desc": "Coelha meiga e muito sociável."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 8,
+        "animal_name": "Bento",
+        "animal_species": "Cachorro",
+        "animal_size": "Médio",
+        "animal_gender": "Macho",
+        "animal_age": "4 anos",
+        "animal_desc": "Adora brincar e é muito leal."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 9,
+        "animal_name": "Flora",
+        "animal_species": "Cachorro",
+        "animal_size": "Grande",
+        "animal_gender": "Fêmea",
+        "animal_age": "2 anos",
+        "animal_desc": "Muito amorosa e tranquila."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 10,
+        "animal_name": "Tom",
+        "animal_species": "Gato",
+        "animal_size": "Pequeno",
+        "animal_gender": "Macho",
+        "animal_age": "3 anos",
+        "animal_desc": "Gato independente, mas adora cafuné."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 11,
+        "animal_name": "Cacau",
+        "animal_species": "Cachorro",
+        "animal_size": "Médio",
+        "animal_gender": "Fêmea",
+        "animal_age": "1 ano",
+        "animal_desc": "Muito ativa e adora correr."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 12,
+        "animal_name": "Rex",
+        "animal_species": "Cachorro",
+        "animal_size": "Grande",
+        "animal_gender": "Macho",
+        "animal_age": "7 anos",
+        "animal_desc": "Protetor e muito fiel."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 13,
+        "animal_name": "Luz",
+        "animal_species": "Gato",
+        "animal_size": "Pequeno",
+        "animal_gender": "Fêmea",
+        "animal_age": "2 anos",
+        "animal_desc": "Gata carinhosa e tranquila."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 14,
+        "animal_name": "Nick",
+        "animal_species": "Cachorro",
+        "animal_size": "Médio",
+        "animal_gender": "Macho",
+        "animal_age": "3 anos",
+        "animal_desc": "Muito esperto e aprende comandos rápido."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 15,
+        "animal_name": "Juju",
+        "animal_species": "Cachorro",
+        "animal_size": "Pequeno",
+        "animal_gender": "Fêmea",
+        "animal_age": "1 ano",
+        "animal_desc": "Cachorrinha alegre e brincalhona."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 16,
+        "animal_name": "Nina",
+        "animal_species": "Gato",
+        "animal_size": "Pequeno",
+        "animal_gender": "Fêmea",
+        "animal_age": "4 meses",
+        "animal_desc": "Filhote adorável e cheia de energia."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 17,
+        "animal_name": "Pingo",
+        "animal_species": "Cachorro",
+        "animal_size": "Pequeno",
+        "animal_gender": "Macho",
+        "animal_age": "3 anos",
+        "animal_desc": "Dócil e adora passeios curtos."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 18,
+        "animal_name": "Tita",
+        "animal_species": "Gato",
+        "animal_size": "Pequeno",
+        "animal_gender": "Fêmea",
+        "animal_age": "5 anos",
+        "animal_desc": "Gata calma e dorminhoca."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 19,
+        "animal_name": "Bob",
+        "animal_species": "Cachorro",
+        "animal_size": "Grande",
+        "animal_gender": "Macho",
+        "animal_age": "6 anos",
+        "animal_desc": "Muito fiel e protetor."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 20,
+        "animal_name": "Pipoca",
+        "animal_species": "Cachorro",
+        "animal_size": "Médio",
+        "animal_gender": "Fêmea",
+        "animal_age": "2 anos",
+        "animal_desc": "Muito brincalhona e carinhosa."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 21,
+        "animal_name": "Max",
+        "animal_species": "Cachorro",
+        "animal_size": "Grande",
+        "animal_gender": "Macho",
+        "animal_age": "4 anos",
+        "animal_desc": "Adora correr em espaços abertos."
+    },
+    {
+        "animal_avatar": "../static/img/cachorro-sorri.jpeg",
+        "animal_id": 22,
+        "animal_name": "Cindy",
+        "animal_species": "Gato",
+        "animal_size": "Pequeno",
+        "animal_gender": "Fêmea",
+        "animal_age": "3 anos",
+        "animal_desc": "Gata independente, mas carinhosa."
+    }
+]
